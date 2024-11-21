@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './styles/GlobalStyle.styles';
 import { ThemeProvider } from 'styled-components';
-import { App } from './App';
+import App from './App';
+import { theme } from './styles/theme';
 
 
 const Rotas = () => {

@@ -1,4 +1,5 @@
 Paleta 1:
+
 #4335A7
 #80C4E9
 #FFF6E9

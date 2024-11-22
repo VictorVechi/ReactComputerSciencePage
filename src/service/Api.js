@@ -19,6 +19,7 @@ export default class Api {
     });
 
     this.usuarioApi = UsuarioApi.getInstance(this.api);
+    this.roleApi = RoleApi.getInstance(this.api);
   }
   
   // definir as requisições para a API de maneira estatica seguindo um exemplo a seguir
@@ -63,30 +64,15 @@ export default class Api {
     // metodos Roles
     
     static async getRoleAll() {
-      try {
-          const response = await this.api.get('/roles');
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.roleApi.getRoleAll();
     }
 
     static async postRoleRegister(data) {
-      try {
-          const response = await this.api.post('/roles/register', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.roleApi.postRoleRegister(data);
     }
 
-    static async putRoleUpdate(data){
-      try {
-          const response = await this.api.put('/roles/update', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+    static async putRoleUpdate(data) {
+      return this.roleApi.putRoleUpdate(data);
     }
 
     //metodos Tag

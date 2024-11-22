@@ -3,10 +3,11 @@ import UsuarioApi from "./UsuarioApi";
 import RoleApi from "./RoleApi";
 import TagApi from "./TagApi";
 import PostsApi from "./PostsApi";
+import LocalStorageEnum from "../constants/LocalStorageEnum";
 
 export default class Api {
   constructor() {
-    this.token_key = process.env.TOKEN_KEY
+    this.token_key = LocalStorageEnum.TOKEN_KEY;
     this.api = axios.create({
       baseURL: process.env.API_URL,
     });

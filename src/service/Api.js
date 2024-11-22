@@ -1,5 +1,7 @@
 import axios from "axios";
 import UsuarioApi from "./UsuarioApi";
+import RoleApi from "./RoleApi";
+import TagApi from "./TagApi";
 
 export default class Api {
   constructor() {
@@ -20,20 +22,9 @@ export default class Api {
 
     this.usuarioApi = UsuarioApi.getInstance(this.api);
     this.roleApi = RoleApi.getInstance(this.api);
+    this.tagApi = TagApi.getInstance(this.api);
   }
   
-  // definir as requisições para a API de maneira estatica seguindo um exemplo a seguir
-  // VERIFICAR COMO INSERIR O JWT COMO AUTH NA REQUEST
-  // obs: da uma olhada na documentação do axios para ver como fazer isso
-
-    // static async postUsuario(data) {
-    //     try {
-    //         const response = await this.api.post('/usuario', data);
-    //         return response.data;
-    //     } catch (error) {
-    //         console.error(error)
-    //     }
-    // }
     //metodos Usuario
 
     static async getUsuarioById(id) {
@@ -60,7 +51,6 @@ export default class Api {
       return this.usuarioApi.deleteUsuarioByEmail(data);
     }
 
-    
     // metodos Roles
     
     static async getRoleAll() {
@@ -76,52 +66,27 @@ export default class Api {
     }
 
     //metodos Tag
-
+    
     static async getTagAll() {
-      try {
-          const response = await this.api.get('/tag/all');
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.tagApi.getTagAll();
     }
 
     static async getTagByName(name) {
-      try {
-          const response = await this.api.get(`/tag/search/${name}`);
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.tagApi.getTagByName(name);
     }
 
     static async postTagRegister(data) {
-      try {
-          const response = await this.api.post('/tag/create', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.tagApi.postTagRegister(data);
     }
 
-    static async putTagUpdate(id, data){
-      try {
-          const response = await this.api.put(`/tag/update/${id}`, data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+    static async putTagUpdate(id, data) {
+      return this.tagApi.putTagUpdate(id, data);
     }
 
     static async deleteTagById(id) {
-      try {
-          const response = await this.api.delete(`/tag/delete/${id}`);
-          return response;
-      } catch (error) {
-          console.log(error)
-      }
+      return this.tagApi.deleteTagById(id);
     }
-
+    
     // metodos publicacoes
 
     static async postPublicacaoRegister(data) {

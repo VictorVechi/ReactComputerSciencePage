@@ -33,12 +33,57 @@ export default class Api {
     //metodos Usuario
 
     static async getUsuarioById(id) {
-        try {
-            const response = await this.api.get(`/user/${id}`);
-            return response.data;
-        } catch (error) {
-            console.error(error)
-        }
+      try {
+          const response = await this.api.get(`/user/${id}`);
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async postUsuarioRegister(data) {
+      try {
+          const response = await this.api.post('/user/register', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async postUsuarioLogin(data) {
+      try {
+          const response = await this.api.post('/user/login', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async putUsuarioPassword(data) {
+      try {
+          const response = await this.api.put('/user/recover', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async putUsuarioData(data){
+      try {
+          const response = await this.api.put('/user/update', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async deleteUsuarioByEmail(data) {
+      try {
+          const response = await this.api.delete(`/user/delete`, data);
+          return response;
+      } catch (error) {
+          console.log(error)
+      }
     }
   
 };

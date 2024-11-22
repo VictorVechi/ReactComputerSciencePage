@@ -6,12 +6,13 @@ import PostsApi from "./PostsApi";
 
 export default class Api {
   constructor() {
+    this.token_key = process.env.TOKEN_KEY
     this.api = axios.create({
       baseURL: process.env.API_URL,
     });
     
     this.api.interceptors.request.use((config) => {
-      const token = localStorage.getItem('jwtToken');
+      const token = localStorage.getItem(this.token_key);
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }

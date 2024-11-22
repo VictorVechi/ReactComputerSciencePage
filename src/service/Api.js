@@ -88,7 +88,7 @@ export default class Api {
     
     // metodos Roles
     
-    static async getRoles() {
+    static async getRoleAll() {
       try {
           const response = await this.api.get('/roles');
           return response;
@@ -112,6 +112,53 @@ export default class Api {
           return response;
       } catch (error) {
           console.error(error)
+      }
+    }
+
+    //metodos Tag
+
+    static async getTagAll() {
+      try {
+          const response = await this.api.get('/tag/all');
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async getTagByName(name) {
+      try {
+          const response = await this.api.get(`/tag/search/${name}`);
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async postTagRegister(data) {
+      try {
+          const response = await this.api.post('/tag/create', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async putTagUpdate(id, data){
+      try {
+          const response = await this.api.put(`/tag/update/${id}`, data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async deleteTagById(id) {
+      try {
+          const response = await this.api.delete(`/tag/delete/${id}`);
+          return response;
+      } catch (error) {
+          console.log(error)
       }
     }
 

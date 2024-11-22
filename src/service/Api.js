@@ -85,5 +85,35 @@ export default class Api {
           console.log(error)
       }
     }
-  
-};
+    
+    // metodos Roles
+    
+    static async getRoles() {
+      try {
+          const response = await this.api.get('/roles');
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async postRoleRegister(data) {
+      try {
+          const response = await this.api.post('/roles/register', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async putRoleUpdate(data){
+      try {
+          const response = await this.api.put('/roles/update', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+
+  };

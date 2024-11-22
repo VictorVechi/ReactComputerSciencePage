@@ -162,5 +162,42 @@ export default class Api {
       }
     }
 
+    // metodos publicacoes
+
+    static async postPublicacaoRegister(data) {
+      try {
+          const response = await this.api.post('/posts/create', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async postPublicacaoSearch(data) {
+      try {
+          const response = await this.api.post('/posts/search', data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async putPublicacaoUpdate(id, data){ 
+      try {
+          const response = await this.api.put(`/posts/${id}`, data)
+          return response;
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
+    static async deletePublicacaoById(id) {
+      try {
+          const response = await this.api.delete(`/posts/${id}`);
+          return response;
+      } catch (error) {
+          console.log(error)
+      }
+    }
 
   };

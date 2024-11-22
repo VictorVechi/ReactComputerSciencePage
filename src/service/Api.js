@@ -1,4 +1,5 @@
 import axios from "axios";
+import UsuarioApi from "./UsuarioApi";
 
 export default class Api {
   constructor() {
@@ -16,6 +17,8 @@ export default class Api {
     (error) => {
       return Promise.reject(error);
     });
+
+    this.usuarioApi = new UsuarioApi(this.api);
   }
   
   // definir as requisições para a API de maneira estatica seguindo um exemplo a seguir
@@ -33,58 +36,29 @@ export default class Api {
     //metodos Usuario
 
     static async getUsuarioById(id) {
-      try {
-          const response = await this.api.get(`/user/${id}`);
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.usuarioApi.getUsuarioById(id);
     }
-
+    
     static async postUsuarioRegister(data) {
-      try {
-          const response = await this.api.post('/user/register', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.usuarioApi.postUsuarioRegister(data);
     }
 
     static async postUsuarioLogin(data) {
-      try {
-          const response = await this.api.post('/user/login', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.usuarioApi.postUsuarioLogin(data);
     }
 
     static async putUsuarioPassword(data) {
-      try {
-          const response = await this.api.put('/user/recover', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.usuarioApi.putUsuarioPassword(data);
     }
 
-    static async putUsuarioData(data){
-      try {
-          const response = await this.api.put('/user/update', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+    static async putUsuarioData(data) {
+      return this.usuarioApi.putUsuarioData(data);
     }
 
     static async deleteUsuarioByEmail(data) {
-      try {
-          const response = await this.api.delete(`/user/delete`, data);
-          return response;
-      } catch (error) {
-          console.log(error)
-      }
+      return this.usuarioApi.deleteUsuarioByEmail(data);
     }
+
     
     // metodos Roles
     

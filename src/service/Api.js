@@ -2,6 +2,7 @@ import axios from "axios";
 import UsuarioApi from "./UsuarioApi";
 import RoleApi from "./RoleApi";
 import TagApi from "./TagApi";
+import PostsApi from "./PostsApi";
 
 export default class Api {
   constructor() {
@@ -23,6 +24,7 @@ export default class Api {
     this.usuarioApi = UsuarioApi.getInstance(this.api);
     this.roleApi = RoleApi.getInstance(this.api);
     this.tagApi = TagApi.getInstance(this.api);
+    this.postsApi = PostsApi.getInstance(this.api);
   }
   
     //metodos Usuario
@@ -90,39 +92,19 @@ export default class Api {
     // metodos publicacoes
 
     static async postPublicacaoRegister(data) {
-      try {
-          const response = await this.api.post('/posts/create', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.postsApi.postPublicacaoRegister(data);
     }
 
     static async postPublicacaoSearch(data) {
-      try {
-          const response = await this.api.post('/posts/search', data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+      return this.postsApi.postPublicacaoSearch(data);
     }
 
-    static async putPublicacaoUpdate(id, data){ 
-      try {
-          const response = await this.api.put(`/posts/${id}`, data)
-          return response;
-      } catch (error) {
-          console.error(error)
-      }
+    static async putPublicacaoUpdate(id, data) {
+      return this.postsApi.putPublicacaoUpdate(id, data);
     }
 
     static async deletePublicacaoById(id) {
-      try {
-          const response = await this.api.delete(`/posts/${id}`);
-          return response;
-      } catch (error) {
-          console.log(error)
-      }
+      return this.postsApi.deletePublicacaoById(id);
     }
 
   };

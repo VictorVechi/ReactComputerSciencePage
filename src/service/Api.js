@@ -18,7 +18,7 @@ export default class Api {
       return Promise.reject(error);
     });
 
-    this.usuarioApi = new UsuarioApi(this.api);
+    this.usuarioApi = UsuarioApi.getInstance(this.api);
   }
   
   // definir as requisições para a API de maneira estatica seguindo um exemplo a seguir

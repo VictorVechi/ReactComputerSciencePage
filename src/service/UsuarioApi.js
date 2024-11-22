@@ -1,6 +1,18 @@
 export default class UsuarioApi {
   constructor(api) {
+    if (UsuarioApi.instance) { //Garante que, mesmo que seja criada a classe por um new, ela sempre retornará a mesma instância
+        return UsuarioApi.instance;
+    }
+
     this.api = api;
+    UsuarioApi.instance = this;
+  }
+
+   static getInstance(api) {
+    if (!UsuarioApi.instance) {
+        return new UsuarioApi(api);
+    }
+    return UsuarioApi.instance;
   }
 
    async getUsuarioById(id) {

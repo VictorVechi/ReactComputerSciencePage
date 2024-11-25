@@ -14,10 +14,5 @@ const Card = ({ title, image, tag }) => {
   );
 };
 
-Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-};
 
 export default Card;

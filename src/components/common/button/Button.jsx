@@ -10,12 +10,5 @@ const Button = ({ className, texto, onClick, type = 'button', disabled = false }
   );
 };
 
-Button.propTypes = {
-  className: PropTypes.string,
-  texto: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  type: PropTypes.string,
-  disabled: PropTypes.bool,
-};
 
 export default Button;

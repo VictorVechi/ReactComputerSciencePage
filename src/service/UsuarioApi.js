@@ -1,6 +1,6 @@
 export default class UsuarioApi {
   constructor(api) {
-    if (UsuarioApi.instance) { //Garante que, mesmo que seja criada a classe por um new, ela sempre retornará a mesma instância
+    if (UsuarioApi.instance) {
         return UsuarioApi.instance;
     }
 

@@ -3,7 +3,7 @@ import UsuarioApi from "./UsuarioApi";
 import RoleApi from "./RoleApi";
 import TagApi from "./TagApi";
 import PostsApi from "./PostsApi";
-import LocalStorageEnum from "../constants/LocalStorageEnum";
+import LocalStorageEnum from "../enum/LocalStorageEnum";
 
 export default class Api {
   constructor() {

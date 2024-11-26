@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const StyleSearch = styled.section`
-    height: 100%;
+    height: 50vh;
     width: 100%;
 
 

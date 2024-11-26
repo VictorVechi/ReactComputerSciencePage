@@ -1,17 +1,21 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  * {
+   * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:  'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 html,
 :root {
   width: 100%;
   min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 button,
@@ -23,13 +27,13 @@ a, li, p{
   text-decoration: none;
   list-style: none;
   color: inherit;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Montserrat', sans-serif;
 }
 label {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Montserrat', sans-serif;
   color: #263238;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   line-height: normal;
 }
 button,

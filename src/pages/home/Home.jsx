@@ -7,6 +7,7 @@ const Home = () => {
         <StyledHome>
             <Header/>
             {/* Colocar os outros conteúdos aqui */}
+            
         </StyledHome>
     )
 } 

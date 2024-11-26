@@ -9,13 +9,6 @@ export const StyleMain = styled.main`
     width: 100%;
 
 
-    .posts-section {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 50%;
-    }
-
     .student-area-section {
         display: flex;
         justify-content: space-between;

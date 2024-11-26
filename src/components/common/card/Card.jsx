@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { StyledCard, CardImage, CardTitle, CardTag, CardHeader } from './card.styles';
+import { StyledCard, CardTitle, CardTag, CardHeader } from './card.styles';
 
-const Card = ({ title, image, tag }) => {
+const Card = ({ title, tag }) => {
   return (
     <StyledCard>
-      <CardImage src={image} alt={title} />
       <CardHeader>
         <CardTag>{tag}</CardTag>
         <CardTitle>{title}</CardTitle>

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StyledCard, CardImage, CardTitle, CardTag, CardHeader } from './card.styles';
 
 const Card = ({ title, image, tag }) => {

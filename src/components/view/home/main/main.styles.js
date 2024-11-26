@@ -7,7 +7,7 @@ export const StyleMain = styled.main`
     align-items: center;
     flex-direction: column;
     width: 100%;
-
+    height: 100vh;
 
     .student-area-section {
         display: flex;

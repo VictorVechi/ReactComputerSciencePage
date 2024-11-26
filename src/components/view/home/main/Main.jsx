@@ -1,10 +1,12 @@
 import React from 'react'
 import { StyleMain } from './main.styles'
 import PostsSection from '../posts-section/Posts-section';
+import Search from '../Search/Search';
 
 const Main = () => {
     return (
         <StyleMain>
+            <Search />
             <section className='student-area-section'>
                 <div className='content'>
                     <div className='text-second-section'>

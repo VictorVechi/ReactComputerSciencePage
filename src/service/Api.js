@@ -93,6 +93,10 @@ export default class Api {
     
     // metodos publicacoes
 
+    static async getPublicacaoAll() {
+      return this.postsApi.getPublicacaoAll();
+    }
+
     static async postPublicacaoRegister(data) {
       return this.postsApi.postPublicacaoRegister(data);
     }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StylePostSection } from './posts-section.styles'
+import { StylePostSection } from './postsSection.styles'
 import Card from '../../../common/card/Card';
 
 const PostsSection = () => {
@@ -13,9 +13,9 @@ const PostsSection = () => {
     return (
         <StylePostSection>
             {posts.map((post, index) => (
-                    <div key={index} className='post-card'>
-                        <Card title={post.title} image={post.image} tag={post.tag} />
-                    </div>
+                <div key={index} className='post-card'>
+                    <Card title={post.title} image={post.image} tag={post.tag} />
+                </div>
             ))}
         </StylePostSection>
     )

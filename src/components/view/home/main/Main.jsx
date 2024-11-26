@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleMain } from './main.styles'
-import PostsSection from '../posts-section/Posts-section';
+import PostsSection from '../posts-section/PostsSection';
 
 const Main = () => {
     return (

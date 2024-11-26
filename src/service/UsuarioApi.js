@@ -5,6 +5,7 @@ export default class UsuarioApi {
     }
 
     this.api = api;
+    this.api_url = process.env.API_URL
     UsuarioApi.instance = this;
   }
 
@@ -17,7 +18,7 @@ export default class UsuarioApi {
 
    async getUsuarioById(id) {
     try {
-        const response = await this.api.get(`/user/${id}`);
+        const response = await this.api.get(`${this.api_url}/user/${id}`);
         return response;
     } catch (error) {
         console.error(error)
@@ -26,7 +27,7 @@ export default class UsuarioApi {
 
    async postUsuarioRegister(data) {
     try {
-        const response = await this.api.post('/user/register', data)
+        const response = await this.api.post(`${this.api_url}/user/register`, data)
         return response;
     } catch (error) {
         console.error(error)
@@ -35,7 +36,7 @@ export default class UsuarioApi {
 
    async postUsuarioLogin(data) {
     try {
-        const response = await this.api.post('/user/login', data)
+        const response = await this.api.post(`${this.api_url}/user/login`, data)
         return response;
     } catch (error) {
         console.error(error)
@@ -44,7 +45,7 @@ export default class UsuarioApi {
 
    async putUsuarioPassword(data) {
     try {
-        const response = await this.api.put('/user/recover', data)
+        const response = await this.api.put(`${this.api_url}/user/recover`, data)
         return response;
     } catch (error) {
         console.error(error)
@@ -53,7 +54,7 @@ export default class UsuarioApi {
 
    async putUsuarioData(data){
     try {
-        const response = await this.api.put('/user/update', data)
+        const response = await this.api.put(`${this.api_url}/user/update`, data)
         return response;
     } catch (error) {
         console.error(error)
@@ -62,7 +63,7 @@ export default class UsuarioApi {
 
    async deleteUsuarioByEmail(data) {
     try {
-        const response = await this.api.delete(`/user/delete`, data);
+        const response = await this.api.delete(`${this.api_url}/user/delete`, data);
         return response;
     } catch (error) {
         console.log(error)

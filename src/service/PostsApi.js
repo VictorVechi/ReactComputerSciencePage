@@ -5,6 +5,7 @@ export default class PostsApi {
         }
     
         this.api = api;
+        this.api_url = process.env.API_URL
         PostsApi.instance = this;
       }
     
@@ -17,7 +18,7 @@ export default class PostsApi {
 
     async getPublicacaoAll() {
         try {
-            const response = await this.api.get('/posts/');
+            const response = await this.api.get(`${this.api_url}/posts/`);
             return response;
         } catch (error) {
             console.error(error)
@@ -26,7 +27,7 @@ export default class PostsApi {
     
     async postPublicacaoRegister(data) {
         try {
-            const response = await this.api.post('/posts/create', data)
+            const response = await this.api.post(`${this.api_url}/posts/create`, data)
             return response;
         } catch (error) {
             console.error(error)
@@ -35,7 +36,7 @@ export default class PostsApi {
   
     async postPublicacaoSearch(data) {
         try {
-            const response = await this.api.post('/posts/search', data)
+            const response = await this.api.post(`${this.api_url}/posts/search`, data)
             return response;
         } catch (error) {
             console.error(error)
@@ -44,7 +45,7 @@ export default class PostsApi {
   
     async putPublicacaoUpdate(id, data){ 
         try {
-            const response = await this.api.put(`/posts/${id}`, data)
+            const response = await this.api.put(`${this.api_url}/posts/${id}`, data)
             return response;
         } catch (error) {
             console.error(error)
@@ -53,7 +54,7 @@ export default class PostsApi {
   
     async deletePublicacaoById(id) {
         try {
-            const response = await this.api.delete(`/posts/${id}`);
+            const response = await this.api.delete(`${this.api_url}}/posts/${id}`);
             return response;
         } catch (error) {
             console.log(error)

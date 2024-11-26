@@ -5,6 +5,7 @@ export default class TagApi {
         }
     
         this.api = api;
+        this.api_url = process.env.API_URL
         TagApi.instance = this;
       }
     
@@ -17,7 +18,7 @@ export default class TagApi {
 
     async getTagAll() {
       try {
-          const response = await this.api.get('/tag/');
+          const response = await this.api.get(`${this.api_url}/tag/`);
           return response;
       } catch (error) {
           console.error(error)
@@ -26,7 +27,7 @@ export default class TagApi {
 
     async getTagByName(name) {
       try {
-          const response = await this.api.get(`/tag/search/${name}`);
+          const response = await this.api.get(`${this.api_url}/tag/search/${name}`);
           return response;
       } catch (error) {
           console.error(error)
@@ -35,7 +36,7 @@ export default class TagApi {
 
     async postTagRegister(data) {
       try {
-          const response = await this.api.post('/tag/create', data)
+          const response = await this.api.post(`${this.api_url}/tag/create`, data)
           return response;
       } catch (error) {
           console.error(error)
@@ -44,7 +45,7 @@ export default class TagApi {
 
     async putTagUpdate(id, data){
       try {
-          const response = await this.api.put(`/tag/update/${id}`, data)
+          const response = await this.api.put(`${this.api_url}/tag/update/${id}`, data)
           return response;
       } catch (error) {
           console.error(error)
@@ -53,7 +54,7 @@ export default class TagApi {
 
     async deleteTagById(id) {
       try {
-          const response = await this.api.delete(`/tag/delete/${id}`);
+          const response = await this.api.delete(`${this.api_url}/tag/delete/${id}`);
           return response;
       } catch (error) {
           console.log(error)

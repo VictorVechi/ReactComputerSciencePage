@@ -5,6 +5,7 @@ export default class RoleApi {
         }
     
         this.api = api;
+        this.api_url = process.env.API_URL
         RoleApi.instance = this;
       }
     
@@ -17,7 +18,7 @@ export default class RoleApi {
 
     async getRoleAll() {
         try {
-            const response = await this.api.get('/roles');
+            const response = await this.api.get(`${this.api_url}/roles`);
             return response;
         } catch (error) {
             console.error(error)
@@ -26,7 +27,7 @@ export default class RoleApi {
   
     async postRoleRegister(data) {
         try {
-            const response = await this.api.post('/roles/register', data)
+            const response = await this.api.post(`${this.api_url}/roles/register`, data)
             return response;
         } catch (error) {
             console.error(error)
@@ -35,7 +36,7 @@ export default class RoleApi {
   
     async putRoleUpdate(data) {
         try {
-            const response = await this.api.put('/roles/update', data)
+            const response = await this.api.put(`${this.api_url}/roles/update`, data)
             return response;
         } catch (error) {
             console.error(error)

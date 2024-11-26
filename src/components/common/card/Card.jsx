@@ -1,16 +1,15 @@
 import React from 'react';
-import { StyledCard, CardTitle, CardTag, CardHeader } from './card.styles';
+import { StyledCard } from './card.styles';
 
 const Card = ({ title, tag }) => {
   return (
     <StyledCard>
-      <CardHeader>
-        <CardTag>{tag}</CardTag>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
+      <div className='card-header'>
+        <span className='card-tag'>{tag}</span>
+        <h2 className='card-title'>{title}</h2>
+      </div>
     </StyledCard>
   );
 };
-
 
 export default Card;

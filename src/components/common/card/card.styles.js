@@ -34,4 +34,10 @@ export const StyledCard = styled.div`
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
   }
+
+  .card-content {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #666;
+  }
 `;

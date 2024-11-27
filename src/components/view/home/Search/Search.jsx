@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSearch } from "./search.styles";
 import Field from "../../../common/field/Field";
 import Button from "../../../common/button/Button";
+import { Note } from "phosphor-react";
 
 const Search = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');

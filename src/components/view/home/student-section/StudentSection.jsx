@@ -9,7 +9,7 @@ const StudentSection = () => {
             <div className='content'>
                 <div className='text-second-section'>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur fugiat placeat id ut, omnis explicabo harum nihil assumenda eveniet consectetur asperiores iusto quasi. Quaerat iusto non voluptatibus, illum adipisci earum!
+                    Este site foi desenvolvido com o objetivo de auxiliar alunos e professores do curso de Ciências da Computação do IFPR, campus Pinhais. Para obter mais informações, como horários de aulas e calendário acadêmico, acesse a área destinada aos alunos.
                     </p>
                 </div>
             </div>
@@ -18,7 +18,7 @@ const StudentSection = () => {
                     target="_blank" 
                     rel="noopener noreferrer">
                     <button>
-                        Acesse o Documento
+                        Área do Aluno
                     </button>
                 </a>
             </div>

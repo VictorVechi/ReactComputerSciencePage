@@ -8,7 +8,7 @@ export const HeaderStyled = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${theme.blueP3};
+    background-color: ${theme.white};
     border-bottom: 5px solid ${theme.darkpurpleP2};
 
     h1 {
@@ -31,7 +31,7 @@ export const HeaderStyled = styled.header`
         display: flex;
         width: 100%;
         justify-content: space-around;
-        color: ${theme.white};
+        color: ${theme.blueP3};
         font-weight: 600;
         font-size: 16pt;
     }
@@ -43,9 +43,9 @@ export const HeaderStyled = styled.header`
         align-items: center;
         width: 175px;
         height: 45px;
-        border: 2px solid ${theme.white};
+        border: 2px solid ${theme.blueP3};
         transition: 0.3s;
-        box-shadow: 5px 5px 0px 0px ${theme.white};
+        box-shadow: 5px 5px 0px 0px ${theme.blueP3};
     }
 
     nav ul li:hover {

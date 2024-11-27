@@ -9,6 +9,7 @@ const Home = () => {
         <StyledHome>
             <Header />
             <Main />
+            <Header />
         </StyledHome>
     )
 } 

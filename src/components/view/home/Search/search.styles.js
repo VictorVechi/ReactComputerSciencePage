@@ -13,19 +13,21 @@ export const StyleSearch = styled.section`
     padding: 2%;
 
     h1 {
-        margin-bottom: 0.5%;
+        margin-bottom: 3%;
     }
 
     h2 {
         margin-bottom: 0.5%;
-        font-size: 1vw;
-        color: ${theme.greyP3};
+        font-size: 16pt;
+        color: ${theme.blueP3};
     }
 
     .search-container {
         display: flex;
-        align-items: center;
-        gap: 1%
+        align-items: baseline;
+        justify-content: baseline;
+        gap: 1%;
+        width: 20%;
     }
 
 

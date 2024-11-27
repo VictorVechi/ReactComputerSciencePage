@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleStudentSection } from "./studentSection.styles";
-
+import "../../../../translations/pt-br"
+import { translation } from "../../../../translations/pt-br";
 
 
 const StudentSection = () => {
@@ -9,7 +10,7 @@ const StudentSection = () => {
             <div className='content'>
                 <div className='text-second-section'>
                     <p>
-                    Este site foi desenvolvido com o objetivo de auxiliar alunos e professores do curso de Ciências da Computação do IFPR, campus Pinhais. Para obter mais informações, como horários de aulas e calendário acadêmico, acesse a área destinada aos alunos.
+                    {translation.studentSection.main.description}
                     </p>
                 </div>
             </div>
@@ -18,7 +19,7 @@ const StudentSection = () => {
                     target="_blank" 
                     rel="noopener noreferrer">
                     <button>
-                        Área do Aluno
+                        {translation.studentSection.button.text}
                     </button>
                 </a>
             </div>

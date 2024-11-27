@@ -23,7 +23,7 @@ export const HeaderStyled = styled.header`
 
     nav {
         display: flex;
-        width: 30%;
+        width: 45%;
         flex-direction: row;
     }
 
@@ -41,8 +41,8 @@ export const HeaderStyled = styled.header`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 150px;
-
+        width: 175px;
+        height: 45px;
         border: 2px solid ${theme.white};
         transition: 0.3s;
         box-shadow: 5px 5px 0px 0px ${theme.white};

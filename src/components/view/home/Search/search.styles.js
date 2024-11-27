@@ -13,7 +13,7 @@ export const StyleSearch = styled.section`
     padding: 2%;
 
     h1 {
-        margin-bottom: 0.5%;
+        margin-bottom: 3%;
     }
 
     h2 {

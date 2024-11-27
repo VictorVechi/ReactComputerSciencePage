@@ -8,6 +8,30 @@ const Header = () => {
     return (
         <HeaderStyled>
             <img src={Logo} alt='Logotipo do App' className="logo" />
+            <nav>
+                <ul>
+                    <li>
+                        <NavLink to="/">
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/quem-somos">
+                            Quem Somos
+                        </NavLink>
+                    </li> 
+                    <li>
+                        <NavLink to="/criar-post">
+                            Criar Post
+                        </NavLink>    
+                    </li>   
+                    <li>
+                        <NavLink to="/login">
+                            Login
+                        </NavLink>
+                    </li>
+                </ul>
+            </nav>
         </HeaderStyled>
     )
 }

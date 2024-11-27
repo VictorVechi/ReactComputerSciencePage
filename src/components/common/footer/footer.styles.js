@@ -7,5 +7,6 @@ export const FooterStyled = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${theme.whiteP1};
+    background-color: ${theme.blueP3};
+    color: ${theme.white};
 `

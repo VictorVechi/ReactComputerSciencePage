@@ -2,14 +2,14 @@ import React from 'react';
 import { StyledHome } from './home.styles';
 import Header from '../../components/common/header/Header';
 import Main from '../../components/view/home/main/Main';
-import Button from '../../components/common/button/Button';
+import Footer from '../../components/common/footer/Footer';
 
 const Home = () => {
     return (
         <StyledHome>
             <Header />
             <Main />
-            <Header />
+            <Footer />
         </StyledHome>
     )
 } 

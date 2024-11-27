@@ -24,7 +24,7 @@ const PostsSection = () => {
         <StylePostSection>
             {posts.map((post, index) => (
                 <div key={index} className='post-card'>
-                    <Card title={post.title} tag={post.tags[0].name} />
+                    <Card title={post.title} content={post.content} tag={post.tags[0].name} />
                 </div>
             ))}
         </StylePostSection>

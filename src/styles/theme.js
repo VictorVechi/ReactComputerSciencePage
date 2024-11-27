@@ -8,9 +8,11 @@ export const theme = {
     darkpurpleP2: "#8B5DFF",
     mediumpurpleP2: "#6A42C2",
     purpleP2: "#563A9C",
+
     redP3: "#b71435",
     orangeP3: "#ee544f",
     blueP3: "#135677",
     purpleP3: "#6f62b7",
-    greyP3: "#849c9c"
+    greyP3: "#849c9c",
+    white: "#ffffff",
 }

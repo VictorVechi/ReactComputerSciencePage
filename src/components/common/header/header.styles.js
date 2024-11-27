@@ -8,5 +8,15 @@ export const HeaderStyled = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${theme.whiteP1};
+    background-color: ${theme.blueP3};
+    
+    h1 {
+        color: ${theme.white};
+        margin-left: 1rem;
+    }
+
+    .logo {
+        width: 100%;
+        height: 100%;
+    }
 `

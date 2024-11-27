@@ -2,6 +2,7 @@ import React from "react";
 import { StyleStudentSection } from "./studentSection.styles";
 import "../../../../translations/pt-br"
 import { translation } from "../../../../translations/pt-br";
+import { Student } from "phosphor-react";
 
 
 const StudentSection = () => {
@@ -20,6 +21,7 @@ const StudentSection = () => {
                     rel="noopener noreferrer">
                     <button>
                         {translation.studentSection.button.text}
+                        <Student size={32} weight="light" />
                     </button>
                 </a>
             </div>

@@ -58,16 +58,17 @@ export const HeaderStyled = styled.header`
 
 
     .login-button {
-        border: 2px solid ${theme.white};
+        border: 2px solid ${theme.darkpurpleP2};
         transition: 0.3s;
-        box-shadow: 5px 5px 0px 0px ${theme.white};
-        background-color: ${theme.purpleP3};
+        box-shadow: 5px 5px 0px 0px ${theme.darkpurpleP2};
+        background-color: ${theme.white};
+        color: ${theme.darkpurpleP2};
     }
 
     .login-button:hover {
-        border-color: ${theme.purpleP3};
-        box-shadow: 0 0 ${theme.purpleP3};
-        color: ${theme.purpleP3};
+        border-color: ${theme.orangeP3};
+        box-shadow: 0 0 ${theme.orangeP3};
+        color: ${theme.orangeP3};
         background-color: ${theme.white};
     }
 `

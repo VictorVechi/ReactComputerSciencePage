@@ -17,7 +17,7 @@ export default class TagApi {
 
     async getTagAll() {
       try {
-          const response = await this.api.get('/tag/all');
+          const response = await this.api.get('/tag/');
           return response;
       } catch (error) {
           console.error(error)

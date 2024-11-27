@@ -15,6 +15,15 @@ export default class PostsApi {
         return PostsApi.instance;
       }
 
+    async getPublicacaoAll() {
+        try {
+            const response = await this.api.get('/posts/');
+            return response;
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    
     async postPublicacaoRegister(data) {
         try {
             const response = await this.api.post('/posts/create', data)

@@ -11,19 +11,22 @@ const Search = ({ onSearch }) => {
     };
 
     const handleSearchClick = () => {
-    //    implementar request pra api
+        //    implementar request pra api
     };
 
     return (
         <StyleSearch>
-            <h1>Search</h1>
-            <Field
-                type="text"
-                value={searchTerm}
-                onChange={handleInputChange}
-                placeholder="Pesquisa por titulo"
-            />
-            <Button texto="Pesquisar" onClick={handleSearchClick} />
+            <h1>Central da Computaria</h1>
+            <h2>Pesquise por um post aqui: </h2>
+            <div className="search-container">
+                <Field
+                    type="text"
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                    placeholder="Pesquisa por titulo"
+                />
+                <Button texto="Pesquisar" onClick={handleSearchClick} />
+            </div>
         </StyleSearch>
     );
 };

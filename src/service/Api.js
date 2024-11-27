@@ -7,9 +7,13 @@ import LocalStorageEnum from "../enum/LocalStorageEnum";
 
 export default class Api {
   constructor() {
+    if (Api.instance) {
+      return Api.instance;
+    }
+    
     this.token_key = LocalStorageEnum.TOKEN_KEY;
     this.api = axios.create({
-      baseURL: process.env.API_URL,
+      baseURL: import.meta.env.VITE_API_URL,
     });
     
     this.api.interceptors.request.use((config) => {
@@ -20,97 +24,105 @@ export default class Api {
       return config;
     },
     (error) => {
-      return Promise.reject(error);
-    });
+        return Promise.reject(error);
+      });
 
     this.usuarioApi = UsuarioApi.getInstance(this.api);
     this.roleApi = RoleApi.getInstance(this.api);
     this.tagApi = TagApi.getInstance(this.api);
     this.postsApi = PostsApi.getInstance(this.api);
+    Api.instance = this;
   }
-  
-    //metodos Usuario
 
-    static async getUsuarioById(id) {
-      return this.usuarioApi.getUsuarioById(id);
+  static getInstance() {
+    if (!Api.instance) {
+      return new Api();
     }
-    
-    static async postUsuarioRegister(data) {
-      return this.usuarioApi.postUsuarioRegister(data);
-    }
+    return Api.instance;
+  }
 
-    static async postUsuarioLogin(data) {
-      return this.usuarioApi.postUsuarioLogin(data);
-    }
+  //metodos Usuario
 
-    static async putUsuarioPassword(data) {
-      return this.usuarioApi.putUsuarioPassword(data);
-    }
+   async getUsuarioById(id) {
+    return this.usuarioApi.getUsuarioById(id);
+  }
 
-    static async putUsuarioData(data) {
-      return this.usuarioApi.putUsuarioData(data);
-    }
+   async postUsuarioRegister(data) {
+    return this.usuarioApi.postUsuarioRegister(data);
+  }
 
-    static async deleteUsuarioByEmail(data) {
-      return this.usuarioApi.deleteUsuarioByEmail(data);
-    }
+   async postUsuarioLogin(data) {
+    return this.usuarioApi.postUsuarioLogin(data);
+  }
 
-    // metodos Roles
-    
-    static async getRoleAll() {
-      return this.roleApi.getRoleAll();
-    }
+   async putUsuarioPassword(data) {
+    return this.usuarioApi.putUsuarioPassword(data);
+  }
 
-    static async postRoleRegister(data) {
-      return this.roleApi.postRoleRegister(data);
-    }
+   async putUsuarioData(data) {
+    return this.usuarioApi.putUsuarioData(data);
+  }
 
-    static async putRoleUpdate(data) {
-      return this.roleApi.putRoleUpdate(data);
-    }
+   async deleteUsuarioByEmail(data) {
+    return this.usuarioApi.deleteUsuarioByEmail(data);
+  }
 
-    //metodos Tag
-    
-    static async getTagAll() {
-      return this.tagApi.getTagAll();
-    }
+  // metodos Roles
 
-    static async getTagByName(name) {
-      return this.tagApi.getTagByName(name);
-    }
+   async getRoleAll() {
+    return this.roleApi.getRoleAll();
+  }
 
-    static async postTagRegister(data) {
-      return this.tagApi.postTagRegister(data);
-    }
+   async postRoleRegister(data) {
+    return this.roleApi.postRoleRegister(data);
+  }
 
-    static async putTagUpdate(id, data) {
-      return this.tagApi.putTagUpdate(id, data);
-    }
+   async putRoleUpdate(data) {
+    return this.roleApi.putRoleUpdate(data);
+  }
 
-    static async deleteTagById(id) {
-      return this.tagApi.deleteTagById(id);
-    }
-    
-    // metodos publicacoes
+  //metodos Tag
 
-    static async getPublicacaoAll() {
-      return this.postsApi.getPublicacaoAll();
-    }
+   async getTagAll() {
+    return this.tagApi.getTagAll();
+  }
 
-    static async postPublicacaoRegister(data) {
-      return this.postsApi.postPublicacaoRegister(data);
-    }
+   async getTagByName(name) {
+    return this.tagApi.getTagByName(name);
+  }
 
-    static async postPublicacaoSearch(data) {
-      return this.postsApi.postPublicacaoSearch(data);
-    }
+   async postTagRegister(data) {
+    return this.tagApi.postTagRegister(data);
+  }
 
-    static async putPublicacaoUpdate(id, data) {
-      return this.postsApi.putPublicacaoUpdate(id, data);
-    }
+   async putTagUpdate(id, data) {
+    return this.tagApi.putTagUpdate(id, data);
+  }
 
-    static async deletePublicacaoById(id) {
-      return this.postsApi.deletePublicacaoById(id);
-    }
+   async deleteTagById(id) {
+    return this.tagApi.deleteTagById(id);
+  }
 
-  };
+  // metodos publicacoes
+
+   async getPublicacaoAll() {
+    return this.postsApi.getPublicacaoAll();
+  }
+
+   async postPublicacaoRegister(data) {
+    return this.postsApi.postPublicacaoRegister(data);
+  }
+
+   async postPublicacaoSearch(data) {
+    return this.postsApi.postPublicacaoSearch(data);
+  }
+
+   async putPublicacaoUpdate(id, data) {
+    return this.postsApi.putPublicacaoUpdate(id, data);
+  }
+
+   async deletePublicacaoById(id) {
+    return this.postsApi.deletePublicacaoById(id);
+  }
+
+};

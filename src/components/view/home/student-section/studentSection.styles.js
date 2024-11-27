@@ -1,17 +1,18 @@
 import styled from "styled-components";
+import { theme } from "../../../../styles/theme";
 
 
 export const StyleStudentSection = styled.section`
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    height: 65vh; /* Ocupa a altura total da viewport */
-    background-image: url('/backgroundThreeWizard.png'); /* Caminho relativo à pasta public */
+    height: 65vh;
+    background-image: url('/backgroundThreeWizard.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed;
     padding: 0 20px;
     color: white;
     width: 100%;
@@ -21,24 +22,40 @@ export const StyleStudentSection = styled.section`
         max-width: 1200px;
         display: flex;
         justify-content: space-between;
-  }
+    }
 
     .text-second-section {
         flex: 1;
         font-size: 1.2em;
         line-height: 1.5;
         max-width: 600px;
-  }
+    } 
 
     .right-button button {
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        background-color: #ee544f;
-}
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        text-decoration: none;
+        color: ${theme.white};
+        font-size: 18px;
+        border-radius: 0px;
+        width: 200px;
+        height: 40px;
+        font-weight: bold;
+        border: 2px solid ${theme.white};
+        transition: 0.3s;
+        box-shadow: 5px 5px 0px 0px ${theme.white};
+        background-color: ${theme.orangeP3};
+    }
+
+    .right-button button:hover {
+        border-color: ${theme.orangeP3};
+
+        box-shadow: 0 0 ${theme.orangeP3};
+        color: ${theme.orangeP3};
+        background-color: ${theme.white};
+    }
 
 
     @media (max-width: 768px) {
@@ -46,7 +63,5 @@ export const StyleStudentSection = styled.section`
             flex-direction: column;
             align-items: center;
     }
-
   }
-
 `

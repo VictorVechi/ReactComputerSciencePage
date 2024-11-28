@@ -26,9 +26,18 @@ export const StyleStudentSection = styled.section`
 
     .text-second-section {
         flex: 1;
-        font-size: 1.2em;
+        font-size: 16pt;
         line-height: 1.5;
         max-width: 600px;
+        padding: 15px;
+
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px ${theme.orangeP3};
+        backdrop-filter: blur(13px);
+        -webkit-backdrop-filter: blur(13px);
+        border: 1px solid ${theme.orangeP3};
+
     } 
 
     .right-button button {

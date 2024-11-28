@@ -10,12 +10,12 @@ export default class Api {
     if (Api.instance) {
       return Api.instance;
     }
-    
+
     this.token_key = LocalStorageEnum.TOKEN_KEY;
     this.api = axios.create({
       baseURL: import.meta.env.VITE_API_URL,
     });
-    
+
     this.api.interceptors.request.use((config) => {
       const token = localStorage.getItem(this.token_key);
       if (token) {
@@ -23,7 +23,7 @@ export default class Api {
       }
       return config;
     },
-    (error) => {
+      (error) => {
         return Promise.reject(error);
       });
 
@@ -43,86 +43,295 @@ export default class Api {
 
   //metodos Usuario
 
-   async getUsuarioById(id) {
-    return this.usuarioApi.getUsuarioById(id);
+  async getUsuarioById(id) {
+    try {
+      const response = await this.usuarioApi.getUsuarioById(id);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar usuário", error);
+      return null;
+    }
   }
 
-   async postUsuarioRegister(data) {
-    return this.usuarioApi.postUsuarioRegister(data);
+  async postUsuarioRegister(data) {
+    try {
+      const response = await this.usuarioApi.postUsuarioRegister(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao registrar usuário", error);
+      return null;
+    }
   }
 
-   async postUsuarioLogin(data) {
-    return this.usuarioApi.postUsuarioLogin(data);
+  async postUsuarioLogin(data) {
+    try {
+      const response = await this.usuarioApi.postUsuarioLogin(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login", error);
+      return null;
+    }
   }
 
-   async putUsuarioPassword(data) {
-    return this.usuarioApi.putUsuarioPassword(data);
+  async putUsuarioPassword(data) {
+    try {
+      const response = await this.usuarioApi.putUsuarioPassword(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar senha", error);
+      return null;
+    }
   }
 
-   async putUsuarioData(data) {
-    return this.usuarioApi.putUsuarioData(data);
+  async putUsuarioData(data) {
+    try {
+      const response = await this.usuarioApi.putUsuarioData(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar dados do usuário", error);
+      return null;
+    }
   }
 
-   async deleteUsuarioByEmail(data) {
-    return this.usuarioApi.deleteUsuarioByEmail(data);
+  async deleteUsuarioByEmail(data) {
+    try {
+      const response = await this.usuarioApi.deleteUsuarioByEmail(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao deletar usuário", error);
+      return null;
+    }
   }
 
   // metodos Roles
 
-   async getRoleAll() {
-    return this.roleApi.getRoleAll();
+  async getRoleAll() {
+    try {
+      const response = await this.roleApi.getRoleAll();
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar roles", error);
+      return null;
+    }
   }
 
-   async postRoleRegister(data) {
-    return this.roleApi.postRoleRegister(data);
+  async postRoleRegister(data) {
+    try {
+      const response = await this.roleApi.postRoleRegister(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao registrar role", error);
+      return null;
+    }
   }
 
-   async putRoleUpdate(data) {
-    return this.roleApi.putRoleUpdate(data);
+  async putRoleUpdate(data) {
+    try {
+      const response = await this.roleApi.putRoleUpdate(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar role", error);
+      return null;
+    }
   }
 
   //metodos Tag
 
-   async getTagAll() {
-    return this.tagApi.getTagAll();
+  async getTagAll() {
+    try {
+      const response = await this.tagApi.getTagAll();
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar tags", error);
+      return null;
+    }
   }
 
-   async getTagByName(name) {
-    return this.tagApi.getTagByName(name);
+  async getTagByName(name) {
+    try {
+      const response = await this.tagApi.getTagByName(name);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar tag por nome", error);
+      return null;
+    }
   }
 
-   async postTagRegister(data) {
-    return this.tagApi.postTagRegister(data);
+  async postTagRegister(data) {
+    try {
+      const response = await this.tagApi.postTagRegister(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao registrar tag", error);
+      return null;
+    }
   }
 
-   async putTagUpdate(id, data) {
-    return this.tagApi.putTagUpdate(id, data);
+  async putTagUpdate(id, data) {
+    try {
+      const response = await this.tagApi.putTagUpdate(id, data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar tag", error);
+      return null;
+    }
   }
 
-   async deleteTagById(id) {
-    return this.tagApi.deleteTagById(id);
+  async deleteTagById(id) {
+    try {
+      const response = await this.tagApi.deleteTagById(id);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao deletar tag", error);
+      return null;
+    }
   }
 
   // metodos publicacoes
 
-   async getPublicacaoAll() {
-    return this.postsApi.getPublicacaoAll();
+  async getPublicacaoAll() {
+    try {
+      const response = await this.postsApi.getPublicacaoAll();
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar publicações", error);
+      return null;
+    }
   }
 
-   async postPublicacaoRegister(data) {
-    return this.postsApi.postPublicacaoRegister(data);
+  async postPublicacaoRegister(data) {
+    try {
+      const response = await this.postsApi.postPublicacaoRegister(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao registrar publicação", error);
+      return null;
+    }
   }
 
-   async postPublicacaoSearch(data) {
-    return this.postsApi.postPublicacaoSearch(data);
+  async postPublicacaoSearch(data) {
+    try {
+      const response = await this.postsApi.postPublicacaoSearch(data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar publicação", error);
+      return null;
+    }
   }
 
-   async putPublicacaoUpdate(id, data) {
-    return this.postsApi.putPublicacaoUpdate(id, data);
+  async putPublicacaoUpdate(id, data) {
+    try {
+      const response = await this.postsApi.putPublicacaoUpdate(id, data);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar publicação", error);
+      return null;
+    }
   }
 
-   async deletePublicacaoById(id) {
-    return this.postsApi.deletePublicacaoById(id);
+  async deletePublicacaoById(id) {
+    try {
+      const response = await this.postsApi.deletePublicacaoById(id);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao deletar publicação", error);
+      return null;
+    }
   }
 
 };

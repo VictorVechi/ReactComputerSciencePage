@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { StyledLoginForm } from "./loginForm.styles";
 import Button from "../../../../common/button/Button";
 import Input from "../../../../common/input/Input";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { handleLogin } from "./handle-login/handleLogin";
+import { HouseLine } from "phosphor-react";
+import { theme } from "../../../../../styles/theme";
 
 
 const LoginForm = () => {
@@ -14,6 +16,9 @@ const LoginForm = () => {
 
     return (
         <StyledLoginForm >
+            <NavLink to={"/"}>
+                <HouseLine size={64} color={theme.white} />
+            </NavLink>
             <h2>Login</h2>
             <label htmlFor="email">Email</label>
             <Input

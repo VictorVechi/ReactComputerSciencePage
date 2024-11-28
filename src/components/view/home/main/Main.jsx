@@ -4,7 +4,7 @@ import PostsSection from '../posts-section/PostsSection';
 import Search from '../Search/Search';
 import StudentSection from '../student-section/StudentSection';
 
-const Main = () => {
+const MainHome = () => {
     return (
         <StyleMain>
             <Search />
@@ -12,4 +12,4 @@ const Main = () => {
             <PostsSection />
         </StyleMain>
     )
-}; export default Main
+}; export default MainHome

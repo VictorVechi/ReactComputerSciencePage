@@ -25,7 +25,7 @@ const LoginForm = () => {
                 tipo={"email"}
                 valor={email}
                 nome={'email'}
-                placeholder={'igorvechi@gmail.com'}
+                placeholder={'usuario@gmail.com'}
                 required
                 func={(e) => setEmail(e.target.value)}
             />

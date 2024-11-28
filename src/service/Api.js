@@ -77,7 +77,7 @@ export default class Api {
     try {
       const response = await this.usuarioApi.postUsuarioLogin(data);
       if (response) {
-        return response.data;
+        return response.data.response;
       } else {
         console.error("Resposta inválida recebida");
         return null;

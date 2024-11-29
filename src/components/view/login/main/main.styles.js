@@ -27,7 +27,7 @@ export const StyledMainLogin = styled.main`
         background-repeat: no-repeat;
         background-attachment: fixed;
         padding: 0 20px;
-        color: white;
+        color: ${theme.white};
         width: 100%;
     }
 

@@ -5,6 +5,9 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
+import Dashboard from './pages/dashboard/Dashboard';
+import isAuthenticated from './service/security/verifyAuth';
+import ProtectedRoute from './service/security/protectedRoute';
 
 
 const Rotas = () => {
@@ -15,6 +18,10 @@ const Rotas = () => {
 				<Routes>
 					<Route path="" element={<Home/>} />
 					<Route path='/login' element={<Login />} />
+					<Route
+                        path="/dashboard"
+                        element={<ProtectedRoute element={Dashboard} isAuthenticated={isAuthenticated()}/>}
+                    />
 				</Routes>
 			</ThemeProvider>
 		</BrowserRouter>

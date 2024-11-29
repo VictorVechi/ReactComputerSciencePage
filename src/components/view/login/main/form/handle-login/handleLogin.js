@@ -1,5 +1,5 @@
 import { Password } from "phosphor-react";
-import Api from "../../../../../../service/Api";
+import Api from "../../../../../../service/gateway/Api";
 import LocalStorageEnum from "../../../../../../enum/LocalStorageEnum";
 
 export const handleLogin = async (event, email, senha) => {

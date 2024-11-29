@@ -11,7 +11,6 @@ export const StyledLoginForm = styled.form`
         width: 60%;
         background-color: ${theme.mediumBlueP4};
         border-radius: 2%;
-        box-shadow: -4px -4px 8px 0px ${theme.blueP3}, 4px 4px 8px 0px ${theme.blueP3};
         gap: 10px;
 
     h2 {
@@ -28,6 +27,8 @@ export const StyledLoginForm = styled.form`
         transition: 0.3s;
         box-shadow: 5px 5px 0px 0px ${theme.blueP3};
         background-color: ${theme.white};
+        height: 10%;
+        width: 40%;
 
     }
 

@@ -3,7 +3,7 @@ import UsuarioApi from "./UsuarioApi";
 import RoleApi from "./RoleApi";
 import TagApi from "./TagApi";
 import PostsApi from "./PostsApi";
-import LocalStorageEnum from "../enum/LocalStorageEnum";
+import { LocalStorageEnum } from "../../enum/LocalStorageEnum";
 
 export default class Api {
   constructor() {
@@ -11,21 +11,20 @@ export default class Api {
       return Api.instance;
     }
 
-    this.token_key = LocalStorageEnum.TOKEN_KEY;
     this.api = axios.create({
       baseURL: import.meta.env.VITE_API_URL,
     });
 
-    this.api.interceptors.request.use((config) => {
-      const token = localStorage.getItem(this.token_key);
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config;
-    },
-      (error) => {
-        return Promise.reject(error);
-      });
+    this.api.interceptors.request.use(
+      (config) => {
+        const token = localStorage.getItem(LocalStorageEnum.TOKEN_KEY);
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+      },
+      (error) => Promise.reject(error)
+    );
 
     this.usuarioApi = UsuarioApi.getInstance(this.api);
     this.roleApi = RoleApi.getInstance(this.api);
@@ -129,6 +128,20 @@ export default class Api {
       }
     } catch (error) {
       console.error("Erro ao deletar usuário", error);
+      return null;
+    }
+  }
+
+  async getUsuarioByToken() {
+    try {
+      const response = await this.usuarioApi.getUserInfoByToken();
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
       return null;
     }
   }
@@ -333,5 +346,6 @@ export default class Api {
       return null;
     }
   }
+
 
 };

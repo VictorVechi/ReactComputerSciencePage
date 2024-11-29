@@ -17,7 +17,7 @@ export default class UsuarioApi {
 
    async getUsuarioById(id) {
     try {
-        const response = await this.api.get(`/user/${id}`);
+        const response = await this.api.get(`/user/info/${id}`);
         return response;
     } catch (error) {
         console.error(error)
@@ -66,6 +66,15 @@ export default class UsuarioApi {
         return response;
     } catch (error) {
         console.log(error)
+    }
+  }
+
+  async getUserInfoByToken() {
+    try {
+        const response = await this.api.get('/user/details');
+        return response;
+    } catch (error) {
+        console.error(error)
     }
   }
 }

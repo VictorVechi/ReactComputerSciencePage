@@ -38,7 +38,7 @@ const LoginForm = () => {
                 placeholder={'●●●●●●●'}
                 func={(e) => setSenha(e.target.value)}
             />
-            <Button texto={'Entrar'} className='btn-login' onClick={(e) => handleLogin(e, email, senha)} />
+            <Button texto={'Entrar'} className='btn-login' onClick={(e) => handleLogin(e, email, senha, navigate)} />
         </StyledLoginForm>
     );
 }; export default LoginForm;

@@ -1,4 +1,4 @@
-import LocalStorageEnum from "../../enum/LocalStorageEnum";
+import { LocalStorageEnum } from "../../enum/LocalStorageEnum";
 import { RoleEnum } from "../../enum/RoleEnum";
 import Api from "../gateway/Api";
 
@@ -7,8 +7,9 @@ const isAuthenticated = async () => {
     try {
         const api = Api.getInstance();
         const response = await api.getUsuarioByToken();
-
         if (!response) {
+            localStorage.removeItem(LocalStorageEnum.TOKEN_KEY);
+            localStorage.removeItem(LocalStorageEnum.ROLE_KEY);
             return false;
         }
 

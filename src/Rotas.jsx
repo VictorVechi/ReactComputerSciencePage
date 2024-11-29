@@ -6,7 +6,6 @@ import { theme } from './styles/theme';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
-import isAuthenticated from './service/security/verifyAuth';
 import ProtectedRoute from './service/security/protectedRoute';
 
 

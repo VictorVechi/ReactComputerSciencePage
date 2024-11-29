@@ -3,37 +3,24 @@ import { RoleEnum } from "../../enum/RoleEnum";
 import Api from "../gateway/Api";
 
 
-const isAuthenticated = () => {
+const isAuthenticated = async () => {
     try {
         const api = Api.getInstance();
-        const response = api.getUsuarioByToken();
+        const response = await api.getUsuarioByToken();
 
         if (!response) {
-            return {
-                isAuth: false,
-                isAdmin: false,
-            };
-        }
-        
-        if (response.cargo === RoleEnum.ADMIN) {
-            return {
-                isAuth: true,
-                isAdmin: true,
-            }
-        
+            return false;
         }
 
-        return {
-            isAuth: true,
-            isAdmin: false,
-        };
+        if (response.user.cargo === RoleEnum.ADMIN) {
+            localStorage.setItem(LocalStorageEnum.ROLE_KEY, RoleEnum.ADMIN);
+        }
+
+        return true;
     } catch (error) {
         localStorage.removeItem(LocalStorageEnum.TOKEN_KEY);
-        console.log(error)
-        return {
-            isAuth: true,
-            isAdmin: false,
-        };
+        localStorage.removeItem(LocalStorageEnum.ROLE_KEY);
+        return false;
     }
 };
 

@@ -2,7 +2,7 @@ import { Password } from "phosphor-react";
 import Api from "../../../../../../service/gateway/Api";
 import LocalStorageEnum from "../../../../../../enum/LocalStorageEnum";
 
-export const handleLogin = async (event, email, senha) => {
+export const handleLogin = async (event, email, senha, navigate) => {
     try {
         event.preventDefault();
         const data = {
@@ -23,7 +23,7 @@ export const handleLogin = async (event, email, senha) => {
         //     // localStorage.setItem('admin', response.data.admin)
         //     // localStorage.setItem('idEndereco', response.data.Idendereco)
         //     // localStorage.setItem(response.data._id, JSON.stringify([]))
-        //     // navigate('/dashboard')
+            navigate('/dashboard')
         }
     } catch (error) {
         console.error('Erro de autenticação:', error);

@@ -16,11 +16,12 @@ const Rotas = () => {
 			<GlobalStyle />
 			<ThemeProvider theme={theme}>
 				<Routes>
-					<Route path="" element={<Home/>} />
+					<Route path="" element={<Home />} />
 					<Route path='/login' element={<Login />} />
+					<Route path='/teste' element={<Dashboard />} />
 					<Route
                         path="/dashboard"
-                        element={<ProtectedRoute element={Dashboard} isAuthenticated={isAuthenticated()}/>}
+                        element={<ProtectedRoute element={Dashboard} />}
                     />
 				</Routes>
 			</ThemeProvider>

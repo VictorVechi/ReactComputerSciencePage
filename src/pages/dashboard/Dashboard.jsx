@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import LocalStorageEnum from "../../enum/LocalStorageEnum";
+import { RoleEnum } from "../../enum/RoleEnum";
 
-const Dashboard = ({admin}) => {
+const Dashboard = () => {
+    [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        const role = localStorage.getItem(LocalStorageEnum.ROLE_KEY);
+        if (role === RoleEnum.ADMIN) {
+            setIsAdmin(true);
+        }
+    })
+
     return (
         <div>
-            <h1>Dashboard</h1>
-            {admin && <h1>VOCE é Admin</h1>}
+           {isAdmin ? <h1>Dashboard Admin</h1> : <h1>Dashboard</h1>}
         </div>
     )
 }; export default Dashboard;

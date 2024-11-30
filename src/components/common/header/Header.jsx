@@ -1,15 +1,15 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { HeaderStyled } from "./header.styles";
 import Logo from "../../../assets/img/logo.svg";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
     const [scrolled, setScrolled] = React.useState(false);
-    
+
     useEffect(() => {
         const handleScroll = () => {
             const scrollQtd = window.scrollY;
-            if(scrollQtd > 200) {
+            if (scrollQtd > 200) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
@@ -23,21 +23,21 @@ const Header = () => {
             <img src={Logo} alt='Logotipo do App' className="logo" />
             <nav>
                 <ul>
-                    <li>
-                        <NavLink to="/">
+                    <NavLink to="/">
+                        <li>
                             Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/quem-somos">
+                        </li>
+                    </NavLink>
+                    <NavLink to="/quem-somos">
+                        <li>
                             Quem Somos
-                        </NavLink>
-                    </li>   
-                    <li className="login-button">
-                        <NavLink to="/login">
+                        </li>
+                    </NavLink>
+                    <NavLink to="/login">
+                        <li className="login-button">
                             Login
-                        </NavLink>
-                    </li>
+                        </li>
+                    </NavLink>
                 </ul>
             </nav>
         </HeaderStyled>

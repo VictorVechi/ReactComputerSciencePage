@@ -79,7 +79,6 @@ export const HeaderStyled = styled.header`
         background-color: ${theme.white};
     }
 
-
     .login-button {
         border: 2px solid ${theme.darkpurpleP2};
         transition: 0.3s;

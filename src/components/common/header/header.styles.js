@@ -10,6 +10,14 @@ export const HeaderStyled = styled.header`
     align-items: center;
     background-color: ${theme.white};
     border-bottom: 5px solid ${theme.darkpurpleP2};
+    position: fixed;
+    z-index: 1000;
+    transition: 0.3s ease;
+
+    &.scrolled {
+        transform: translateY(-25%);
+        height: 7vh;
+    }
 
     h1 {
         color: ${theme.white};
@@ -19,6 +27,12 @@ export const HeaderStyled = styled.header`
     .logo {
         height: 100%;
         align-self: flex-start;
+        transition: 0.3s ease;
+    }
+
+    &.scrolled .logo {
+        height: 75%;
+        transform: translateY(35%);
     }
 
     nav {
@@ -44,8 +58,17 @@ export const HeaderStyled = styled.header`
         width: 175px;
         height: 45px;
         border: 2px solid ${theme.blueP3};
-        transition: 0.3s;
+        transition: 0.3s ease;
         box-shadow: 5px 5px 0px 0px ${theme.blueP3};
+
+    }
+
+    &.scrolled nav ul li {
+            width: 150px;
+            height: 25px;
+            font-size: 14pt;
+            transform: translateY(30%);
+            
     }
 
     nav ul li:hover {
@@ -56,13 +79,13 @@ export const HeaderStyled = styled.header`
         background-color: ${theme.white};
     }
 
-
     .login-button {
         border: 2px solid ${theme.darkpurpleP2};
         transition: 0.3s;
         box-shadow: 5px 5px 0px 0px ${theme.darkpurpleP2};
         background-color: ${theme.white};
         color: ${theme.darkpurpleP2};
+
     }
 
     .login-button:hover {

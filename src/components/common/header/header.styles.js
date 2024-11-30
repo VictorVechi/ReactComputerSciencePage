@@ -10,6 +10,8 @@ export const HeaderStyled = styled.header`
     align-items: center;
     background-color: ${theme.white};
     border-bottom: 5px solid ${theme.darkpurpleP2};
+    position: fixed;
+    z-index: 1000;
 
     h1 {
         color: ${theme.white};

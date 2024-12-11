@@ -6,6 +6,7 @@ import { handleSearch } from "./handle-search/handleSearch";
 import { useNavigate } from "react-router-dom";
 
 const Search = ({ onSearch }) => {
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (e) => {
@@ -14,7 +15,7 @@ const Search = ({ onSearch }) => {
 
     const handleSearchClick = async () => {
         const result = await handleSearch(searchTerm);
-        navigate('/search-result', { state: { result } });
+        navigate('/search', { state: result });
     };
 
     return (

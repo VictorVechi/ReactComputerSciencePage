@@ -12,8 +12,8 @@ const PostsSection = () => {
 
     return (
         <StylePostSection>
-            {posts.map((post, index) => (
-                <div key={index} className='post-card'>
+            {posts.map((post) => (
+                <div key={post.id} className='post-card'>
                     <Card title={post.title} content={post.content} tag={post.tags[0].name} />
                 </div>
             ))}

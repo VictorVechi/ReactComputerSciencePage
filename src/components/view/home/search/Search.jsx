@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { StyleSearch } from "./search.styles";
 import Field from "../../../common/field/Field";
 import Button from "../../../common/button/Button";
-import { Note } from "phosphor-react";
+import { handleSearch } from "./handle-search/handleSearch";
+import { useNavigate } from "react-router-dom";
 
 const Search = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -11,8 +12,9 @@ const Search = ({ onSearch }) => {
         setSearchTerm(e.target.value);
     };
 
-    const handleSearchClick = () => {
-        //    implementar request pra api
+    const handleSearchClick = async () => {
+        const result = await handleSearch(searchTerm);
+        navigate('/search-result', { state: { result } });
     };
 
     return (

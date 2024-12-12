@@ -19,12 +19,15 @@ const ResultSection = () => {
     return (
         <StyleResultSection>
             <h1>Resultados da Pesquisa</h1>
-            <DropdownBtn
-                label="Ordenar por:"
-                options={orderPostOptions}
-                value={order}
-                onChange={handleOrderChange}
-            />
+            <div className='order-container'>
+                <p>{sortedResults.length} resultados encontrados</p>
+                <DropdownBtn
+                    label="Ordenar por:"
+                    options={orderPostOptions}
+                    value={order}
+                    onChange={handleOrderChange}
+                />
+            </div>
             <div className='posts-container'>
                 {sortedResults.length > 0 ? (
                     sortedResults.map((post) => (

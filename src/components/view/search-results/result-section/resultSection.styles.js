@@ -8,6 +8,21 @@ export const StyleResultSection = styled.main`
     align-items: center;
     flex-direction: column;
 
+    .order-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1%;
+        margin-top: 3%;
+
+        p {
+            margin-right: 18%;
+            font-weight: bold;
+            font-size: larger;
+        }
+    }
+
     .post-card {
         display: flex;
         flex: 0 0 100%;

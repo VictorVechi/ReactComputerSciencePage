@@ -4,6 +4,10 @@ import { StyledCard } from './card.styles';
 const Card = ({ title, content, tag }) => {
   const contentPreview = (text, length) => {
     if (text.length > length) {
+      if(text[length - 1] === ' '){
+        return text.substring(0, length - 1) + '...';
+      }
+
       return text.substring(0, length) + '...';
     }
 

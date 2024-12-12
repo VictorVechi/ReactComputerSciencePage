@@ -11,8 +11,8 @@ const SearchResults = () => {
         <StyleSearchResult>
             <h1>Resultados da Pesquisa</h1>
             {results.length > 0 ? (
-                results.map((post) => (
-                    <div key={post.id} classname='post-card'>
+                results.map((post) => ( 
+                    <div key={post.id} className='post-card'>
                         <Card title={post.title} content={post.content} tag={post.tags[0].name} />
                     </div>
                 ))

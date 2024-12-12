@@ -20,6 +20,16 @@ const fakePosts = [
         title: 'Post não encontrado',
         content: 'Conteudo do post',
         tags: [{ name: '404' }]
+    },
+    {
+        title: 'Post não encontrado',
+        content: 'Conteudo do post',
+        tags: [{ name: '404' }]
+    },
+    {
+        title: 'Post não encontrado',
+        content: 'Conteudo do post',
+        tags: [{ name: '404' }]
     }
 ]
 
@@ -28,7 +38,7 @@ export const handleGetPosts = async (setPosts) => {
         const apiInstance = Api.getInstance();
         const response = await apiInstance.getPublicacaoAll();
         if( response ) {
-            setPosts(response.slice(-4))
+            setPosts(response.slice(-6))
         } else {
             setPosts(fakePosts)
         }

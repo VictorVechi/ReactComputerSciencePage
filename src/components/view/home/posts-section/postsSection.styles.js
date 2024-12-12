@@ -10,7 +10,7 @@ export const StylePostSection = styled.section`
 
     .post-card {
         display: flex;
-        flex: 0 0 50%;
+        flex: 0 0 30%;
         box-sizing: border-box;
         justify-content: center;
         align-items: center;

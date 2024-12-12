@@ -17,7 +17,7 @@ export const StyleResultSection = styled.main`
         margin-top: 3%;
 
         p {
-            margin-right: 18%;
+            margin-right: 15%;
             font-weight: bold;
             font-size: larger;
         }

@@ -22,7 +22,7 @@ const ResultSection = () => {
             <div className='order-container'>
                 <p>{sortedResults.length} resultados encontrados</p>
                 <DropdownBtn
-                    label="Ordenar por:"
+                    label="Ordenar por: "
                     options={orderPostOptions}
                     value={order}
                     onChange={handleOrderChange}

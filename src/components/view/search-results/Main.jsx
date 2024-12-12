@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { StyleSearchResult } from "./main.styles";
+import Card from "../../common/card/Card"
 
 const SearchResults = () => {
     const location = useLocation();
@@ -11,10 +12,8 @@ const SearchResults = () => {
             <h1>Resultados da Pesquisa</h1>
             {results.length > 0 ? (
                 results.map((post) => (
-                    <div key={post.id}>
-                        <h2>{post.title}</h2>
-                        <p>{post.content}</p>
-                        <span>{post.tags[0].name}</span>
+                    <div key={post.id} classname='post-card'>
+                        <Card title={post.title} content={post.content} tag={post.tags[0].name} />
                     </div>
                 ))
             ) : (

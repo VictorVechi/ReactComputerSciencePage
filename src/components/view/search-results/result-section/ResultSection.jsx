@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { StyleResultSection } from "./resultSection.styles";
-import Card from "../../../common/card/Card";
+import CardResult from "../card-result/CardResult";
 
 const ResultSection = () => {
     const location = useLocation();
@@ -9,12 +9,12 @@ const ResultSection = () => {
 
     return (
         <StyleResultSection>
-            <div className='content'>
-                <h1>Resultados da Pesquisa</h1>
+            <h1>Resultados da Pesquisa</h1>
+            <div className='posts-container'>
                 {results.length > 0 ? (
                     results.map((post) => (
                         <div key={post.id} className='post-card'>
-                            <Card title={post.title} content={post.content} tag={post.tags[0].name} />
+                            <CardResult title={post.title} content={post.content} tag={post.tags[0].name} />
                         </div>
                     ))
                 ) : (

@@ -8,7 +8,9 @@ const PostSearch = () => {
     return (
         <StyledPostSearch>
             <Header />
-            <MainSearchResult />
+            <main>
+                <MainSearchResult />
+            </main>
             <Footer />
         </StyledPostSearch>
     );

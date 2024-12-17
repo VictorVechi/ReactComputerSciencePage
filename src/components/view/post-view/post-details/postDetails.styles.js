@@ -3,8 +3,9 @@ import { theme } from '../../../../styles/theme';
 
 export const StyledPostDetails = styled.div`
   padding: 2rem;
-  max-width: 40%;
+  max-width: 55%;
   margin: 0 auto;
+  flex: 1;
 `;
 
 export const PostTag = styled.span`

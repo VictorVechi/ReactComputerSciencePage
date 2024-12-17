@@ -12,7 +12,7 @@ const SidebarRight = () => {
         <li><a href="https://ifpr.edu.br/pinhais/wp-content/uploads/sites/22/2021/12/ListaDisciplinasOptativas_CIenciadaComputacao.pdf" target="_blank" rel="noopener noreferrer">Disciplinas Optativas</a></li>
         <li><a href="https://ifpr.edu.br/pinhais/wp-content/uploads/sites/22/2024/08/Horarios-30-08-BCC.pdf" target="_blank" rel="noopener noreferrer">Horário de aulas</a></li>
       </ul>
-      <h3>Redes Sociais</h3>
+      <h3>Redes Sociais:</h3>
       <ul>
         <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</a></li>
         <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>

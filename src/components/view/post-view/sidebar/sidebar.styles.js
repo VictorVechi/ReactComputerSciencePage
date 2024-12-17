@@ -7,9 +7,13 @@ export const StyledSidebar = styled.aside`
   padding: 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
 
   h3 {
-    margin-top: 0;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    font-size: x-large;
   }
 
   ul {
@@ -17,11 +21,13 @@ export const StyledSidebar = styled.aside`
     padding: 0;
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 5%;
 
       a {
         text-decoration: none;
-        color: ${theme.primaryColor};
+        color: ${theme.mediumBlueP4};
+        font-size: large;
+        font-weight: bold;
 
         &:hover {
           text-decoration: underline;
@@ -29,4 +35,4 @@ export const StyledSidebar = styled.aside`
       }
     }
   }
-`;
+`

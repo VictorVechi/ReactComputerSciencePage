@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { StyledPostDetails, PostTitle, PostContent, PostTag, PostDate } from './postDetails.styles';
+import { StyledPostDetails } from './postDetails.styles';
 
 const PostDetails = () => {
     const location = useLocation();
@@ -12,10 +12,10 @@ const PostDetails = () => {
 
     return (
         <StyledPostDetails>
-            <PostTag>{post.tags[0].name}</PostTag>
-            <PostTitle>{post.title}</PostTitle>
-            <PostDate>Publicado em: <strong>{formatDate(post.createdAt)}</strong></PostDate>
-            <PostContent>{post.content}</PostContent>
+            <span className='PostTag'>{post.tags[0].name}</span>
+            <h1 className='PostTitle'>{post.title}</h1>
+            <span className='PostDate'>Publicado em: <strong>{formatDate(post.createdAt)}</strong></span>
+            <div className='PostContent'>{post.content}</div>
         </StyledPostDetails>
     );
 };

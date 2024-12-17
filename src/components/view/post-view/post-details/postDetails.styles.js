@@ -26,6 +26,7 @@ export const PostTitle = styled.h1`
 
 export const PostContent = styled.div`
   font-size: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.6;
   text-align: justify;
+  hyphens: auto;
 `;

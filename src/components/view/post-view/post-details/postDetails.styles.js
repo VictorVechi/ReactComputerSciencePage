@@ -24,6 +24,14 @@ export const PostTitle = styled.h1`
   text-align: left;
 `;
 
+export const PostDate = styled.span`
+  display: block;
+  font-size: 1.2rem;
+  color: ${theme.gray};
+  margin-bottom: 5%;
+  font-style: italic;
+`;
+
 export const PostContent = styled.div`
   font-size: 1.5rem;
   line-height: 1.6;

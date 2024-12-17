@@ -3,7 +3,6 @@ import { theme } from '../../../../styles/theme';
 
 export const StyledCardResult = styled.div`
   width: 800px;
-  height: 200px;
   border: 1px solid ${theme.orangeP3};
   border-radius: 8px;
   box-shadow: 0 2px 4px ${theme.orangeP3};

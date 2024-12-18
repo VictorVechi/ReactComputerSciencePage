@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledForm = styled.form`
+export const StyledCreatePostForm = styled.form`
 
     form {
         display: flex;

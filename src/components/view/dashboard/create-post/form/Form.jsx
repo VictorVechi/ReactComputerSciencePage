@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyledForm } from "./form.styles";
+import { StyledCreatePostForm } from "./form.styles";
 import { useNavigate } from "react-router-dom";
 import { fetchTags } from "./handle-create-post/handleCreatePost";
 import Api from "../../../../../service/gateway/Api";
@@ -32,7 +32,7 @@ const CreatePostForm = () => {
     };
 
     return (
-        <StyledForm>
+        <StyledCreatePostForm>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Título</label>
                 <input
@@ -70,7 +70,7 @@ const CreatePostForm = () => {
                 </select>
                 <button type="submit">Criar Post</button>
             </form>
-        </StyledForm>
+        </StyledCreatePostForm>
     )
 }
 

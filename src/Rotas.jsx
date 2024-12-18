@@ -9,7 +9,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import ProtectedRoute from './service/security/protectedRoute';
 import PostSearch from './pages/post-search/PostSearch';
 import PostView from './pages/post-view/PostView';
-
+import CreatePost from './pages/create-post/CreatePost';
 
 const Rotas = () => {
 	return (
@@ -26,6 +26,7 @@ const Rotas = () => {
                         element={<ProtectedRoute element={Dashboard} />}
                     />
 					<Route path='/search' element={<PostSearch />} />
+					<Route path='dashboard/create-post' element={<CreatePost />} />
 				</Routes>
 			</ThemeProvider>
 		</BrowserRouter>

@@ -24,7 +24,7 @@ const Search = () => {
 
     return (
         <StyleSearch>
-            <h1>Central da Computação</h1>
+            <h1>Ciência da Computação</h1>
             <h2>Pesquise por um post aqui: </h2>
             <div className="search-container">
                 <Field

@@ -12,6 +12,7 @@ export const StyledCardResult = styled.div`
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-5px);

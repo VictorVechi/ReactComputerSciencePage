@@ -4,7 +4,7 @@ import { theme } from "../../../../styles/theme";
 
 
 export const StyleSearch = styled.section`
-    height: 75vh;
+    height: 45vh;
     width: 100%;
     display: flex;
     justify-content: center;

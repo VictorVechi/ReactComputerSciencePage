@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyledForm } from "./form.styles";
 import { useNavigate } from "react-router-dom";
+import { fetchTags } from "./handle-create-post/handleCreatePost";
 import Api from "../../../../../service/gateway/Api";
 
 const CreatePostForm = () => {
@@ -11,22 +12,7 @@ const CreatePostForm = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchTags = async () => {
-            try {
-                const apiInstance = Api.getInstance();
-                const response = await apiInstance.getTagAll();
-                if (response) {
-                    setTags(response.tags);
-                } else {
-                    setTags([]);
-                }
-            } catch (error) {
-                console.error("Erro ao buscar tags:", error);
-                setTags([]);
-            }
-        };
-
-        fetchTags();
+        fetchTags(setTags);
     }, []);
 
     const handleSubmit = async (e) => {

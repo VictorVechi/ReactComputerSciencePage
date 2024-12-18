@@ -1,8 +1,8 @@
 import React from "react";
 import { StyledCreatePost } from "./createPost.styles";
-import CreatePostMain from "../../components/view/dashboard/create-post/CreatePostMain";
-import Header from "../../components/common/header/Header";
-import Footer from "../../components/common/footer/Footer";
+import CreatePostMain from "../../../components/view/dashboard/create-post/CreatePostMain";
+import Header from "../../../components/common/header/Header";
+import Footer from "../../../components/common/footer/Footer";
 
 const CreatePost = () => {
     return (

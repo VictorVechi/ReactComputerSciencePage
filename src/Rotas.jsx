@@ -10,7 +10,7 @@ import ProtectedRoute from './service/security/protectedRoute';
 import PostSearch from './pages/post-search/PostSearch';
 import PostView from './pages/post-view/PostView';
 import QuemSomos from './pages/quem-somos/QuemSomos';
-import CreatePost from './pages/create-post/CreatePost';
+import CreatePost from './pages/dashboard/create-post/CreatePost';
 
 const Rotas = () => {
 	return (

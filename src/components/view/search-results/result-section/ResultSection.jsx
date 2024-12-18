@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { StyleResultSection } from "./resultSection.styles";
 import CardResult from "../card-result/CardResult";
 import { sortResults, orderPostOptions } from "./handle-dropdown/handleDropdown";
@@ -7,6 +7,7 @@ import DropdownBtn from "../../../common/dropdown/Dropdown";
 
 const ResultSection = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const results = location.state || { results: [] };
     const [order, setOrder] = useState("oldest")
 
@@ -15,6 +16,10 @@ const ResultSection = () => {
     }
 
     const sortedResults = sortResults(results, order)
+
+    const handleCardClick = (post) => {
+        navigate(`/post/${post.id}`, { state: { post } })
+    }
 
     return (
         <StyleResultSection>
@@ -31,7 +36,7 @@ const ResultSection = () => {
             <div className='posts-container'>
                 {sortedResults.length > 0 ? (
                     sortedResults.map((post) => (
-                        <div key={post.id} className='post-card'>
+                        <div key={post.id} className='post-card' onClick={() => handleCardClick(post)}>
                             <CardResult title={post.title} content={post.content} tag={post.tags[0].name} />
                         </div>
                     ))

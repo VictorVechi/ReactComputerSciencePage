@@ -21,28 +21,28 @@ const Header = () => {
             <img src={Logo} alt='Logotipo do App' className="logo" />
             <nav>
                 <ul>
-                    <li>
-                        <NavLink to="/">
+                    <NavLink to="/">
+                        <li>
                             Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/quem-somos">
+                        </li>
+                    </NavLink>
+                    <NavLink to="/quem-somos">
+                        <li>
                             Quem Somos
-                        </NavLink>
-                    </li>   
-                    {!isAuth && 
-                    <li className="login-button">
+                        </li>
+                    </NavLink>
+                    {!isAuth &&
                         <NavLink to="/login">
-                            Login
-                        </NavLink>
-                    </li>}
-                    {isAuth && 
-                    <li className="login-button">
+                            <li className="login-button">
+                                Login
+                            </li>
+                        </NavLink>}
+                    {isAuth &&
                         <NavLink to="/dashboard">
-                            Dashboard
-                        </NavLink>
-                    </li>}
+                            <li className="login-button">
+                                Dashboard
+                            </li>
+                        </NavLink>}
                 </ul>
             </nav>
         </HeaderStyled>

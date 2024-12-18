@@ -7,7 +7,7 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
 import ProtectedRoute from './service/security/protectedRoute';
-
+import PostSearch from './pages/post-search/PostSearch';
 
 const Rotas = () => {
 	return (
@@ -22,6 +22,7 @@ const Rotas = () => {
                         path="/dashboard"
                         element={<ProtectedRoute element={Dashboard} />}
                     />
+					<Route path='/search' element={<PostSearch />} />
 				</Routes>
 			</ThemeProvider>
 		</BrowserRouter>

@@ -9,6 +9,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import ProtectedRoute from './service/security/protectedRoute';
 import PostSearch from './pages/post-search/PostSearch';
 import PostView from './pages/post-view/PostView';
+import QuemSomos from './pages/quem-somos/QuemSomos';
 
 
 const Rotas = () => {
@@ -20,6 +21,7 @@ const Rotas = () => {
 					<Route path="" element={<Home />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/teste' element={<Dashboard />} />
+					<Route path='/quem-somos' element={<QuemSomos />} />
 					<Route path="/post/:id" element={<PostView />} />
 					<Route
                         path="/dashboard"

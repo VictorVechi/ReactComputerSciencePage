@@ -7,7 +7,12 @@ const PostDetails = () => {
     const { post } = location.state;
 
     const formatDate = (date) => {
-        return new Date(date).toLocaleDateString('pt-BR')
+        const data = new Date(date).toLocaleDateString('pt-BR')
+        if (data === 'Invalid Date') {
+            return "Indefinido"
+        }
+        
+        return data
     }
 
     return (

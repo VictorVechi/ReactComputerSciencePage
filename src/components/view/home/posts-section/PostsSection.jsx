@@ -19,7 +19,7 @@ const PostsSection = () => {
     return (
         <StylePostSection>
             {posts.map((post) => (
-                <div key={post.id} className='post-card'>
+                <div key={post.id} className='post-card' onClick={() => handleCardClick(post)}>
                     <Card title={post.title} content={post.content} tag={post.tags[0].name} />
                 </div>
             ))}

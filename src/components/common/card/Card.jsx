@@ -1,25 +1,14 @@
 import React from 'react';
 import { StyledCard } from './card.styles';
+import { generatePreview } from './preview-handler/previewHandler';
 
 const Card = ({ title, content, tag }) => {
-  const contentPreview = (text, length) => {
-    if (text.length > length) {
-      if(text[length - 1] === ' '){
-        return text.substring(0, length - 1) + '...';
-      }
-
-      return text.substring(0, length) + '...';
-    }
-
-    return text;
-  }
-
   return (
     <StyledCard>
       <div className='card-header'>
         <span className='card-tag'>{tag}</span>
-        <h2 className='card-title'>{title}</h2>
-        <p className='card-content'>{contentPreview(content, 250)}</p>
+        <h2 className='card-title'>{generatePreview(title, 100)}</h2>
+        <p className='card-content'>{generatePreview(content, 300)}</p>
       </div>
     </StyledCard>
   );

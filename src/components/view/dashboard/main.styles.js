@@ -5,5 +5,5 @@ export const StyledMainDashboard = styled.main`
   justify-content: space-between; 
   align-items: stretch;
   width: 100%;
-  min-height: 80vh; 
+  min-height: 70vh; 
 `

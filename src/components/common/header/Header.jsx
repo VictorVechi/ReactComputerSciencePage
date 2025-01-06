@@ -7,6 +7,7 @@ import isAuthenticated from "../../../service/security/verifyAuth";
 
 const Header = () => {
     const [isAuth, setIsAuth] = useState(false);
+    const [isDashboard, setIsDashboard] = useState(false);
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -15,6 +16,19 @@ const Header = () => {
         };
         checkAuth();
     }, []);
+    
+    useEffect(() => {
+        if (window.location.pathname === '/dashboard') {
+            setIsDashboard(true);
+        } else {
+            setIsDashboard(false);
+        }
+    }, [window.location.pathname]);
+
+
+    const logout = () => {
+        localStorage.clear();
+    }
 
     return (
         <HeaderStyled>
@@ -37,10 +51,16 @@ const Header = () => {
                                 Login
                             </li>
                         </NavLink>}
-                    {isAuth &&
+                    {isAuth && !isDashboard &&
                         <NavLink to="/dashboard">
                             <li className="login-button">
                                 Dashboard
+                            </li>
+                        </NavLink>}
+                    {isAuth && isDashboard &&
+                        <NavLink to="/" onClick={logout}>
+                            <li className="login-button">
+                                Logout
                             </li>
                         </NavLink>}
                 </ul>

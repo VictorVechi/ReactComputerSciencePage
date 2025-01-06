@@ -21,7 +21,6 @@ const Dashboard = () => {
       <Header />
       <main>
         <div>
-          {isAdmin ? <h1>Dashboard Admin</h1> : <h1>Dashboard</h1>}
           <MainDashboard isAdmin={isAdmin} />
         </div>
       </main>

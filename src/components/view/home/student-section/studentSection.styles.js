@@ -8,7 +8,7 @@ export const StyleStudentSection = styled.section`
     justify-content: space-evenly;
     align-items: center;
     height: 65vh;
-    background-image: url('/backgroundThreeWizard.png');
+    background-image: url('/backgroundLibrary.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

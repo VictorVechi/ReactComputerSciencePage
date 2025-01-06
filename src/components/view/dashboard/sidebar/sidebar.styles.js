@@ -2,57 +2,38 @@ import styled from "styled-components";
 import { theme } from "../../../../styles/theme";
 
 export const StyledSidebar = styled.aside`
-  margin-top: 2%;
-  width: 25%;
+  width: 20%;
   background-color: ${theme.lightGray};
-  padding: 2rem;
+  padding: 5%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  align-items: center; 
 
   .menu {
-    margin-bottom: 2%;
-    margin-top: 2%;
-    padding: 1rem;
-    background-color: ${theme.white};
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-
-  .menu-header {
+    width: 100%; 
+    margin-bottom: 1rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; 
+  }
+
+  .menu button {
+    color: black;
+    font-size: large;
+    border: 2px solid black;
+    box-shadow: 5px 5px 0px 0px black;
     cursor: pointer;
-    font-size: x-large;
-    margin-bottom: 10%;
-  }
+    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
 
-  .arrow {
-    transition: transform 0.3s ease;
-  }
-
-  .arrow.open {
-    transform: rotate(180deg);
-  }
-
-  .menu-item {
-    margin-bottom: 5%;
-
-    button {
-      background: none;
-      border: none;
-      color: ${theme.primaryColor};
-      font-size: large;
-      cursor: pointer;
-      text-decoration: none;
-      padding-left: 1rem; 
-      text-align: left;
-
-      &:hover {
-        text-decoration: underline;
-      }
+    &:hover {
+        border-color: ${theme.orangeP3};
+        box-shadow: 0 0 ${theme.orangeP3};
+        color: ${theme.orangeP3};
+        background-color: ${theme.white};
     }
+
   }
 `;

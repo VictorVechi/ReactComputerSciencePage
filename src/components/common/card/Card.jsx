@@ -19,7 +19,7 @@ const Card = ({ title, content, tag }) => {
       <div className='card-header'>
         <span className='card-tag'>{tag}</span>
         <h2 className='card-title'>{title}</h2>
-        <p className='card-content'>{contentPreview(content, 300)}</p>
+        <p className='card-content'>{contentPreview(content, 250)}</p>
       </div>
     </StyledCard>
   );

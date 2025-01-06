@@ -3,7 +3,7 @@ import { HeaderStyled } from "./header.styles";
 import Logo from "../../../assets/img/logo.svg";
 import { NavLink } from "react-router-dom";
 import isAuthenticated from "../../../service/security/verifyAuth";
-import { logout } from "./header";
+import { logout } from "./header.service";
 
 
 const Header = () => {

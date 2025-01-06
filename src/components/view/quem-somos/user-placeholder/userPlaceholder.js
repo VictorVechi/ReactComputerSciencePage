@@ -1,12 +1,6 @@
 export const placeholder = [
   {
     image: "",
-    name: "Marlon de Oliveira Vaz",
-    disciplinas: "",
-    pesquisa: ""
-  },
-  {
-    image: "",
     name: "Ana Maria de Fátima Leme Tarini",
     disciplinas: "",
     pesquisa: ""
@@ -56,6 +50,12 @@ export const placeholder = [
   {
     image: "",
     name: "Izaque Esteves da Silva",
+    disciplinas: "",
+    pesquisa: ""
+  },
+  {
+    image: "",
+    name: "Marlon de Oliveira Vaz",
     disciplinas: "",
     pesquisa: ""
   }

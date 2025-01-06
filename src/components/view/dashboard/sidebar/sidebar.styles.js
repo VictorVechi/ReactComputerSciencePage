@@ -5,11 +5,12 @@ export const StyledSidebar = styled.aside`
   width: 20%;
   background-color: ${theme.lightGray};
   padding: 5%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
+  box-shadow: 1px 1px 2px 4px ${theme.orangeP3};
+  margin-top: 2%;
   display: flex;
   flex-direction: column;
   align-items: center; 
+  border-radius: 8px;
 
   .menu {
     width: 100%; 

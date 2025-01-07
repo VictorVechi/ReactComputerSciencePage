@@ -1,12 +1,6 @@
 export const placeholder = [
   {
     image: "",
-    name: "Ana Maria de Fátima Leme Tarini",
-    disciplinas: "",
-    pesquisa: ""
-  },
-  {
-    image: "",
     name: "Aleffer Rocha",
     disciplinas: "",
     pesquisa: ""
@@ -20,6 +14,12 @@ export const placeholder = [
   {
     image: "",
     name: "Álvaro Rogério Cantieri",
+    disciplinas: "",
+    pesquisa: ""
+  },
+  {
+    image: "",
+    name: "Ana Maria de Fátima Leme Tarini",
     disciplinas: "",
     pesquisa: ""
   },

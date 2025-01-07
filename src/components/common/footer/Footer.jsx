@@ -1,13 +1,26 @@
 import React from "react";
 import { GithubLogo, InstagramLogo } from "phosphor-react";
 import { FooterStyled, FooterText, SocialLinks } from "./footer.styles";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
         <FooterStyled>
             <FooterText>
-                &copy; 2024 Érico Meger, Igor Pinto e Victor Vechi <br />
-                Todos os direitos reservados.
+                <p>Desenvolvedores</p>
+                <p>Erico Meger</p>
+                <p>Igor Pinto</p>
+                <p>Victor Vechi</p>
+                <p>Todos os direitos reservados &copy; 2024.</p>
+            </FooterText>
+            <FooterText>
+                <p>Precisa de Ajuda?</p>
+                <p>
+                    <NavLink to={"/quem-somos"}>
+                        <span>Quem somos</span>
+                    </NavLink>
+                </p>
+                <p><span>WhatsApp: 41 - 920045703</span></p>
             </FooterText>
             <SocialLinks>
                 <a href="https://github.com/VictorVechi/ReactComputerSciencePage" target="_blank" rel="noreferrer">

@@ -3,22 +3,32 @@ import { theme } from "../../../styles/theme";
 
 export const FooterStyled = styled.footer`
     width: 100%;
-    height: 10vh;
+    height: 13vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    background-color: ${theme.purpleP1};
+    background-color: ${theme.blueP3};
     color: ${theme.white};
 `
 
 export const FooterText = styled.p`
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
     margin-left: 20px;
     font-size: 1.0rem;
+    span {
+        text-decoration: underline;
+    }
 `
 export const SocialLinks = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex-direction: column;
+    gap: 10px;
 
     a {
         color: ${theme.white};
@@ -34,7 +44,7 @@ export const SocialLinks = styled.div`
         }
 
         &:hover svg {
-            color: ${theme.purpleP3}; 
+            color: ${theme.orangeP3}; 
         }
     }
 `;

@@ -1,16 +1,17 @@
 import styled from "styled-components";
+import { theme } from "../../../../styles/theme";
 
 export const StyledUserCard = styled.div`
   .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #e0e0e0; 
     border-radius: 15px;
     padding: 15px;
     width: 400px;
     height: 250px; 
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid ${theme.orangeP3};
+    box-shadow: 0 2px 4px ${theme.orangeP3};
     overflow: hidden; 
   }
 

@@ -6,7 +6,7 @@ export const StyledQuemSomosMain = styled.main`
   justify-content: center;
   align-items: center; 
   padding: 2rem;
-  max-width: 1200px; 
+  max-width: 90%; 
   margin: 0 auto; 
 
   h1 {
@@ -16,7 +16,6 @@ export const StyledQuemSomosMain = styled.main`
   }
 
   .user-card {
-    flex: 0 0 35%;
     margin: 1rem;
     box-sizing: border-box;
   }

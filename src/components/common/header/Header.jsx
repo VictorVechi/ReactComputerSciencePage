@@ -3,10 +3,12 @@ import { HeaderStyled } from "./header.styles";
 import Logo from "../../../assets/img/logo.svg";
 import { NavLink } from "react-router-dom";
 import isAuthenticated from "../../../service/security/verifyAuth";
+import { logout } from "./header.service";
 
 
 const Header = () => {
     const [isAuth, setIsAuth] = useState(false);
+    const [isDashboard, setIsDashboard] = useState(false);
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -15,6 +17,12 @@ const Header = () => {
         };
         checkAuth();
     }, []);
+    
+    useEffect(() => {
+        if (window.location.pathname === '/dashboard') {
+            setIsDashboard(true);
+        }
+    }, [window.location.pathname]);
 
     return (
         <HeaderStyled>
@@ -31,16 +39,22 @@ const Header = () => {
                             Quem Somos
                         </li>
                     </NavLink>
+                    {isAuth && !isDashboard &&
+                        <NavLink to="/dashboard">
+                            <li className="login-button">
+                                Dashboard
+                            </li>
+                        </NavLink>}
                     {!isAuth &&
                         <NavLink to="/login">
                             <li className="login-button">
                                 Login
                             </li>
                         </NavLink>}
-                    {isAuth &&
-                        <NavLink to="/dashboard">
+                    {isAuth && isDashboard &&
+                        <NavLink to="/" onClick={logout}>
                             <li className="login-button">
-                                Dashboard
+                                Logout
                             </li>
                         </NavLink>}
                 </ul>

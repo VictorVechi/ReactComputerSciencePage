@@ -15,4 +15,14 @@ export const StylePostSection = styled.section`
         justify-content: center;
         align-items: center;
     }
+
+    @media screen and (max-width: 768px) {
+        .post-card:nth-child(n+4) {
+            display: none;
+        }
+
+        .post-card {
+            flex: 0 0 100%;
+        }
+    }
 `

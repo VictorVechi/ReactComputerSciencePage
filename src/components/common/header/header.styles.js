@@ -71,4 +71,28 @@ export const HeaderStyled = styled.header`
         color: ${theme.orangeP3};
         background-color: ${theme.white};
     }
+
+    @media screen and (max-width: 768px) {
+        /* width: 100%; */
+        .logo {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+            height: 100%;
+        }
+
+        nav ul {
+            justify-content: space-around;
+            font-size: 0.8rem;
+            height: 100%;
+            align-items: center;
+        }
+
+        nav ul li {
+            width: 100%;
+            height: 60%;
+        }
+    }
 `

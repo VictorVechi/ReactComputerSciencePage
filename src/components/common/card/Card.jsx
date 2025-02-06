@@ -7,7 +7,7 @@ const Card = ({ title, content, tag }) => {
     <StyledCard>
       <div className='card-header'>
         <span className='card-tag'>{tag}</span>
-        <h2 className='card-title'>{generatePreview(title, 100)}</h2>
+        <h2 className='card-title'>{generatePreview(title, 70)}</h2>
         <p className='card-content'>{generatePreview(content, 300)}</p>
       </div>
     </StyledCard>

@@ -32,6 +32,7 @@ const Search = () => {
                     value={searchTerm}
                     onChange={handleInputChange}
                     placeholder="Pesquisa por titulo"
+                    className={"input"}
                 />
                 <Button texto="Pesquisar" onClick={handleSearchClick} />
             </div>

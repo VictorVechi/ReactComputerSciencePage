@@ -22,6 +22,10 @@ export const FooterText = styled.p`
     span {
         text-decoration: underline;
     }
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `
 export const SocialLinks = styled.div`
     display: flex;
@@ -46,5 +50,9 @@ export const SocialLinks = styled.div`
         &:hover svg {
             color: ${theme.orangeP3}; 
         }
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: row;
     }
 `;

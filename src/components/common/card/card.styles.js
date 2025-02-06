@@ -47,4 +47,25 @@ export const StyledCard = styled.div`
     margin-top: 10px;
     color: #666;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    height: 60%;
+    justify-content: space-around;
+    
+    .card-header {
+      margin: 0;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      margin-top: 0;
+    }
+    .card-title {
+      font-size: 1.1rem;
+    }
+    .card-content {
+      display: none;
+    }
+  }
 `;

@@ -52,4 +52,10 @@ export const StyledUserCard = styled.div`
     font-size: 0.9em;
     color: #555;
   }
+
+  @media screen and (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+  }
 `;

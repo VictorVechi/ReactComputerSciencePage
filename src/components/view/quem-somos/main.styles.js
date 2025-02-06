@@ -19,4 +19,13 @@ export const StyledQuemSomosMain = styled.main`
     margin: 1rem;
     box-sizing: border-box;
   }
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+    .user-card {
+      width: 100%;
+    }
+  }
 `;

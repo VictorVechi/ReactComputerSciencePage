@@ -39,7 +39,7 @@ export const StyledPostDetails = styled.div`
     hyphens: auto;
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     max-width: 100%;
     padding: 1.5rem;
 

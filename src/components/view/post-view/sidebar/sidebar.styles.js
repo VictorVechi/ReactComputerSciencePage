@@ -36,7 +36,7 @@ export const StyledSidebar = styled.aside`
     }
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
     padding: 0;
     box-shadow: none;

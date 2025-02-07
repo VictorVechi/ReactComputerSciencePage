@@ -7,7 +7,7 @@ export const StyledMainPostView = styled.div`
   width: 100%;
   min-height: 80vh; 
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }

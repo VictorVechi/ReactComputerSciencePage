@@ -51,7 +51,7 @@ export const StyleResultSection = styled.main`
         }
 
         .posts-container {
-            p {
+            .no-results {
                 margin-top: 10%;
                 text-align: center;
             }

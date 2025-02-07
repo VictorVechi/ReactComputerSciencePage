@@ -39,4 +39,31 @@ export const StyleResultSection = styled.main`
     h1{
         margin-top: 1%;
     }
+
+    @media screen and (max-width: 768px){
+        .order-container {
+            flex-direction: column;
+            p {
+                margin-right: 0;
+                margin-bottom: 3%;
+                font-size: larger;
+            }
+        }
+
+        .posts-container {
+            p {
+                margin-top: 10%;
+                text-align: center;
+            }
+        }
+
+        .post-card {
+            flex: 0 0 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8em;
+        }
+    }
 `

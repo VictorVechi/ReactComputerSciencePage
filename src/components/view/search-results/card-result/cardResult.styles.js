@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { theme } from '../../../../styles/theme';
+import styled from "styled-components";
+import { theme } from "../../../../styles/theme";
 
 export const StyledCardResult = styled.div`
   width: 800px;
@@ -45,5 +45,15 @@ export const StyledCardResult = styled.div`
     font-size: 13pt;
     margin-top: 10px;
     color: #666;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    .card-title {
+      font-size: 18pt;
+    }
+    .card-content {
+      font-size: 12pt;
+    }
   }
 `;

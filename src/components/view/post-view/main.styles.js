@@ -6,4 +6,9 @@ export const StyledMainPostView = styled.div`
   align-items: stretch;
   width: 100%;
   min-height: 80vh; 
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;

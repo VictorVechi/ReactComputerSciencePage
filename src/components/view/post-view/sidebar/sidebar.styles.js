@@ -35,4 +35,31 @@ export const StyledSidebar = styled.aside`
       }
     }
   }
-`
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0;
+    box-shadow: none;
+    align-items: center;
+
+    h3 {
+      margin-top: 1%;
+      margin-bottom: 1%;
+      font-size: large;
+      text-align: center;
+    }
+
+    ul {
+      width: 100%;
+      text-align: center; 
+    }
+
+    ul li {
+      margin-bottom: 3%;
+    }
+
+    ul li a {
+      font-size: medium;
+    }
+  }
+`;

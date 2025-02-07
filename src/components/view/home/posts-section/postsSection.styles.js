@@ -25,4 +25,10 @@ export const StylePostSection = styled.section`
             flex: 0 0 100%;
         }
     }
+    
+    @media screen and (max-width: 1400px) {
+        .post-card:nth-child(n+5) {
+            display: none;
+        }
+    }
 `

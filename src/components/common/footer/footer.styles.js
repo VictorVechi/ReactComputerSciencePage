@@ -11,7 +11,7 @@ export const FooterStyled = styled.footer`
     color: ${theme.white};
 `
 
-export const FooterText = styled.p`
+export const FooterText = styled.div`
     display: flex;
     padding: 10px;
     flex-direction: column;

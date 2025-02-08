@@ -30,5 +30,9 @@ export const StylePostSection = styled.section`
         .post-card:nth-child(n+5) {
             display: none;
         }
+
+        .post-card {
+            flex: 0 0 40%;
+        }
     }
 `

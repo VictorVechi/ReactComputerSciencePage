@@ -73,7 +73,6 @@ export const HeaderStyled = styled.header`
     }
 
     @media screen and (max-width: 768px) {
-        /* width: 100%; */
         .logo {
             display: none;
         }
@@ -93,6 +92,24 @@ export const HeaderStyled = styled.header`
         nav ul li {
             width: 100%;
             height: 60%;
+        }
+    }
+
+    @media screen and (max-width: 1400px) {
+        .logo {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+            height: 100%;
+        }
+
+        nav ul {
+            justify-content: space-around;
+            font-size: 0.8rem;
+            height: 100%;
+            align-items: center;
         }
     }
 `

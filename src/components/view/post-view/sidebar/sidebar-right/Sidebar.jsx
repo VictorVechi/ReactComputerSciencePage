@@ -6,7 +6,7 @@ const SidebarRight = () => {
     <StyledSidebar>
       <h3>Veja mais: </h3>
       <ul>
-        <li><a href="https://ifpr.edu.br/pinhais/ifpr-pinhais/nossos-cursos/cursos-superiores/bacharelado-em-ciencia-da-computacao/" target="_blank" rel="noopener noreferrer">Informações do Curso</a></li>
+        <li><a href="https://ifpr.edu.br/pinhais/institucional/nossos-cursos/cursos-superiores/bacharelado-em-ciencia-da-computacao/" target="_blank" rel="noopener noreferrer">Informações do Curso</a></li>
         <li><a href="https://ifpr.edu.br/pinhais/wp-content/uploads/sites/22/2021/12/PPC-Ciencia-da-Computacao-IFPR-PINHAIS.pdf" target="_blank" rel="noopener noreferrer">PPC do Curso</a></li>
         <li><a href="https://ifpr.edu.br/pinhais/wp-content/uploads/sites/22/2021/12/MatrizCurricular_CienciadaComputacao.pdf" target="_blank" rel="noopener noreferrer">Matriz Curricular</a></li>
         <li><a href="https://ifpr.edu.br/pinhais/wp-content/uploads/sites/22/2021/12/ListaDisciplinasOptativas_CIenciadaComputacao.pdf" target="_blank" rel="noopener noreferrer">Disciplinas Optativas</a></li>

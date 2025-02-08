@@ -26,6 +26,9 @@ export const FooterText = styled.div`
     @media screen and (max-width: 768px) {
         display: none;
     }
+    @media screen and (max-width: 1400px) {
+        font-size: 0.8rem;
+    }
 `
 export const SocialLinks = styled.div`
     display: flex;
@@ -55,4 +58,6 @@ export const SocialLinks = styled.div`
     @media screen and (max-width: 768px) {
         flex-direction: row;
     }
+
+    
 `;

@@ -95,7 +95,7 @@ export const HeaderStyled = styled.header`
         }
     }
 
-    @media screen and (max-width: 1400px) {
+    @media screen and (min-width: 769px) and (max-width: 1400px) {
         .logo {
             display: none;
         }

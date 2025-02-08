@@ -26,7 +26,7 @@ export const StylePostSection = styled.section`
         }
     }
     
-    @media screen and (max-width: 1400px) {
+    @media screen and (min-width: 769px) and (max-width: 1400px) {
         .post-card:nth-child(n+5) {
             display: none;
         }

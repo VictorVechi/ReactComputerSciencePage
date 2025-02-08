@@ -52,6 +52,7 @@ export const StyledCard = styled.div`
     width: 90%;
     height: 60%;
     justify-content: space-around;
+    flex-direction: column;
     
     .card-header {
       margin: 0;
@@ -70,7 +71,7 @@ export const StyledCard = styled.div`
 
   }
 
-  @media screen and (max-width: 1400px) {
+  @media screen and (min-width: 769px) and (max-width: 1400px) {
     width: 100%;
     height: 80%;
     justify-content: space-around;

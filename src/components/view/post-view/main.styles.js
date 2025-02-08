@@ -7,6 +7,10 @@ export const StyledMainPostView = styled.div`
   width: 100%;
   min-height: 80vh; 
 
+  .SidebarRight {
+    display: none;
+  }
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;

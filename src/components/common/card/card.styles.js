@@ -65,9 +65,6 @@ export const StyledCard = styled.div`
     .card-title {
       font-size: 1.1rem;
     }
-    .card-content {
-      display: none;
-    }
 
   }
 

@@ -6,9 +6,9 @@ const Card = ({ title, content, tag }) => {
   const [display, setDisplay] = useState("default");
 
   useEffect(() => {
-    let lenght = window.innerWidth;
+    let width = window.innerWidth;
 
-    if(lenght < 1000){
+    if(width < 1000){
       setDisplay("mobile");
     }
   })

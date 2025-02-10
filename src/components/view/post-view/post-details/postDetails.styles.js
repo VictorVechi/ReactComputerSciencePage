@@ -39,6 +39,25 @@ export const StyledPostDetails = styled.div`
     hyphens: auto;
   }
 
+  @media screen and (min-width: 769px) and (max-width: 1400px) {
+    padding: 1.5rem;
+
+    .PostTag {
+      font-size: 1rem;
+    }
+    .PostDate {
+      font-size: 1rem;
+    }
+    .PostTitle {
+      font-size: 1.8rem;
+    }
+
+    .PostContent {
+      font-size: 1.2rem;
+    }
+
+  }
+
   @media screen and (max-width: 768px) {
     max-width: 100%;
     padding: 1.5rem;

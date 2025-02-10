@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { StyledCard } from './card.styles';
-import { generatePreview } from './preview-handler/previewHandler';
+import { generatePreview, setPreviewSize } from './preview-handler/previewHandler';
 
 const Card = ({ title, content, tag }) => {
-  const [display, setDisplay] = useState("default");
+  const [titleSize, setTitleSize] = useState(70);
+  const [contentSize, setContentSize] = useState(300);
 
   useEffect(() => {
-    let width = window.innerWidth;
-
-    if(width < 1000){
-      setDisplay("mobile");
-    }
-  })
+    setPreviewSize(setTitleSize, setContentSize)
+  }, [])
 
   return (
     <StyledCard>
       <div className='card-header'>
         <span className='card-tag'>{tag}</span>
-        <h2 className='card-title'>{generatePreview(title, display == "default" ? 70 : 45)}</h2>
-        <p className='card-content'>{generatePreview(content, display == "default" ? 300 : 100)}</p>
+        <h2 className='card-title'>{generatePreview(title, titleSize)}</h2>
+        <p className='card-content'>{generatePreview(content, contentSize)}</p>
       </div>
     </StyledCard>
   );

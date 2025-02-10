@@ -9,3 +9,18 @@ export const generatePreview = (text, length) => {
 
     return text;
 }
+
+export const setPreviewSize = (setTitleSize, setContentSize) => {
+    const setSizes = (titS, contS) => {
+        setTitleSize(titS)
+        setContentSize(contS)
+    }
+    
+    let width = window.innerWidth;
+
+    if (width <= 768) {
+        setSizes(45, 100)
+    } else if (width <= 1400) {
+        setSizes(60, 150)
+    }
+}

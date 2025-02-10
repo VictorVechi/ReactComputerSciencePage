@@ -40,6 +40,32 @@ export const StyleResultSection = styled.main`
         margin-top: 1%;
     }
 
+    @media screen and (min-width: 769px) and (max-width: 1400px){
+        .order-container {
+            p {
+                font-size: larger;
+            }
+        }
+
+        .posts-container {
+            .no-results {
+                margin-top: 10%;
+                text-align: center;
+            }
+        }
+
+        .post-card {
+            flex: 0 0 100%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8em;
+        }
+    }
+
     @media screen and (max-width: 768px){
         .order-container {
             flex-direction: column;

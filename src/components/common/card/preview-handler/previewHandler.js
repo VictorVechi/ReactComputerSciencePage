@@ -21,6 +21,6 @@ export const setPreviewSize = (setTitleSize, setContentSize) => {
     if (width <= 768) {
         setSizes(45, 100)
     } else if (width <= 1400) {
-        setSizes(60, 150)
+        setSizes(55, 135)
     }
 }

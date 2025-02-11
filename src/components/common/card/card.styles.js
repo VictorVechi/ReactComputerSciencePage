@@ -70,7 +70,7 @@ export const StyledCard = styled.div`
 
   @media screen and (min-width: 769px) and (max-width: 1400px) {
     width: 100%;
-    height: 80%;
+    height: 285px;
     justify-content: space-around;
     
     .card-header {

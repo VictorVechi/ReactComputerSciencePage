@@ -44,4 +44,12 @@ export const StyledLoginForm = styled.form`
             width: 80%;
         }
     }
+
+    @media screen and (min-width: 769px) and (max-width: 1400px) {
+        width: 80%;
+        height: 60%;
+        .btn-login {
+            width: 50%;
+        }
+    }
 `

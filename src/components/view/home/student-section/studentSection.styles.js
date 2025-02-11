@@ -77,4 +77,12 @@ export const StyleStudentSection = styled.section`
             font-size: 0.8rem;
         }
     }
+
+    @media screen and (min-width: 769px) and (max-width: 1400px) {
+        
+        .text-second-section{
+            font-size: 14pt;
+            backdrop-filter: blur(15px);
+        }
+    }
 `

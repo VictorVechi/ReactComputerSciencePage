@@ -19,8 +19,10 @@ export const setPreviewSize = (setTitleSize, setContentSize) => {
     let width = window.innerWidth;
 
     if (width <= 768) {
-        setSizes(45, 100)
+        setSizes(45, 100);
+    } else if (width <= 1200){
+        setSizes(45, 90);
     } else if (width <= 1400) {
-        setSizes(55, 135)
+        setSizes(55, 135);
     }
 }

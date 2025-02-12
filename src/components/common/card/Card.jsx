@@ -7,7 +7,18 @@ const Card = ({ title, content, tag }) => {
   const [contentSize, setContentSize] = useState(300);
 
   useEffect(() => {
-    setPreviewSize(setTitleSize, setContentSize)
+    const handleResize = () => {
+      setPreviewSize(setTitleSize, setContentSize)
+    }
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+
   }, [])
 
   return (

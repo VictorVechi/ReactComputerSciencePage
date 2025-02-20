@@ -60,7 +60,7 @@ const Header = () => {
                             </li>
                         </NavLink>}
                     {isAuth && isDashboard &&
-                        <NavLink to="/" onClick={logout && setMenuOpen(false)}>
+                        <NavLink to="/" onClick={logout() && setMenuOpen(false)}>
                             <li className="login-button">
                                 Logout
                             </li>

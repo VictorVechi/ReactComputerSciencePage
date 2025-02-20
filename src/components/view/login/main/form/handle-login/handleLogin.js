@@ -13,9 +13,7 @@ export const handleLogin = async (event, email, senha, navigate) => {
         const api = Api.getInstance();
 
         const response = await api.postUsuarioLogin(data)
-        console.log('response', response)
         if (response && response.token) {
-            console.log('Login efetuado com sucesso:', response);
             localStorage.setItem(LocalStorageEnum.TOKEN_KEY, response.token);
             localStorage.setItem(LocalStorageEnum.USER_NAME, response.user.name);
             localStorage.setItem(LocalStorageEnum.USER_ID, response.user.id)

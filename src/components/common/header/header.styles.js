@@ -141,23 +141,4 @@ export const HeaderStyled = styled.header`
     }
 }
 
-
-
-    /* @media screen and (min-width: 769px) and (max-width: 1400px) {
-        .logo {
-            display: none;
-        }
-
-        nav {
-            width: 100%;
-            height: 100%;
-        }
-
-        nav ul {
-            justify-content: space-around;
-            font-size: 0.8rem;
-            height: 100%;
-            align-items: center;
-        }
-    } */
 `

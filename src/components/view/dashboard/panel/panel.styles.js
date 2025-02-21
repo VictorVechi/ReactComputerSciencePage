@@ -39,4 +39,24 @@ export const StyledOptionsPanel = styled.div`
     display: flex;
     justify-content: center;
   }
+
+  @media screen and (max-width: 768px) {
+        width: 70%;
+        padding: 15px;
+
+        h2 {
+            font-size: 1.5rem; /* Reduz o tamanho do título */
+        }
+
+        .button-container {
+            flex-direction: column; /* Alinha botões verticalmente */
+            align-items: center;
+        }
+
+        button {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+        }
+    }
 `;

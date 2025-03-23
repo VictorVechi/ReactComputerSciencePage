@@ -45,18 +45,18 @@ export const StyledOptionsPanel = styled.div`
         padding: 15px;
 
         h2 {
-            font-size: 1.5rem; /* Reduz o tamanho do título */
+            font-size: 1.5rem;
         }
 
         .button-container {
-            flex-direction: column; /* Alinha botões verticalmente */
+            flex-direction: column;
             align-items: center;
         }
 
         button {
             width: 100%;
             padding: 1.2rem;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
     }
 `;

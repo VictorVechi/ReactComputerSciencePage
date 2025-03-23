@@ -31,5 +31,19 @@ export const StyleSearch = styled.section`
         height: auto;
     }
 
+    @media screen and (max-width: 768px) {
+        .search-container {
+            font-size: 12pt;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 18pt;
+        }
+        .input {
+            width: 60%;
+        }
+    }
 
 `

@@ -31,4 +31,16 @@ export const StyledMainLogin = styled.main`
         width: 100%;
     }
 
+    @media screen and (max-width: 768px) {
+
+        .form-section {
+            width: 100vw;
+            padding: 0 10px;
+        }
+        .image-section {
+            display: none;
+        }
+
+    }
+
 `

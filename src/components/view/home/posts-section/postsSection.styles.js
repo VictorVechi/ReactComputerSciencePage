@@ -15,4 +15,24 @@ export const StylePostSection = styled.section`
         justify-content: center;
         align-items: center;
     }
+
+    @media screen and (max-width: 768px) {
+        .post-card:nth-child(n+4) {
+            display: none;
+        }
+
+        .post-card {
+            flex: 0 0 100%;
+        }
+    }
+    
+    @media screen and (min-width: 769px) and (max-width: 1400px) {
+        .post-card:nth-child(n+5) {
+            display: none;
+        }
+
+        .post-card {
+            flex: 0 0 40%;
+        }
+    }
 `

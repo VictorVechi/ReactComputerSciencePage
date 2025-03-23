@@ -41,7 +41,7 @@ const ResultSection = () => {
                         </div>
                     ))
                 ) : (
-                    <p>Nenhum resultado encontrado.</p>
+                    <p className="no-results">Nenhum resultado encontrado.</p>
                 )}
             </div>
         </StyleResultSection>

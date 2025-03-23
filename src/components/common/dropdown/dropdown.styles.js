@@ -20,4 +20,16 @@ export const StyledDropdown = styled.div`
     padding: 0 0.5rem;
     transition: 0.3s all ease;
   }
+
+  @media screen and (max-width: 768px) {
+    label {
+      font-size: small;
+    }
+
+    select {
+      width: 8rem;
+      height: 1.2rem;
+    }
+
+  }
 `;

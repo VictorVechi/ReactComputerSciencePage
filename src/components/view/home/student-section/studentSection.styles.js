@@ -30,7 +30,6 @@ export const StyleStudentSection = styled.section`
         line-height: 1.5;
         max-width: 600px;
         padding: 15px;
-
         background: rgba(255, 255, 255, 0.18);
         border-radius: 16px;
         box-shadow: 0 4px 30px ${theme.orangeP3};
@@ -68,9 +67,22 @@ export const StyleStudentSection = styled.section`
 
 
     @media (max-width: 768px) {
-        .content {
-            flex-direction: column;
-            align-items: center;
+        flex-direction: column;
+        align-items: center;
+        background-attachment: local;
+        
+        .text-second-section {
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            font-size: 0.8rem;
+        }
     }
-  }
+
+    @media screen and (min-width: 769px) and (max-width: 1400px) {
+        
+        .text-second-section{
+            font-size: 14pt;
+            backdrop-filter: blur(15px);
+        }
+    }
 `

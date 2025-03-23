@@ -37,4 +37,19 @@ export const StyledLoginForm = styled.form`
         box-shadow: 0 0 ${theme.yellowP4};
     }
 
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        height: 70%;
+        .btn-login {
+            width: 80%;
+        }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1400px) {
+        width: 80%;
+        height: 60%;
+        .btn-login {
+            width: 50%;
+        }
+    }
 `

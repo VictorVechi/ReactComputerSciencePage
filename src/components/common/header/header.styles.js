@@ -21,6 +21,21 @@ export const HeaderStyled = styled.header`
         align-self: flex-start;
     }
 
+    .menu-button {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        z-index: 20;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .menu-button:hover {
+        transform: scale(1.1);
+        color: ${theme.orangeP3};
+    }
+
     nav {
         display: flex;
         width: 45%;
@@ -71,4 +86,59 @@ export const HeaderStyled = styled.header`
         color: ${theme.orangeP3};
         background-color: ${theme.white};
     }
+
+    @media screen and (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+        position: relative;
+        z-index: 30; 
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: none; 
+        justify-content: center;
+        align-items: center;
+        z-index: 20;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 30px; 
+        text-align: center;
+        justify-content: center;
+        align-items: center; 
+        height: 100%; 
+    }
+
+    nav ul li {
+        width: 250px; 
+        padding: 20px; 
+        font-size: 22px; 
+        font-weight: bold; 
+        border-radius: 15px; 
+        transition: all 0.3s ease-in-out;
+    }
+
+    nav ul li:hover {
+        transform: scale(1.05);
+        background-color: ${theme.darkpurpleP2};
+        color: ${theme.white};
+    }
+}
+
 `

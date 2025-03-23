@@ -17,7 +17,6 @@ export const StyledPostDetails = styled.div`
     margin-bottom: 1%;
   }
 
-
   .PostTitle {
     font-size: 2.5rem;
     margin-bottom: 5%;
@@ -25,7 +24,7 @@ export const StyledPostDetails = styled.div`
     text-align: left;
   }
 
-  .PostDate{
+  .PostDate {
     display: block;
     font-size: 1.2rem;
     color: ${theme.gray};
@@ -39,4 +38,42 @@ export const StyledPostDetails = styled.div`
     text-align: justify;
     hyphens: auto;
   }
-`
+
+  @media screen and (min-width: 769px) and (max-width: 1400px) {
+    padding: 1.5rem;
+
+    .PostTag {
+      font-size: 1rem;
+    }
+    .PostDate {
+      font-size: 1rem;
+    }
+    .PostTitle {
+      font-size: 1.8rem;
+    }
+
+    .PostContent {
+      font-size: 1.2rem;
+    }
+
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    padding: 1.5rem;
+
+    .PostTag {
+      font-size: 0.8rem;
+    }
+    .PostDate {
+      font-size: 0.8rem;
+    }
+    .PostTitle {
+      font-size: 1.5rem;
+    }
+
+    .PostContent {
+      font-size: 1rem;
+    }
+  }
+`;

@@ -6,4 +6,8 @@ export const StyleSearchResult = styled.main`
     align-items: center;
     flex-direction: column;
     width: 100%;
+
+    @media screen and (max-width: 768px) {
+        padding: 1rem;
+    }
 `

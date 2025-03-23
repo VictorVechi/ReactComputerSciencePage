@@ -37,4 +37,19 @@ export const StyledSidebar = styled.aside`
     }
 
   }
+
+  @media screen and (max-width: 768px) {
+    width: 35%;
+    padding: 10px;
+
+    .menu {
+      justify-content: flex-start;
+      margin-bottom: 1.2rem;
+    }
+
+    .menu button {
+      font-size: 1.1rem;
+      padding: 0.8rem; 
+    }
+  }
 `;

@@ -11,7 +11,7 @@ export const FooterStyled = styled.footer`
     color: ${theme.white};
 `
 
-export const FooterText = styled.p`
+export const FooterText = styled.div`
     display: flex;
     padding: 10px;
     flex-direction: column;
@@ -21,6 +21,13 @@ export const FooterText = styled.p`
     font-size: 1.0rem;
     span {
         text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+    @media screen and (max-width: 1400px) {
+        font-size: 0.8rem;
     }
 `
 export const SocialLinks = styled.div`
@@ -47,4 +54,10 @@ export const SocialLinks = styled.div`
             color: ${theme.orangeP3}; 
         }
     }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: row;
+    }
+
+    
 `;

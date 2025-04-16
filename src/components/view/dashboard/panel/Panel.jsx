@@ -19,6 +19,20 @@ const OptionsPanel = ({ activeOption }) => {
                     onClick={() => handleNavigation(`/dashboard/create-${activeOption}`)}
                 />
             </div>
+
+            <div className="button-container">
+                <Button
+                    texto={`Cadastrar Novo ${activeOption}`}
+                    onClick={() => handleNavigation(`/dashboard/roles/create-${activeOption}`)}
+                />
+            </div>
+
+            <div className="button-container">
+                <Button
+                    texto={`Editar ${activeOption}`}
+                    onClick={() => handleNavigation(`/dashboard/roles/edit-${activeOption}`)}
+                />
+            </div>
         </StyledOptionsPanel>
     );
 };

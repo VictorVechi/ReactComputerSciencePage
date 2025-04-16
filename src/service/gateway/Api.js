@@ -178,9 +178,9 @@ export default class Api {
     }
   }
 
-  async putRoleUpdate(data) {
+  async putRoleUpdate(data, id) {
     try {
-      const response = await this.roleApi.putRoleUpdate(data);
+      const response = await this.roleApi.putRoleUpdate(data, id);
       if (response) {
         return response.data;
       } else {

@@ -16,7 +16,7 @@ const OptionsPanel = ({ activeOption }) => {
             <div className="button-container">
                 <Button
                     texto={`Cadastrar Novo ${activeOption === "user" ? "Usuário" : "Post"}`}
-                    onClick={() => handleNavigation(`/dashboard/create-${activeOption}`)}
+                    onClick={() => handleNavigation(`/dashboard/${activeOption}/create-${activeOption}`)}
                 />
             </div>
 

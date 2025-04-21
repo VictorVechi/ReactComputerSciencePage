@@ -1,4 +1,4 @@
-import Api from "../../../../../../service/gateway/Api";
+import Api from "../../../../../../../service/gateway/Api";
 
 export const fetchRoles = async (setRoles) => {
   try {
@@ -9,7 +9,7 @@ export const fetchRoles = async (setRoles) => {
     } else {
       setRoles([]);
     }
-  } catch (error) { 
+  } catch (error) {
     console.error("Erro ao buscar cargos:", error);
     setRoles([]);
   }

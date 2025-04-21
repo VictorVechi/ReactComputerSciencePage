@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyledUserPanel } from './userPanel.styles';
 import CreateUser from './create-user/CreateUser';
+import EditUserInfo from './edit-user/edit-user-info/EditUserInfo';
 
 const UserPanel = () => {
 
@@ -41,8 +42,7 @@ const UserPanel = () => {
             }
             {
                 editUserInfo && (
-                    <div>
-                    </div>
+                    <EditUserInfo />
                 )
             }
             {

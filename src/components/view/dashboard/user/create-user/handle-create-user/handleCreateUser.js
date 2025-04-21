@@ -1,4 +1,4 @@
-import Api from "../../../../../../../service/gateway/Api";
+import Api from "../../../../../../service/gateway/Api";
 
 export const fetchRoles = async (setRoles) => {
   try {

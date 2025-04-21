@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { StyledCreateUserForm } from "./form.styles";
+import { StyledCreateUserForm } from "./createUserForm.styles";
 import { useNavigate } from "react-router-dom";
 import { fetchRoles } from "./handle-create-user/handleCreateUser";
-import Api from "../../../../../../service/gateway/Api";
+import Api from "../../../../../service/gateway/Api";
 
 const CreateUserForm = () => {
   const [name, setName] = useState("");

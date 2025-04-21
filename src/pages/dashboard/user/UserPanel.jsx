@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyledUserPanel } from './userPanel.styles';
 import CreateUser from './create-user/CreateUser';
 import EditUserInfo from './edit-user/edit-user-info/EditUserInfo';
+import EditUserPw from './edit-user/edit-user-pass/EditUserPw';
 
 const UserPanel = () => {
 
@@ -47,8 +48,7 @@ const UserPanel = () => {
             }
             {
                 editUserPass && (
-                    <div>
-                    </div>
+                    <EditUserPw />
                 )
             }
             {

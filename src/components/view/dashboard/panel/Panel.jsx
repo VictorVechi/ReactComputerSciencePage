@@ -8,28 +8,43 @@ const OptionsPanel = ({ activeOption }) => {
 
     const handleNavigation = (path) => {
         navigate(path);
-    };
+    }
+
+    const setOptionName = () => {
+        switch (activeOption) {
+            case "user":
+                return "Usuário";
+            case "post":
+                return "Post";
+            case "roles":
+                return "Cargo";
+            default:
+                return "";
+        }
+    }
+
+    const optionName = setOptionName();
 
     return (
         <StyledOptionsPanel>
-            <h2>{activeOption === "user" ? "Usuário" : "Posts"}</h2>
+            <h2>{optionName}</h2>
             <div className="button-container">
                 <Button
-                    texto={`Cadastrar Novo ${activeOption === "user" ? "Usuário" : "Post"}`}
+                    texto={`Cadastrar Novo ${optionName}`}
                     onClick={() => handleNavigation(`/dashboard/${activeOption}/create-${activeOption}`)}
                 />
             </div>
 
             <div className="button-container">
                 <Button
-                    texto={`Cadastrar Novo ${activeOption}`}
+                    texto={`Cadastrar Novo ${optionName}`}
                     onClick={() => handleNavigation(`/dashboard/${activeOption}/create-${activeOption}`)}
                 />
             </div>
 
             <div className="button-container">
                 <Button
-                    texto={`Editar ${activeOption}`}
+                    texto={`Editar ${optionName}`}
                     onClick={() => handleNavigation(`/dashboard/${activeOption}/edit-${activeOption}`)}
                 />
             </div>

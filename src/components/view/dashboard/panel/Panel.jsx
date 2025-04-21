@@ -23,14 +23,14 @@ const OptionsPanel = ({ activeOption }) => {
             <div className="button-container">
                 <Button
                     texto={`Cadastrar Novo ${activeOption}`}
-                    onClick={() => handleNavigation(`/dashboard/roles/create-${activeOption}`)}
+                    onClick={() => handleNavigation(`/dashboard/${activeOption}/create-${activeOption}`)}
                 />
             </div>
 
             <div className="button-container">
                 <Button
                     texto={`Editar ${activeOption}`}
-                    onClick={() => handleNavigation(`/dashboard/roles/edit-${activeOption}`)}
+                    onClick={() => handleNavigation(`/dashboard/${activeOption}/edit-${activeOption}`)}
                 />
             </div>
         </StyledOptionsPanel>

@@ -11,13 +11,13 @@ const UserEditOptions = () => {
             <div className="button-container">
                 <Button
                     texto="Editar Nome e Email"
-                    onClick={() => navigate("/dashboard/user/edit-info")}
+                    onClick={() => navigate("/dashboard/user/edit-user-info")}
                 />
             </div>
             <div className="button-container">
                 <Button
                     texto="Editar Senha"
-                    onClick={() => navigate("/dashboard/user/edit-password")}
+                    onClick={() => navigate("/dashboard/user/edit-user-password")}
                 />
             </div>
         </StyledUserEditOptions>

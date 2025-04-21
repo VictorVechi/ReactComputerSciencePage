@@ -5,7 +5,8 @@ import CreateUser from './create-user/CreateUser';
 const UserPanel = () => {
 
     const [createUser, setCreateUser] = useState(false);
-    const [editUser, setEditUser] = useState(false);
+    const [editUserInfo, setEditUserInfo] = useState(false);
+    const [editUserPass, setEditUserPass] = useState(false);
     const [deleteUser, setDeleteUser] = useState(false);
 
     useEffect(() => {
@@ -13,15 +14,19 @@ const UserPanel = () => {
             case '/dashboard/user/create-user':
                 setCreateUser(true);
                 break;
-            case '/dashboard/user/edit-user':
-                setEditUser(true);
+            case '/dashboard/user/edit-user-info':
+                setEditUserInfo(true);
+                break;
+            case '/dashboard/user/edit-user-password':
+                setEditUserPass(true);
                 break;
             case '/dashboard/user/delete-user':
                 setDeleteUser(true);
                 break;
             default:
                 setCreateUser(false);
-                setEditUser(false);
+                setEditUserInfo(false);
+                setEditUserPass(false);
                 setDeleteUser(false);
                 break;
         }
@@ -31,11 +36,17 @@ const UserPanel = () => {
         <StyledUserPanel>
             {
                 createUser && (
-                    <CreateUser/>
+                    <CreateUser />
                 )
             }
             {
-                editUser && (
+                editUserInfo && (
+                    <div>
+                    </div>
+                )
+            }
+            {
+                editUserPass && (
                     <div>
                     </div>
                 )

@@ -13,7 +13,7 @@ const UserUpdateInfoForm = () => {
 
     useEffect(() => {
         const getUserData = async () => {
-            const user_data = await apiInstance.getUsuarioById(userID);
+            const user_data = await apiInstance.getUsuarioByToken();
 
             setName(user_data.user.name);
             setEmail(user_data.user.email);

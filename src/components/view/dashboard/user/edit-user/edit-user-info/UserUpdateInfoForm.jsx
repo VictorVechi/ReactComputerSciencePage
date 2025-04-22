@@ -40,7 +40,7 @@ const UserUpdateInfoForm = () => {
             await apiInstance.putUsuarioData(data);
             navigate("/dashboard");
         } catch (error) {
-            console.error("Erro ao criar usuário:", error);
+            console.error("Erro ao atualizar informações do usuário:", error);
         }
     };
 

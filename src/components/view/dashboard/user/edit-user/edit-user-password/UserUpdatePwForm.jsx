@@ -30,7 +30,7 @@ const UserUpdatePwForm = () => {
       await apiInstance.putUsuarioPassword(data);
       navigate("/dashboard");
     } catch (error) {
-      console.error("Erro ao criar usuário:", error);
+      console.error("Erro ao atualizar senha:", error);
     }
   };
 

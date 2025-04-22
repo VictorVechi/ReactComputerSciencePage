@@ -12,7 +12,7 @@ const UserPanel = () => {
     const [deleteUser, setDeleteUser] = useState(false);
 
     useEffect(() => {
-        switch (window.location.pathname) {
+        switch (location.pathname) {
             case '/dashboard/user/create-user':
                 setCreateUser(true);
                 break;
@@ -32,7 +32,7 @@ const UserPanel = () => {
                 setDeleteUser(false);
                 break;
         }
-    }, [window.location.pathname]);
+    }, [location.pathname]);
 
     return (
         <StyledUserPanel>

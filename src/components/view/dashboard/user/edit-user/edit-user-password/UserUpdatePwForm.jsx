@@ -15,16 +15,15 @@ const UserUpdatePwForm = () => {
     e.preventDefault();
 
     const sanitizedEmail = email.trim()
-    const sanitizedPw = password.trim()
 
-    if(!sanitizedEmail || !sanitizedPw) return;
+    if(!sanitizedEmail) return;
 
     try {
       const apiInstance = Api.getInstance();
       const data = {
         id: userID,
         email: sanitizedEmail,
-        password: sanitizedPw
+        password
       };
 
       await apiInstance.putUsuarioPassword(data);

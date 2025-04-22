@@ -18,19 +18,25 @@ const CreateUserForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const apiInstance = Api.getInstance();
-      const data = {
-        name,
-        email,
-        password,
-        id_cargo: selectedRole.id,
-      };
-      await apiInstance.postUsuarioRegister(data);
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Erro ao criar usuário:", error);
-    }
+
+    const sanitizedName = name.trim();
+    const sanitizedEmail = email.trim();
+
+    if (!sanitizedEmail || !sanitizedName || !password || !selectedRole) return;
+
+      try {
+        const apiInstance = Api.getInstance();
+        const data = {
+          name: sanitizedName,
+          email: sanitizedEmail,
+          password,
+          id_cargo: selectedRole.id,
+        };
+        await apiInstance.postUsuarioRegister(data);
+        navigate("/dashboard");
+      } catch (error) {
+        console.error("Erro ao criar usuário:", error);
+      }
   };
 
   return (

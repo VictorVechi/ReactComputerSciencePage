@@ -13,12 +13,18 @@ const UserUpdatePwForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const sanitizedEmail = email.trim()
+    const sanitizedPw = password.trim()
+
+    if(!sanitizedEmail || !sanitizedPw) return;
+
     try {
       const apiInstance = Api.getInstance();
       const data = {
         id: userID,
-        email,
-        password
+        email: sanitizedEmail,
+        password: sanitizedPw
       };
 
       await apiInstance.putUsuarioPassword(data);
@@ -38,6 +44,7 @@ const UserUpdatePwForm = () => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <label htmlFor="password">Nova senha</label>
         <input

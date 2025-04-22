@@ -25,11 +25,16 @@ const UserUpdateInfoForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const sanitizedName = name.trim();
+        const sanitizedEmail = email.trim();
+
+        if(!sanitizedEmail || !sanitizedName) return;
+
         try {
             const data = {
                 id: userID,
-                name,
-                email,
+                name: sanitizedName,
+                email: sanitizedEmail,
             };
 
             await apiInstance.putUsuarioData(data);
@@ -49,6 +54,7 @@ const UserUpdateInfoForm = () => {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    required
                 />
                 <label htmlFor="email">Email</label>
                 <input
@@ -56,6 +62,7 @@ const UserUpdateInfoForm = () => {
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                 />
                 <button type="submit">Atualizar informações</button>
             </form>

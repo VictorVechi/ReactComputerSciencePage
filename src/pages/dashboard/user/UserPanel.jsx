@@ -3,6 +3,7 @@ import { StyledUserPanel } from './userPanel.styles';
 import CreateUser from './create-user/CreateUser';
 import EditUserInfo from './edit-user/edit-user-info/EditUserInfo';
 import EditUserPw from './edit-user/edit-user-pass/EditUserPw';
+import DeleteUser from './delete-user/DeleteUser';
 
 const UserPanel = () => {
 
@@ -53,8 +54,7 @@ const UserPanel = () => {
             }
             {
                 deleteUser && (
-                    <div>
-                    </div>
+                    <DeleteUser />
                 )
             }
         </StyledUserPanel>

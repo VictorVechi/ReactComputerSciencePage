@@ -71,7 +71,7 @@ export default class UsuarioApi {
 
    async deleteUsuarioByEmail(data) {
     try {
-        const response = await this.api.delete(`/user/delete`, data);
+        const response = await this.api.delete('/user/delete', {data});
         return response;
     } catch (error) {
         console.log(error)

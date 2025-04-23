@@ -2,47 +2,118 @@ import styled from "styled-components";
 
 export const StyledUserDeleteForm = styled.div`
     max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
 
-  h1 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-
-    label {
-      margin-bottom: 0.5rem;
-      font-weight: bold;
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
     }
 
-    input,
-    select {
+    .user-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
       margin-bottom: 1rem;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 
-    button {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 4px;
-      background-color: #007bff;
-      color: #fff;
-      font-size: 1rem;
-      cursor: pointer;
+      div {
+        display: flex;
+        flex-direction: column;
 
-      &:hover {
-        background-color: #0056b3;
+        strong {
+          font-size: 1rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+          color: #666;
+          font-weight: 500;
+        }
+
+        p.email {
+          font-family: "Courier New", Courier, monospace;
+          color: #007acc;
+          font-size: 0.9rem;
+        }
       }
     }
-  }
-`
+
+    .delete-button {
+      background: transparent;
+      border: none;
+      color: #d11a2a;
+      cursor: pointer;
+      transition: transform 0.1s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+`;
+
+export const ModalOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 2rem;
+        color: #333;
+      }
+
+      code {
+        font-family: "Courier New", Courier, monospace;
+        background: #f1f1f1;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.95rem;
+      }
+
+      .modal-actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .cancel {
+          background: #ccc;
+        }
+
+        .confirm {
+          background: #d11a2a;
+          color: white;
+        }
+
+        button {
+          padding: 0.5rem 1.5rem;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+`;

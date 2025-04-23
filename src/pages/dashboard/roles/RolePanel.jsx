@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { StyledRolePanel } from './rolePanel';
-import RoleForm from '../../../components/view/dashboard/role/create-form/RoleCreateForm';
 import CreateRole from './create-role/CreateRole';
 import UpdateRole from './update-role/create-role/UpdateRole';
+import { StyledRolePanel } from './rolePanel.styles';
 
 
 const RolePanel = () => {

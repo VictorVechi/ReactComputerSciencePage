@@ -6,24 +6,26 @@ import { LocalStorageEnum } from "../../../../../../enum/LocalStorageEnum";
 
 const UserUpdatePwForm = () => {
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const userID = localStorage.getItem(LocalStorageEnum.USER_ID)
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const sanitizedEmail = email.trim()
+    if (!password || !newPassword || !confirmPassword) return;
 
-    if(!sanitizedEmail) return;
+    if (newPassword !== confirmPassword) {
+      console.log("as senhas são diferentes");
+      return;
+    }
 
     try {
       const apiInstance = Api.getInstance();
       const data = {
-        id: userID,
-        email: sanitizedEmail,
-        password
+        password,
+        newPassword
       };
 
       await apiInstance.putUsuarioPassword(data);
@@ -37,20 +39,28 @@ const UserUpdatePwForm = () => {
     <StyledUserUpdatePasswordForm>
       <h1>Alterar senha</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Confirme seu email</label>
+        <label htmlFor="password">Senha atual</label>
         <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
         <label htmlFor="password">Nova senha</label>
         <input
           type="password"
           id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+          required
+        />
+        <label htmlFor="password">Confirme nova senha</label>
+        <input
+          type="password"
+          id="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
         <button type="submit">Atualizar Senha</button>

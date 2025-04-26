@@ -17,7 +17,7 @@ const TagsEditForm = () => {
         name,
         description,
       };
-      await apiInstance.putTagsEdit(data, id);
+      await apiInstance.putTagUpdate(id, data);
       navigate("/dashboard");
     } catch (error) {
       console.error("Erro ao editar tag:", error);

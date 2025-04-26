@@ -11,7 +11,8 @@ import PostSearch from './pages/post-search/PostSearch';
 import PostView from './pages/post-view/PostView';
 import QuemSomos from './pages/quem-somos/QuemSomos';
 import CreatePost from './pages/dashboard/create-post/CreatePost';
-import CreateUser from './pages/dashboard/create-user/CreateUser';
+import RolePanel from './pages/dashboard/roles/RolePanel';
+import UserPanel from './pages/dashboard/user/UserPanel';
 
 const Rotas = () => {
 	return (
@@ -29,8 +30,9 @@ const Rotas = () => {
                         element={<ProtectedRoute element={Dashboard} />}
                     />
 					<Route path='/search' element={<PostSearch />} />
-					<Route path='dashboard/create-post' element={<CreatePost />} />
-					<Route path='dashboard/create-user' element={<CreateUser />} />
+					<Route path='dashboard/post/:action' element={<CreatePost />} />
+					<Route path='dashboard/user/:action' element={<UserPanel />} />
+					<Route path='dashboard/roles/:action' element={<RolePanel />} />
 				</Routes>
 			</ThemeProvider>
 		</BrowserRouter>

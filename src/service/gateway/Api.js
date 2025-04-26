@@ -57,6 +57,21 @@ export default class Api {
     }
   }
 
+  async getUsuarioAll() {
+    try {
+      const response = await this.usuarioApi.getUsuarioAll();
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar usuários", error);
+      return null;
+    }
+  }
+
   async postUsuarioRegister(data) {
     try {
       const response = await this.usuarioApi.postUsuarioRegister(data);
@@ -178,9 +193,9 @@ export default class Api {
     }
   }
 
-  async putRoleUpdate(data) {
+  async putRoleUpdate(data, id) {
     try {
-      const response = await this.roleApi.putRoleUpdate(data);
+      const response = await this.roleApi.putRoleUpdate(data, id);
       if (response) {
         return response.data;
       } else {
@@ -189,6 +204,22 @@ export default class Api {
       }
     } catch (error) {
       console.error("Erro ao atualizar role", error);
+      return null;
+    }
+  }
+
+  async deleteRoleById(id) {
+    try {
+      const response = await this.roleApi.deleteRole(id);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    }
+    catch (error) {
+      console.error("Erro ao deletar role", error);
       return null;
     }
   }

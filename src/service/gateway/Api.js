@@ -193,6 +193,22 @@ export default class Api {
     }
   }
 
+  async deleteRoleById(id) {
+    try {
+      const response = await this.roleApi.deleteRole(id);
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    }
+    catch (error) {
+      console.error("Erro ao deletar role", error);
+      return null;
+    }
+  }
+
   //metodos Tag
 
   async getTagAll() {

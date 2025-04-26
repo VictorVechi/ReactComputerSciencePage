@@ -1,8 +1,8 @@
 import React from "react";
 import { StyledUpdateRole } from "./updateRole.styles";
-import Header from "../../../../../components/common/header/Header";
-import Footer from "../../../../../components/common/footer/Footer";
-import RoleUpdateForm from "../../../../../components/view/dashboard/role/update-form/RoleUpdateForm";
+import Header from "../../../../components/common/header/Header";
+import Footer from "../../../../components/common/footer/Footer";
+import RoleUpdateForm from "../../../../components/view/dashboard/role/update-form/RoleUpdateForm";
 
 
 const UpdateRole = () => {

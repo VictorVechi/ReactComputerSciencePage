@@ -33,6 +33,12 @@ const OptionsPanel = ({ activeOption }) => {
                     onClick={() => handleNavigation(`/dashboard/roles/edit-${activeOption}`)}
                 />
             </div>
+            <div className="button-container">
+                <Button
+                    texto={`Deletar ${activeOption}`}
+                    onClick={() => handleNavigation(`/dashboard/roles/delete-${activeOption}`)}
+                />
+            </div>
         </StyledOptionsPanel>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import CreateTags from './create-tags/CreateTags';
 import EditTags from './edit-tags/EditTags';
+import DeleteTags from './delete-tags/DeleteTags';
 import { StyledTagsPanel } from './tagsPanel.styles';
 
 const TagsPanel = () => {
@@ -31,15 +32,7 @@ const TagsPanel = () => {
         <StyledTagsPanel>
             {createTags && <CreateTags />}
             {editTags && <EditTags />}
-            {deleteTags && (
-                <div>
-                    <h2>Excluir Tag</h2>
-                    <form>
-                        <input type="text" placeholder="Nome da Tag" />
-                        <button type="submit">Excluir</button>
-                    </form>
-                </div>
-            )}
+            {deleteTags && <DeleteTags />}
         </StyledTagsPanel>
     );
 };

@@ -17,7 +17,7 @@ const TagsCreateForm = () => {
         name,
         description,
       };
-      await apiInstance.postTagsRegister(data);
+      await apiInstance.postTagRegister(data);
       navigate("/dashboard");
     } catch (error) {
       console.error("Erro ao criar tag:", error);

@@ -12,8 +12,9 @@ import PostView from './pages/post-view/PostView';
 import QuemSomos from './pages/quem-somos/QuemSomos';
 import CreatePost from './pages/dashboard/create-post/CreatePost';
 import RolePanel from './pages/dashboard/roles/RolePanel';
-import TagsPanel from './pages/dashboard/tags/TagsPanel';
 import UserPanel from './pages/dashboard/user/UserPanel';
+import TagsPanel from './pages/dashboard/tags/TagsPanel';
+
 
 const Rotas = () => {
 	return (

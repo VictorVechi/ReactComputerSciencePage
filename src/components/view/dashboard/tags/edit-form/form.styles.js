@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledUpdateTagsForm = styled.div`
+export const StyledEditTagsForm = styled.div`
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;

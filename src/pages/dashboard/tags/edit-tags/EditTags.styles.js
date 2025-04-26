@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledUpdateTags = styled.div`
+export const StyledEditTags = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import CreateTags from './create-tags/CreateTags';
-import UpdateTags from './update-tags/UpdateTags';
+import EditTags from './edit-tags/EditTags';
 import { StyledTagsPanel } from './tagsPanel.styles';
 
 const TagsPanel = () => {
@@ -9,14 +9,14 @@ const TagsPanel = () => {
     const [deleteTags, setDeleteTags] = React.useState(false);
 
     useEffect(() => {
-        switch (window.location.pathname) {
-            case '/tags/create-tags': // Corrigido
+        switch (location.pathname) {
+            case '/dashboard/tags/create-tags':
                 setCreateTags(true);
                 break;
-            case '/tags/edit-tags': // Corrigido
+            case '/dashboard/tags/edit-tags':
                 setEditTags(true);
                 break;
-            case '/tags/delete-tags': // Corrigido
+            case '/dashboard/tags/delete-tags':
                 setDeleteTags(true);
                 break;
             default:
@@ -25,12 +25,12 @@ const TagsPanel = () => {
                 setDeleteTags(false);
                 break;
         }
-    }, [window.location.pathname]);
+    }, [location.pathname]);
 
     return (
         <StyledTagsPanel>
             {createTags && <CreateTags />}
-            {editTags && <UpdateTags />}
+            {editTags && <EditTags />}
             {deleteTags && (
                 <div>
                     <h2>Excluir Tag</h2>

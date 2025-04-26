@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { StyledUpdateTagsForm } from "./form.styles";
+import { StyledEditTagsForm } from "./form.styles";
 import { useNavigate } from "react-router-dom";
 import Api from "../../../../../service/gateway/Api";
 
-const TagsUpdateForm = () => {
+const TagsEditForm = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [id, setId] = useState("");
@@ -19,7 +19,7 @@ const TagsUpdateForm = () => {
         name,
         description,
       };
-      await apiInstance.putTagsUpdate(data, id);
+      await apiInstance.putTagsEdit(data, id);
       navigate("/dashboard");
     } catch (error) {
       console.error("Erro ao criar tag:", error);
@@ -44,7 +44,7 @@ const TagsUpdateForm = () => {
   , []);
 
   return (
-    <StyledUpdateTagsForm>
+    <StyledEditTagsForm>
       <h1>Editar tag</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="tags">Selecione a tag</label>
@@ -82,8 +82,8 @@ const TagsUpdateForm = () => {
         />
         <button type="submit">Editar Tag</button>
       </form>
-    </StyledUpdateTagsForm>
+    </StyledEditTagsForm>
   );
 };
 
-export default TagsUpdateForm;
+export default TagsEditForm;

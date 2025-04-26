@@ -19,6 +19,8 @@ const OptionsPanel = ({ activeOption }) => {
                 return "Post";
             case "roles":
                 return "Cargo";
+            case "tags":
+                return "Tag";
             default:
                 return "";
         }

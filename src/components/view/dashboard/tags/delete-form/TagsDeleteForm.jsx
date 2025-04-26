@@ -14,15 +14,19 @@ const TagDeleteForm = () => {
         const fetchTags = async () => {
             try {
                 const response = await apiInstance.getTagAll();
-                setTags(response.tags);
+                const formattedTags = response.tags.map(tag => ({
+                    ...tag,
+                    id: tag._id, 
+                }));
+                setTags(formattedTags);
+                console.log("Tags formatadas:", formattedTags);
             } catch (error) {
                 console.error("Erro ao buscar tags:", error);
             }
         };
-
+    
         fetchTags();
     }, []);
-
     const handleDeleteTag = async () => {
         if (!selectedTag) return;
 
@@ -36,21 +40,27 @@ const TagDeleteForm = () => {
         }
     };
 
+    useEffect(() => {
+        console.log("Estado das tags:", tags);
+    }, [tags]);
+
     return (
         <StyledTagsDeleteForm>
             <div>
                 <h1>Deletar uma tag</h1>
-                {tags.filter(tag => tag.id && tag.id !== currentTagId).map((tag) => (
-                    <div className="tag-card" key={`tag-${tag.id}`}>
-                        <div>
-                            <strong>{tag.name}</strong>
-                            <p className="description">{tag.description}</p>
+                {tags
+                    .filter(tag => tag._id && (!currentTagId || tag._id !== currentTagId))
+                    .map((tag) => (
+                        <div className="tag-card" key={`tag-${tag._id}`}>
+                            <div>
+                                <strong>{tag.name}</strong>
+                                <p className="description">{tag.description}</p>
+                            </div>
+                            <button className="delete-button" onClick={() => { setSelectedTag(tag); setIsModalOpen(true); }}>
+                                🗑️
+                            </button>
                         </div>
-                        <button className="delete-button" onClick={() => { setSelectedTag(tag); setIsModalOpen(true); }}>
-                            🗑️
-                        </button>
-                    </div>
-                ))}
+                    ))}
             </div>
 
             {isModalOpen && (

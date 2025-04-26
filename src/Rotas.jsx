@@ -30,7 +30,7 @@ const Rotas = () => {
                         element={<ProtectedRoute element={Dashboard} />}
                     />
 					<Route path='/search' element={<PostSearch />} />
-					<Route path='dashboard/create-post' element={<CreatePost />} />
+					<Route path='dashboard/post/:action' element={<CreatePost />} />
 					<Route path='dashboard/user/:action' element={<UserPanel />} />
 					<Route path='dashboard/roles/:action' element={<RolePanel />} />
 				</Routes>

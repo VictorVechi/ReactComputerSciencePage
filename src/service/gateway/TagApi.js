@@ -44,7 +44,7 @@ export default class TagApi {
 
     async putTagUpdate(id, data){
       try {
-          const response = await this.api.put(`/tag/update/${id}`, data)
+          const response = await this.api.put(`/tag/${id}`, data)
           return response;
       } catch (error) {
           console.error(error)
@@ -53,7 +53,7 @@ export default class TagApi {
 
     async deleteTagById(id) {
       try {
-          const response = await this.api.delete(`/tag/delete/${id}`);
+          const response = await this.api.delete(`/tag/${id}`);
           return response;
       } catch (error) {
           console.log(error)

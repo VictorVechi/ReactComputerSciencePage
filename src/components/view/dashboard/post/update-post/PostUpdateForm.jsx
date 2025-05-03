@@ -17,15 +17,34 @@ const PostUpdateForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    if (!id) {
+      alert("Selecione uma publicação para atualizar.");
+      return;
+    }
+  
+    const selectedTag = tags.find(tag => tag._id === tagId);
+    if (!selectedTag) {
+      alert("Tag inválida selecionada.");
+      return;
+    }
+  
+    const data = {
+      title: titulo,
+      content: conteudo,
+      tags: [{ name: selectedTag.name }], // Aqui usamos o name real da tag
+    };
+  
     try {
       const apiInstance = Api.getInstance();
-      const data = { titulo, conteudo, tagId };
       await apiInstance.putPublicacaoUpdate(id, data);
       navigate("/dashboard");
     } catch (error) {
       console.error("Erro ao atualizar publicação:", error);
     }
   };
+  
+  
 
   // Carregar posts e tags
   useEffect(() => {
@@ -35,9 +54,6 @@ const PostUpdateForm = () => {
         const postsResponse = await apiInstance.getPublicacaoAll();
         const tagsResponse = await apiInstance.getTagAll();
 
-        // Adicionando log para verificar a resposta
-        console.log('Posts Response:', postsResponse);
-        console.log('Tags Response:', tagsResponse);
 
         if (postsResponse && tagsResponse) {
           setPosts(postsResponse || []);  // Agora usa posts diretamente

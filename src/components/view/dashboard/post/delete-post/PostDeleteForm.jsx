@@ -12,9 +12,7 @@ const PostDeleteForm = () => {
         const fetchPosts = async () => {
             try {
                 const response = await apiInstance.getPublicacaoAll();
-                console.log("Resposta da API:", response);
 
-                // ✅ Agora é um array direto, então só setamos ele
                 if (Array.isArray(response)) {
                     setPosts(response);
                 } else {
@@ -32,7 +30,7 @@ const PostDeleteForm = () => {
         if (!selectedPost) return;
 
         try {
-            await apiInstance.deletePublicacaoById({ id: selectedPost.id });
+            await apiInstance.deletePublicacaoById(selectedPost.id);
             setPosts(posts.filter(post => post.id !== selectedPost.id));
             setIsModalOpen(false);
             setSelectedPost(null);

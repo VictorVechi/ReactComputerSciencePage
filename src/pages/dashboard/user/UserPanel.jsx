@@ -4,12 +4,13 @@ import CreateUser from './create-user/CreateUser';
 import EditUserInfo from './edit-user/edit-user-info/EditUserInfo';
 import EditUserPw from './edit-user/edit-user-pass/EditUserPw';
 import DeleteUser from './delete-user/DeleteUser';
-
+u
 const UserPanel = () => {
 
     const [createUser, setCreateUser] = useState(false);
     const [editUserInfo, setEditUserInfo] = useState(false);
     const [editUserPass, setEditUserPass] = useState(false);
+    const [editOtherUser, setEditOtherUser] = useState(false);
     const [deleteUser, setDeleteUser] = useState(false);
 
     useEffect(() => {
@@ -23,6 +24,9 @@ const UserPanel = () => {
             case '/dashboard/user/edit-user-password':
                 setEditUserPass(true);
                 break;
+            case '/dashboard/user/edit-other':
+                setEditOtherUser(true)
+                break;
             case '/dashboard/user/delete-user':
                 setDeleteUser(true);
                 break;
@@ -30,6 +34,7 @@ const UserPanel = () => {
                 setCreateUser(false);
                 setEditUserInfo(false);
                 setEditUserPass(false);
+                setEditOtherUser(false);
                 setDeleteUser(false);
                 break;
         }

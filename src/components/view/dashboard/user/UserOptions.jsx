@@ -52,7 +52,7 @@ const UserOptions = () => {
                 </>
             )}
 
-            {editAnotherUser && (
+            {isAdmin && editAnotherUser && (
                 <>
                     <div className="button-container">
                         <Button
@@ -66,16 +66,13 @@ const UserOptions = () => {
                             onClick={() => navigate("/dashboard/user/edit-user-password")}
                         />
                     </div>
+                    <div className="button-container">
+                        <Button
+                            texto="Deletar usuário"
+                            onClick={() => navigate("/dashboard/user/delete-user")}
+                        />
+                    </div>
                 </>
-            )}
-
-            {isAdmin && editAnotherUser && (
-                <div className="button-container">
-                    <Button
-                        texto="Deletar usuário"
-                        onClick={() => navigate("/dashboard/user/delete-user")}
-                    />
-                </div>
             )}
         </StyledUserOptions>
     );

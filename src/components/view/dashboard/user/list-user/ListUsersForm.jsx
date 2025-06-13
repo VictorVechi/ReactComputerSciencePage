@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyledListUsers, ModalOverlay } from "./listUsersForm.styles";
+import { StyledListUsersForm, ModalOverlay } from "./listUsersForm.styles";
 import Api from "../../../../../service/gateway/Api";
 import { LocalStorageEnum } from "../../../../../enum/LocalStorageEnum";
 
@@ -15,7 +15,6 @@ const ListUsersForm = () => {
         const fetchUsers = async () => {
             try {
                 const response = await apiInstance.getUsuarioAll();
-                // console.log(response)
                 setUsers(response.users);
             } catch (error) {
                 console.error("Erro ao buscar usuários:", error);
@@ -61,7 +60,7 @@ const ListUsersForm = () => {
     return (
         <StyledListUsersForm>
             <div>
-                <h1>Escolha um usuário</h1>
+                <h1>Modificar outro usuário</h1>
                 {users.filter(user => user.id !== currentUserId).map((user) => (
                     <div className="user-card" key={user.id}>
                         <div>
@@ -71,7 +70,7 @@ const ListUsersForm = () => {
                             <p>{roles.find((role) => role.id === user.id_cargo)?.roleName || "Cargo não encontrado"}</p>
                         </div>
                         <button className="edit-button" onClick={handleEditUser("info", user)}> 📝 </button>
-                        <button className="edit-button" onClick={handleEditUser("password", user)}> 🔑</button>
+                        <button className="edit-button" onClick={handleEditUser("password", user)}> 🔑 </button>
                         <button className="delete-button" onClick={() => { setSelectedUser(user); setIsModalOpen(true); }}>
                             🗑️
                         </button>

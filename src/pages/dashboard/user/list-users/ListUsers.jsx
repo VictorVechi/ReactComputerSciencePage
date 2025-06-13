@@ -1,19 +1,19 @@
 import React from "react";
-import { StyledDeleteUser } from "./deleteUser.styles";
+import { StyledListUsers } from "./listUsers.styles";
 import Header from "../../../../components/common/header/Header";
 import Footer from "../../../../components/common/footer/Footer";
-import UserDeleteForm from "../../../../components/view/dashboard/user/delete-user/UserDeleteForm";
+import ListUsersForm from "../../../../components/view/dashboard/user/list-user/ListUsersForm";
 
-const DeleteUser = () => {
+const ListUser = () => {
     return (
-        <StyledDeleteUser>
+        <StyledListUsers>
             <Header />
             <main>
-                <UserDeleteForm />
+                <ListUsersForm />
             </main>
             <Footer />
-        </StyledDeleteUser>
+        </StyledListUsers>
     )
 }
 
-export default DeleteUser
+export default ListUser

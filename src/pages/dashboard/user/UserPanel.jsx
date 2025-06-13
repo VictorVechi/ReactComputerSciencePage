@@ -4,7 +4,8 @@ import CreateUser from './create-user/CreateUser';
 import EditUserInfo from './edit-user/edit-user-info/EditUserInfo';
 import EditUserPw from './edit-user/edit-user-pass/EditUserPw';
 import DeleteUser from './delete-user/DeleteUser';
-u
+import ListUsers from './list-users/ListUsers';
+
 const UserPanel = () => {
 
     const [createUser, setCreateUser] = useState(false);
@@ -55,6 +56,11 @@ const UserPanel = () => {
             {
                 editUserPass && (
                     <EditUserPw />
+                )
+            }
+            {
+                editOtherUser && (
+                    <ListUsers />
                 )
             }
             {

@@ -53,26 +53,7 @@ const UserOptions = () => {
             )}
 
             {isAdmin && editAnotherUser && (
-                <>
-                    {/* <div className="button-container">
-                        <Button
-                            texto="Editar Nome e Email"
-                            onClick={() => navigate("/dashboard/user/edit-user-info")}
-                        />
-                    </div>
-                    <div className="button-container">
-                        <Button
-                            texto="Editar Senha"
-                            onClick={() => navigate("/dashboard/user/edit-user-password")}
-                        />
-                    </div>
-                    <div className="button-container">
-                        <Button
-                            texto="Deletar usuário"
-                            onClick={() => navigate("/dashboard/user/delete-user")}
-                        />
-                    </div> */}
-                </>
+               navigate("/dashboard/user/edit-other")
             )}
         </StyledUserOptions>
     );

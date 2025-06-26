@@ -8,12 +8,16 @@ const CreatePostForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tags, setTags] = useState([]);
-  const [selectedTag, setSelectedTag] = useState(null);
+  const [selectedTags, setSelectedTags] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchTags(setTags);
+  fetchTags((data) => {
+    console.log("Tags carregadas:", data);
+    setTags(data);
+    });
   }, []);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,19 +25,28 @@ const CreatePostForm = () => {
     const sanitizedTitle = title.trim();
     const sanitizedContent = content.trim();
 
-    if (!sanitizedTitle || !sanitizedContent || !selectedTag) return;
+    if (!sanitizedTitle || !sanitizedContent || selectedTags.length === 0) return;
 
     try {
       const apiInstance = Api.getInstance();
       const data = {
         title: sanitizedTitle,
         content: sanitizedContent,
-        tags: [selectedTag],
+        tags: selectedTags.map(tag => ({ name: tag.name })),
       };
       await apiInstance.postPublicacaoRegister(data);
       navigate("/dashboard");
     } catch (error) {
       console.error("Erro ao criar post:", error);
+    }
+  };
+
+  const toggleTag = (tag) => {
+    const isSelected = selectedTags.some((t) => t._id === tag._id);
+    if (isSelected) {
+      setSelectedTags(selectedTags.filter((t) => t._id !== tag._id));
+    } else {
+      setSelectedTags([...selectedTags, tag]);
     }
   };
 
@@ -58,25 +71,22 @@ const CreatePostForm = () => {
           required
         />
 
-        <label htmlFor="tags">Tags</label>
-        <select
-          id="tags"
-          value={selectedTag ? selectedTag._id : ""}
-          onChange={(e) => {
-            const selected = tags.find(tag => tag._id === e.target.value);
-            setSelectedTag(selected);
-          }}
-          required
-        >
-          <option value="" disabled hidden>
-            Selecione uma tag
-          </option>
-          {tags.map((tag) => (
-            <option key={tag._id} value={tag._id}>
-              {tag.name}
-            </option>
-          ))}
-        </select>
+        <label>Tags</label>
+        <div className="tag-selector">
+          {tags.map((tag) => {
+            const isSelected = selectedTags.some((t) => t._id === tag._id);
+            return (
+              <button
+                type="button"
+                key={tag._id}
+                className={`tag-button ${isSelected ? "selected" : ""}`}
+                onClick={() => toggleTag(tag)}
+              >
+                {tag.name}
+              </button>
+            );
+          })}
+        </div>
 
         <button type="submit">Criar Post</button>
       </form>

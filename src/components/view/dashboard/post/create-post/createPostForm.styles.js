@@ -32,6 +32,12 @@ export const StyledCreatePostForm = styled.div`
       font-size: 1rem;
     }
 
+    select[multiple] {
+      min-height: 120px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+    }
+
     textarea {
       resize: vertical;
       min-height: 100px;
@@ -49,6 +55,34 @@ export const StyledCreatePostForm = styled.div`
       &:hover {
         background-color: #0056b3;
       }
+    }
+  }
+
+  .tag-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #007bff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    &.selected {
+      background-color: #007bff;
+      color: #fff;
     }
   }
 `;

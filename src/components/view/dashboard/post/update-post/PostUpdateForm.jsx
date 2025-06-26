@@ -6,35 +6,34 @@ import Api from "../../../../../service/gateway/Api";
 const PostUpdateForm = () => {
   const [titulo, setTitulo] = useState("");
   const [conteudo, setConteudo] = useState("");
-  const [tagId, setTagId] = useState("");
+  const [selectedTags, setSelectedTags] = useState([]);
   const [id, setId] = useState("");
 
   const [posts, setPosts] = useState([]);
   const [tags, setTags] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado de carregamento
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!id) {
       alert("Selecione uma publicação para atualizar.");
       return;
     }
-  
-    const selectedTag = tags.find(tag => tag._id === tagId);
-    if (!selectedTag) {
-      alert("Tag inválida selecionada.");
+
+    if (selectedTags.length === 0) {
+      alert("Selecione ao menos uma tag.");
       return;
     }
-  
+
     const data = {
       title: titulo,
       content: conteudo,
-      tags: [{ name: selectedTag.name }], // Aqui usamos o name real da tag
+      tags: selectedTags.map((tag) => ({ name: tag.name })),
     };
-  
+
     try {
       const apiInstance = Api.getInstance();
       await apiInstance.putPublicacaoUpdate(id, data);
@@ -43,10 +42,7 @@ const PostUpdateForm = () => {
       console.error("Erro ao atualizar publicação:", error);
     }
   };
-  
-  
 
-  // Carregar posts e tags
   useEffect(() => {
     const fetchPostsAndTags = async () => {
       try {
@@ -54,30 +50,30 @@ const PostUpdateForm = () => {
         const postsResponse = await apiInstance.getPublicacaoAll();
         const tagsResponse = await apiInstance.getTagAll();
 
-
         if (postsResponse && tagsResponse) {
-          setPosts(postsResponse || []);  // Agora usa posts diretamente
-          setTags(tagsResponse.tags || []); // Ajuste para acessar tags diretamente
+          setPosts(postsResponse || []);
+          setTags(tagsResponse.tags || []);
         }
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
       } finally {
-        setLoading(false); // Dados carregados, setar loading como false
+        setLoading(false);
       }
     };
 
     fetchPostsAndTags();
   }, []);
 
-  // Verificar se os dados estão carregados
-  if (loading) {
-    return <p>Carregando...</p>; // Exibir uma mensagem enquanto os dados são carregados
-  }
+  const toggleTag = (tag) => {
+    const isSelected = selectedTags.some((t) => t._id === tag._id);
+    const updatedTags = isSelected
+      ? selectedTags.filter((t) => t._id !== tag._id)
+      : [...selectedTags, tag];
+    setSelectedTags(updatedTags);
+  };
 
-  // Se posts estiver vazio, pode ser necessário verificar a estrutura da resposta
-  if (!posts.length) {
-    return <p>Nenhum post encontrado.</p>;
-  }
+  if (loading) return <p>Carregando...</p>;
+  if (!posts.length) return <p>Nenhum post encontrado.</p>;
 
   return (
     <StyledUpdatePostForm>
@@ -88,19 +84,23 @@ const PostUpdateForm = () => {
           id="post"
           onChange={(e) => {
             const selected = posts.find((p) => p.id === e.target.value);
-            setTitulo(selected?.title || "");  // Ajuste o nome do campo
-            setConteudo(selected?.content || "");  // Ajuste o nome do campo
-            setTagId(selected?.tags[0]?._id || "");  // Ajuste para acessar a tag corretamente
+            setTitulo(selected?.title || "");
+            setConteudo(selected?.content || "");
             setId(selected?.id || "");
+
+            // Corrigir para que as tags selecionadas venham completas
+            const tagObjects = tags.filter((tag) =>
+              selected?.tags?.some((t) => t.name === tag.name)
+            );
+            setSelectedTags(tagObjects);
           }}
         >
           <option value="">Selecione uma publicação</option>
-          {posts.length > 0 &&
-            posts.map((post) => (
-              <option key={post.id} value={post.id}>
-                {post.title}
-              </option>
-            ))}
+          {posts.map((post) => (
+            <option key={post.id} value={post.id}>
+              {post.title}
+            </option>
+          ))}
         </select>
 
         <label htmlFor="titulo">Título</label>
@@ -119,21 +119,22 @@ const PostUpdateForm = () => {
           required
         />
 
-        <label htmlFor="tag">Tag</label>
-        <select
-          id="tag"
-          value={tagId}
-          onChange={(e) => setTagId(e.target.value)}
-          required
-        >
-          <option value="">Selecione uma tag</option>
-          {tags.length > 0 &&
-            tags.map((tag) => (
-              <option key={tag._id} value={tag._id}>
+        <label>Tags</label>
+        <div className="tag-selector">
+          {tags.map((tag) => {
+            const isSelected = selectedTags.some((t) => t._id === tag._id);
+            return (
+              <button
+                type="button"
+                key={tag._id}
+                className={`tag-button ${isSelected ? "selected" : ""}`}
+                onClick={() => toggleTag(tag)}
+              >
                 {tag.name}
-              </option>
-            ))}
-        </select>
+              </button>
+            );
+          })}
+        </div>
 
         <button type="submit">Atualizar Publicação</button>
       </form>

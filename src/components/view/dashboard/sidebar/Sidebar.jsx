@@ -19,6 +19,14 @@ const Sidebar = ({ isAdmin, setActiveOption }) => {
           />
         </div>
       )}
+      {isAdmin && (
+        <div className="menu">
+          <Button
+            texto="Tags"
+            onClick={() => setActiveOption("tags")}
+          />
+        </div>
+      )}
       <div className="menu">
         <Button
           texto="Posts"

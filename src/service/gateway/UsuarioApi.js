@@ -24,15 +24,6 @@ export default class UsuarioApi {
     }
   }
 
-  async getUsuarioAll() {
-    try {
-        const response = await this.api.get('/users');
-        return response;
-    } catch (error) {
-        console.error(error)
-    }
-  }
-
    async postUsuarioRegister(data) {
     try {
         const response = await this.api.post('/user/register', data)
@@ -71,7 +62,7 @@ export default class UsuarioApi {
 
    async deleteUsuarioByEmail(data) {
     try {
-        const response = await this.api.delete('/user/delete', {data});
+        const response = await this.api.delete(`/user/delete`, data);
         return response;
     } catch (error) {
         console.log(error)

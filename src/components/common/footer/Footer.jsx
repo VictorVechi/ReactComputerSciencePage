@@ -11,7 +11,6 @@ const Footer = () => {
                 <p>Erico Meger</p>
                 <p>Igor Pinto</p>
                 <p>Victor Vechi</p>
-                <p>Eros Lunardon</p>
                 <p>Todos os direitos reservados &copy; 2024.</p>
             </FooterText>
             <FooterText>

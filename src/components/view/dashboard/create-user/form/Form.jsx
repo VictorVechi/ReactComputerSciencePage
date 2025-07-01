@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyledCreateUserForm } from "./createUserForm.styles";
+import { StyledCreateUserForm } from "./form.styles";
 import { useNavigate } from "react-router-dom";
 import { fetchRoles } from "./handle-create-user/handleCreateUser";
 import Api from "../../../../../service/gateway/Api";
@@ -18,25 +18,19 @@ const CreateUserForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const sanitizedName = name.trim();
-    const sanitizedEmail = email.trim();
-
-    if (!sanitizedEmail || !sanitizedName || !password || !selectedRole) return;
-
-      try {
-        const apiInstance = Api.getInstance();
-        const data = {
-          name: sanitizedName,
-          email: sanitizedEmail,
-          password,
-          id_cargo: selectedRole.id,
-        };
-        await apiInstance.postUsuarioRegister(data);
-        navigate("/dashboard");
-      } catch (error) {
-        console.error("Erro ao criar usuário:", error);
-      }
+    try {
+      const apiInstance = Api.getInstance();
+      const data = {
+        name,
+        email,
+        password,
+        id_cargo: selectedRole.id,
+      };
+      await apiInstance.postUsuarioRegister(data);
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Erro ao criar usuário:", error);
+    }
   };
 
   return (

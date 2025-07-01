@@ -33,9 +33,9 @@ export default class RoleApi {
         }
       }
   
-    async putRoleUpdate(data, id) {
+    async putRoleUpdate(data) {
         try {
-            const response = await this.api.put(`/roles/${id}`, data)
+            const response = await this.api.put('/roles/update', data)
             return response;
         } catch (error) {
             console.error(error)

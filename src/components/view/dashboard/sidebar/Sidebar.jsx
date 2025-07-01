@@ -5,25 +5,11 @@ import Button from "../../../common/button/Button"; // Importe o componente Butt
 const Sidebar = ({ isAdmin, setActiveOption }) => {
   return (
     <StyledSidebar>
+      {isAdmin && (
         <div className="menu">
           <Button
             texto="Usuário"
             onClick={() => setActiveOption("user")}
-          />
-        </div>
-      {isAdmin && (
-        <div className="menu">
-          <Button
-            texto="Cargos"
-            onClick={() => setActiveOption("roles")}
-          />
-        </div>
-      )}
-      {isAdmin && (
-        <div className="menu">
-          <Button
-            texto="Tags"
-            onClick={() => setActiveOption("tags")}
           />
         </div>
       )}

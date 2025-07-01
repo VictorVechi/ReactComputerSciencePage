@@ -57,21 +57,6 @@ export default class Api {
     }
   }
 
-  async getUsuarioAll() {
-    try {
-      const response = await this.usuarioApi.getUsuarioAll();
-      if (response) {
-        return response.data;
-      } else {
-        console.error("Resposta inválida recebida");
-        return null;
-      }
-    } catch (error) {
-      console.error("Erro ao buscar usuários", error);
-      return null;
-    }
-  }
-
   async postUsuarioRegister(data) {
     try {
       const response = await this.usuarioApi.postUsuarioRegister(data);
@@ -193,9 +178,9 @@ export default class Api {
     }
   }
 
-  async putRoleUpdate(data, id) {
+  async putRoleUpdate(data) {
     try {
-      const response = await this.roleApi.putRoleUpdate(data, id);
+      const response = await this.roleApi.putRoleUpdate(data);
       if (response) {
         return response.data;
       } else {

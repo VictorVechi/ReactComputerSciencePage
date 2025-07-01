@@ -13,6 +13,8 @@ import QuemSomos from './pages/quem-somos/QuemSomos';
 import CreatePost from './pages/dashboard/create-post/CreatePost';
 import RolePanel from './pages/dashboard/roles/RolePanel';
 import UserPanel from './pages/dashboard/user/UserPanel';
+import TagsPanel from './pages/dashboard/tags/TagsPanel';
+
 
 const Rotas = () => {
 	return (
@@ -33,6 +35,7 @@ const Rotas = () => {
 					<Route path='dashboard/create-post' element={<CreatePost />} />
 					<Route path='dashboard/user/:action' element={<UserPanel />} />
 					<Route path='dashboard/roles/:action' element={<RolePanel />} />
+					<Route path='dashboard/tags/:action' element={<TagsPanel />} />
 				</Routes>
 			</ThemeProvider>
 		</BrowserRouter>

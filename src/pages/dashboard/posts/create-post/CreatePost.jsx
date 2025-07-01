@@ -1,15 +1,15 @@
 import React from "react";
 import { StyledCreatePost } from "./createPost.styles";
-import CreatePostMain from "../../../components/view/dashboard/create-post/CreatePostMain";
-import Header from "../../../components/common/header/Header";
-import Footer from "../../../components/common/footer/Footer";
+import Header from "../../../../components/common/header/Header";
+import Footer from "../../../../components/common/footer/Footer";
+import CreatePostForm from "../../../../components/view/dashboard/post/create-post/CreatePostForm";
 
 const CreatePost = () => {
     return (
         <StyledCreatePost>
             <Header />
             <main>
-                <CreatePostMain />
+                <CreatePostForm />
             </main>
             <Footer />
         </StyledCreatePost>

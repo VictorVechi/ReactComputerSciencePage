@@ -10,7 +10,7 @@ import ProtectedRoute from './service/security/protectedRoute';
 import PostSearch from './pages/post-search/PostSearch';
 import PostView from './pages/post-view/PostView';
 import QuemSomos from './pages/quem-somos/QuemSomos';
-import CreatePost from './pages/dashboard/create-post/CreatePost';
+import PostPanel from './pages/dashboard/posts/PostPanel';
 import RolePanel from './pages/dashboard/roles/RolePanel';
 import UserPanel from './pages/dashboard/user/UserPanel';
 import TagsPanel from './pages/dashboard/tags/TagsPanel';
@@ -32,7 +32,7 @@ const Rotas = () => {
                         element={<ProtectedRoute element={Dashboard} />}
                     />
 					<Route path='/search' element={<PostSearch />} />
-					<Route path='dashboard/post/:action' element={<CreatePost />} />
+					<Route path='dashboard/post/:action' element={<PostPanel />} />
 					<Route path='dashboard/user/:action' element={<UserPanel />} />
 					<Route path='dashboard/roles/:action' element={<RolePanel />} />
 					<Route path='dashboard/tags/:action' element={<TagsPanel />} />

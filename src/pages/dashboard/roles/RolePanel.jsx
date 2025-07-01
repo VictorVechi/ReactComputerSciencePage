@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import CreateRole from './create-role/CreateRole';
-import UpdateRole from './update-role/create-role/UpdateRole';
+import UpdateRole from './update-role/UpdateRole';
 import { StyledRolePanel } from './rolePanel.styles';
+import DeleteRole from './delete-role/DeleteRole';
 
 
 const RolePanel = () => {
@@ -18,7 +19,7 @@ const RolePanel = () => {
             case '/dashboard/roles/edit-roles':
                 setEditRole(true);
                 break;
-            case '/dashboard/roles/delete-role':
+            case '/dashboard/roles/delete-roles':
                 setDeleteRole(true);
                 break;
             default:
@@ -43,13 +44,7 @@ const RolePanel = () => {
             }
             {
                 deleteRole && (
-                    <div>
-                        <h2>Excluir Papel</h2>
-                        <form>
-                            <input type="text" placeholder="Nome do Papel" />
-                            <button type="submit">Excluir</button>
-                        </form>
-                    </div>
+                    <DeleteRole />
                 )
             }
         </StyledRolePanel>

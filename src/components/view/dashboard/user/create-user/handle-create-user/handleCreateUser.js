@@ -14,11 +14,3 @@ export const fetchRoles = async (setRoles) => {
     setRoles([]);
   }
 };
-
-export const regexPassword = (password) => {
-  const Uppsercase = /[A-Z]/;
-  const Lowercase = /[a-z]/;
-  const Number = /[0-9]/;
-  const PasswordLength = password.length >= 8;
-  return Uppsercase.test(password) && Lowercase.test(password) && Number.test(password) && PasswordLength;
-}

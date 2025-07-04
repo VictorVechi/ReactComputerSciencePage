@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyledCreateUserForm } from "./createUserForm.styles";
 import { useNavigate } from "react-router-dom";
-import { fetchRoles, regexPassword } from "./handle-create-user/handleCreateUser";
+import { fetchRoles } from "./handle-create-user/handleCreateUser";
 import Api from "../../../../../service/gateway/Api";
 
 const CreateUserForm = () => {
@@ -11,8 +11,6 @@ const CreateUserForm = () => {
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState(null);
   const navigate = useNavigate();
-
-  const isValidPassword = regexPassword(password);
 
   useEffect(() => {
     fetchRoles(setRoles);
@@ -68,15 +66,7 @@ const CreateUserForm = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          style={{
-            borderColor: password && !isValidPassword ? "red" : undefined,
-          }}
         />
-        {password && !isValidPassword && (
-          <p style={{ color: "red", fontSize: "0.8rem", marginBottom: "1rem" }}>
-            A senha deve ter pelo menos 8 caracteres, uma letra maiúscula, uma minúscula e um número.
-          </p>
-        )}
         <label htmlFor="roles">Cargo</label>
         <select
           id="roles"
@@ -96,9 +86,7 @@ const CreateUserForm = () => {
             </option>
           ))}
         </select>
-      <button type="submit" disabled={!isValidPassword}>
-        Criar Usuário
-      </button>      
+        <button type="submit">Criar Usuário</button>
       </form>
     </StyledCreateUserForm>
   );

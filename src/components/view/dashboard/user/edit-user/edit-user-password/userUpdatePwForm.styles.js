@@ -45,4 +45,10 @@ export const StyledUserUpdatePasswordForm = styled.div`
             }
         }
     }
+
+    p {
+        color: red;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
 `;

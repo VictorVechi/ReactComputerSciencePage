@@ -22,6 +22,12 @@ const Search = () => {
         navigate('/search', { state: result });
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearchClick();
+        }
+    };
+
     return (
         <StyleSearch>
             <h1>Ciência da Computação</h1>
@@ -31,6 +37,7 @@ const Search = () => {
                     type="text"
                     value={searchTerm}
                     onChange={handleInputChange}
+                    onKeyDown={handleKeyDown}
                     placeholder="Pesquisa por titulo"
                     className={"input"}
                 />

@@ -22,7 +22,6 @@ const UserUpdatePwForm = () => {
     if (!password || !newPassword || !confirmPassword) return;
 
     if (newPassword !== confirmPassword) {
-      console.log("as senhas são diferentes");
       return;
     }
 

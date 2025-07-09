@@ -7,15 +7,17 @@ import { handleLogin } from "./handle-login/handleLogin";
 import { HouseLine } from "phosphor-react";
 import { theme } from "../../../../../styles/theme";
 
-
 const LoginForm = () => {
-
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const onSubmit = (e) => {
+        handleLogin(e, email, senha, navigate);
+    };
 
     return (
-        <StyledLoginForm >
+        <StyledLoginForm onSubmit={onSubmit}>
             <NavLink to={"/"}>
                 <HouseLine size={64} color={theme.white} />
             </NavLink>
@@ -38,7 +40,9 @@ const LoginForm = () => {
                 placeholder={'●●●●●●●'}
                 func={(e) => setSenha(e.target.value)}
             />
-            <Button texto={'Entrar'} className='btn-login' onClick={(e) => handleLogin(e, email, senha, navigate)} />
+            <Button texto={'Entrar'} type="submit" className='btn-login' />
         </StyledLoginForm>
     );
-}; export default LoginForm;
+};
+
+export default LoginForm;

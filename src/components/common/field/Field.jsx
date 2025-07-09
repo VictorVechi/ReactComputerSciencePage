@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledInput } from "./field.styles";
 
-const Field = ({ type = "text", value, onChange, placeholder, className }) => {
+const Field = ({ type = "text", value, onChange, placeholder, className, onKeyDown }) => {
   return (
     <StyledInput 
       type={type} 
@@ -9,6 +9,7 @@ const Field = ({ type = "text", value, onChange, placeholder, className }) => {
       onChange={onChange} 
       placeholder={placeholder}
       className={className}
+      onKeyDown={onKeyDown}
     />
   );
 };

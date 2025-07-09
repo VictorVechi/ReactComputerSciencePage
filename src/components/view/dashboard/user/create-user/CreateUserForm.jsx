@@ -10,11 +10,24 @@ const CreateUserForm = () => {
   const [password, setPassword] = useState("");
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState(null);
+  const [emailError, setEmailError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchRoles(setRoles);
   }, []);
+
+  const handleEmailInvalid = (e) => {
+    e.preventDefault();
+    setEmailError("Insira um email válido");
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (emailError) {
+      setEmailError("");
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,19 +37,20 @@ const CreateUserForm = () => {
 
     if (!sanitizedEmail || !sanitizedName || !password || !selectedRole) return;
 
-      try {
-        const apiInstance = Api.getInstance();
-        const data = {
-          name: sanitizedName,
-          email: sanitizedEmail,
-          password,
-          id_cargo: selectedRole.id,
-        };
-        await apiInstance.postUsuarioRegister(data);
-        navigate("/dashboard");
-      } catch (error) {
-        console.error("Erro ao criar usuário:", error);
-      }
+    try {
+      const apiInstance = Api.getInstance();
+      const data = {
+        name: sanitizedName,
+        email: sanitizedEmail,
+        password,
+        id_cargo: selectedRole.id,
+      };
+      let res = await apiInstance.postUsuarioRegister(data);
+      console.log(res)
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Erro ao criar usuário:", error);
+    }
   };
 
   return (
@@ -56,9 +70,18 @@ const CreateUserForm = () => {
           type="email"
           id="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleEmailChange}
+          onInvalid={handleEmailInvalid}
           required
+          style={{
+            borderColor: emailError ? "red" : undefined,
+          }}
         />
+        {emailError && (
+          <p style={{ color: "red", fontSize: "14px", marginBottom: "10px" }}>
+            {emailError}
+          </p>
+        )}
         <label htmlFor="password">Senha</label>
         <input
           type="password"

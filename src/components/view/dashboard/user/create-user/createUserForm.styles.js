@@ -7,7 +7,7 @@ export const StyledCreateUserForm = styled.div`
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-
+  
   h1 {
     margin-bottom: 1.5rem;
     text-align: center;

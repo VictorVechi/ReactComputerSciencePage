@@ -7,6 +7,7 @@ import { LocalStorageEnum } from "../../../../../../enum/LocalStorageEnum";
 const UserUpdateInfoForm = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState("");
     const apiInstance = Api.getInstance();
     const userID = localStorage.getItem(LocalStorageEnum.USER_ID);
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const UserUpdateInfoForm = () => {
         const sanitizedName = name.trim();
         const sanitizedEmail = email.trim();
 
-        if(!sanitizedEmail || !sanitizedName) return;
+        if (!sanitizedEmail || !sanitizedName) return;
 
         try {
             const data = {
@@ -42,6 +43,18 @@ const UserUpdateInfoForm = () => {
             navigate("/dashboard");
         } catch (error) {
             console.error("Erro ao atualizar informações do usuário:", error);
+        }
+    };
+
+    const handleEmailInvalid = (e) => {
+        e.preventDefault();
+        setEmailError("Insira um email válido");
+    };
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        if (emailError) {
+            setEmailError("");
         }
     };
 
@@ -62,9 +75,18 @@ const UserUpdateInfoForm = () => {
                     type="email"
                     id="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
+                    onInvalid={handleEmailInvalid}
                     required
+                    style={{
+                        borderColor: emailError ? "red" : undefined,
+                    }}
                 />
+                {emailError && (
+                    <p style={{ color: "red", fontSize: "14px", marginBottom: "10px" }}>
+                        {emailError}
+                    </p>
+                )}
                 <button type="submit">Atualizar informações</button>
             </form>
         </StyledUserUpdateInfoForm>

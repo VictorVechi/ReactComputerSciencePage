@@ -8,13 +8,18 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
+    const [showError, setShowError] = useState(false);
 
     const handleInputChange = (e) => {
         setSearchTerm(e.target.value);
+        if (showError) {
+            setShowError(false);
+        }
     };
 
     const handleSearchClick = async () => {
         if (searchTerm.trim() === '') {
+            setShowError(true);
             return;
         }
 
@@ -40,9 +45,17 @@ const Search = () => {
                     onKeyDown={handleKeyDown}
                     placeholder="Pesquisa por titulo"
                     className={"input"}
+                    style={{
+                        borderColor: showError ? "red" : undefined,
+                    }}
                 />
                 <Button texto="Pesquisar" onClick={handleSearchClick} />
             </div>
+            {showError && (
+                <p style={{ color: "red", marginTop: "10px" }}>
+                    Você precisa digitar algo para pesquisar.
+                </p>
+            )}
         </StyleSearch>
     );
 };

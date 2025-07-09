@@ -12,6 +12,7 @@ const UserUpdatePwForm = () => {
   
 
   const isValidPassword = regexPassword(newPassword);
+  const passwordsMatch = newPassword === confirmPassword;
 
   const navigate = useNavigate();
 
@@ -21,7 +22,6 @@ const UserUpdatePwForm = () => {
     if (!password || !newPassword || !confirmPassword) return;
 
     if (newPassword !== confirmPassword) {
-      console.log("as senhas são diferentes");
       return;
     }
 
@@ -70,13 +70,21 @@ const UserUpdatePwForm = () => {
         <label htmlFor="password">Confirme nova senha</label>
         <input
           type="password"
-          id="password"
+          id="confirm-password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          style={{
+            borderColor: confirmPassword && !passwordsMatch ? "red" : undefined,
+          }}
         />
-        <button type="submit" disabled={!isValidPassword}>
-        Atualizar Senha
+        {confirmPassword && !passwordsMatch && (
+          <p>
+            As senhas não coincidem
+          </p>
+        )}
+        <button type="submit" disabled={!isValidPassword || !passwordsMatch}>
+          Atualizar Senha
         </button>
       </form>
     </StyledUserUpdatePasswordForm>

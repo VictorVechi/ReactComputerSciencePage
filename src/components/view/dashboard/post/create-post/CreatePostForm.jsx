@@ -9,14 +9,16 @@ const CreatePostForm = () => {
   const [content, setContent] = useState("");
   const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState(""); // "success" ou "error"
+
   const navigate = useNavigate();
 
   useEffect(() => {
-  fetchTags((data) => {
-    setTags(data);
+    fetchTags((data) => {
+      setTags(data);
     });
   }, []);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +26,11 @@ const CreatePostForm = () => {
     const sanitizedTitle = title.trim();
     const sanitizedContent = content.trim();
 
-    if (!sanitizedTitle || !sanitizedContent || selectedTags.length === 0) return;
+    if (!sanitizedTitle || !sanitizedContent || selectedTags.length === 0) {
+      setMessage("Preencha todos os campos obrigatórios.");
+      setMessageType("error");
+      return;
+    }
 
     try {
       const apiInstance = Api.getInstance();
@@ -33,10 +39,34 @@ const CreatePostForm = () => {
         content: sanitizedContent,
         tags: selectedTags.map(tag => ({ name: tag.name })),
       };
+
       await apiInstance.postPublicacaoRegister(data);
-      navigate("/dashboard");
+
+      // Exibe mensagem de sucesso antes de redirecionar
+      setMessage("Post criado com sucesso!");
+      setMessageType("success");
+
+      // Aguarda 3s antes de navegar (tempo da animação e leitura)
+      setTimeout(() => navigate("/dashboard"), 1500);
+
     } catch (error) {
       console.error("Erro ao criar post:", error);
+
+      if (error.response && error.response.status === 400) {
+        const serverMessage =
+          error.response.data?.message || "Título já existente ou dados inválidos.";
+        setMessage(serverMessage);
+      } else {
+        setMessage("Erro ao criar o post. Tente novamente.");
+      }
+
+      setMessageType("error");
+
+      // Limpa mensagem após 4s (opcional)
+      setTimeout(() => {
+        setMessage("");
+        setMessageType("");
+      }, 4000);
     }
   };
 
@@ -52,6 +82,14 @@ const CreatePostForm = () => {
   return (
     <StyledCreatePostForm>
       <h1>Criar Novo Post</h1>
+
+      {/* Mensagem de feedback */}
+      {message && (
+        <div className={`feedback-message ${messageType}`}>
+          {message}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Título</label>
         <input

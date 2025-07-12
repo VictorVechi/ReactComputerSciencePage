@@ -325,11 +325,11 @@ export default class Api {
         return response.data;
       } else {
         console.error("Resposta inválida recebida");
-        return null;
+        throw new Error("Resposta inválida");
       }
     } catch (error) {
       console.error("Erro ao registrar publicação", error);
-      return null;
+      throw error;
     }
   }
 

@@ -85,4 +85,49 @@ export const StyledCreatePostForm = styled.div`
       color: #fff;
     }
   }
+
+  .feedback-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    z-index: 9999;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeInOut 4s ease forwards;
+    max-width: 90%;
+    text-align: center;
+  }
+  
+  .feedback-message.success {
+    background-color: #28a745; /* verde */
+  }
+  
+  .feedback-message.error {
+    background-color: #dc3545; /* vermelho */
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -10px);
+    }
+    10% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    90% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -10px);
+    }
+  }
+
+
 `;

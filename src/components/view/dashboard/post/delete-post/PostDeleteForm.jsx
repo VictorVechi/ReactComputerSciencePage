@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyledPostDeleteForm, ModalOverlay } from "./postDeleteForm.styles";
 import Api from "../../../../../service/gateway/Api";
+import { Trash } from "phosphor-react";
 
 const PostDeleteForm = () => {
     const [posts, setPosts] = useState([]);
@@ -63,7 +64,7 @@ const PostDeleteForm = () => {
                                 setIsModalOpen(true);
                             }}
                         >
-                            🗑️
+                            <Trash size={24} weight="bold" />
                         </button>
                     </div>
                 ))}

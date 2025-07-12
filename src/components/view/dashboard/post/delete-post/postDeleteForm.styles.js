@@ -47,14 +47,27 @@ export const StyledPostDeleteForm = styled.div`
     .delete-button {
       background: transparent;
       border: none;
+      padding: 6px;
+      border-radius: 50%;
       color: #d11a2a;
       cursor: pointer;
-      transition: transform 0.1s ease;
-
+      transition: background-color 0.2s, transform 0.1s ease;
+    
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
       &:hover {
+        background-color: #ffe5e5;
         transform: scale(1.1);
       }
+    
+      svg {
+        width: 24px;
+        height: 24px;
+      }
     }
+  
 `;
 
 export const ModalOverlay = styled.div`

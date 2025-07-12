@@ -13,7 +13,6 @@ const CreatePostForm = () => {
 
   useEffect(() => {
   fetchTags((data) => {
-    console.log("Tags carregadas:", data);
     setTags(data);
     });
   }, []);

@@ -7,6 +7,13 @@ export const StyledPostDetails = styled.div`
   margin: 0 auto;
   flex: 1;
 
+  .PostTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
   .PostTag {
     display: inline-block;
     background-color: ${theme.orangeP3};
@@ -14,7 +21,6 @@ export const StyledPostDetails = styled.div`
     padding: 5px 20px;
     border-radius: 20px;
     font-size: 1.2rem;
-    margin-bottom: 1%;
   }
 
   .PostTitle {

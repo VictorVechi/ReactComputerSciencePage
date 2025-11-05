@@ -2,61 +2,61 @@ export const placeholder = [
   {
     image: "",
     name: "Aleffer Rocha",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Alexandre Peres Arias",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Álvaro Rogério Cantieri",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Ana Maria de Fátima Leme Tarini",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Aryel Marlus Repula de Oliveira",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Atila de Paiva Teles",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Gabriel Vinicius Canzi Candido",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Guilherme Werneck de Oliveira",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Izaque Esteves da Silva",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   },
   {
     image: "",
     name: "Marlon de Oliveira Vaz",
-    disciplinas: "",
-    pesquisa: ""
+    subjects: "",
+    search_area: ""
   }
 ];

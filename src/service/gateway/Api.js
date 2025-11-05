@@ -161,6 +161,22 @@ export default class Api {
     }
   }
 
+  async getUsuarioShow() {
+    try {
+      const response = await this.usuarioApi.getUserShow();
+      if (response) {
+        return response.data;
+      } else {
+        console.error("Resposta inválida recebida");
+        return null;
+      }
+    }
+    catch (error) {
+      console.error("Erro ao buscar usuários para exibição", error);
+      return null;
+    }
+  }
+
   // metodos Roles
 
   async getRoleAll() {

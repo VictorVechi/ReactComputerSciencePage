@@ -9,6 +9,7 @@ const UserUpdateInfoForm = () => {
     const [email, setEmail] = useState("");
     const [disciplinas, setDisciplinas] = useState("");
     const [area_pesquisa, setAreaPesquisa] = useState("");
+    const [show_user, setShowUser] = useState(false);
     const [emailError, setEmailError] = useState("");
     const apiInstance = Api.getInstance();
     const userID = localStorage.getItem(LocalStorageEnum.USER_ID);
@@ -22,6 +23,7 @@ const UserUpdateInfoForm = () => {
             setEmail(user_data.user.email);
             setDisciplinas(user_data.user.subjects || "");
             setAreaPesquisa(user_data.user.search_area || "");
+            setShowUser(user_data.user.show_user);
 
         }
 
@@ -45,6 +47,7 @@ const UserUpdateInfoForm = () => {
                 email: sanitizedEmail,
                 subjects: sanitizedSubjects,
                 search_area: sanitizedSearchArea,
+                show_user: show_user,
             };
 
             await apiInstance.putUsuarioData(data);
@@ -104,6 +107,15 @@ const UserUpdateInfoForm = () => {
                         borderColor: emailError ? "red" : undefined,
                     }}
                 />
+                <div className="checkbox">
+                    <label htmlFor="email">Exibir Usuário</label>
+                    <input 
+                        type="checkbox" 
+                        id="show_user"
+                        checked={show_user}
+                        onChange={(e) => setShowUser(e.target.checked)}
+                    />
+                </div>
                 {emailError && (
                     <p style={{ color: "red", fontSize: "14px", marginBottom: "10px" }}>
                         {emailError}

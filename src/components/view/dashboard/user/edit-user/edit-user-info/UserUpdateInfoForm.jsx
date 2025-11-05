@@ -7,6 +7,8 @@ import { LocalStorageEnum } from "../../../../../../enum/LocalStorageEnum";
 const UserUpdateInfoForm = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [disciplinas, setDisciplinas] = useState("");
+    const [area_pesquisa, setAreaPesquisa] = useState("");
     const [emailError, setEmailError] = useState("");
     const apiInstance = Api.getInstance();
     const userID = localStorage.getItem(LocalStorageEnum.USER_ID);
@@ -18,6 +20,8 @@ const UserUpdateInfoForm = () => {
 
             setName(user_data.user.name);
             setEmail(user_data.user.email);
+            setDisciplinas(user_data.user.subjects || "");
+            setAreaPesquisa(user_data.user.search_area || "");
 
         }
 
@@ -29,14 +33,18 @@ const UserUpdateInfoForm = () => {
 
         const sanitizedName = name.trim();
         const sanitizedEmail = email.trim();
+        const sanitizedSubjects = disciplinas.trim();
+        const sanitizedSearchArea = area_pesquisa.trim();
 
-        if (!sanitizedEmail || !sanitizedName) return;
+        if (!sanitizedEmail || !sanitizedName || !sanitizedSubjects || !sanitizedSearchArea) return;
 
         try {
             const data = {
                 id: userID,
                 name: sanitizedName,
                 email: sanitizedEmail,
+                subjects: sanitizedSubjects,
+                search_area: sanitizedSearchArea,
             };
 
             await apiInstance.putUsuarioData(data);
@@ -69,6 +77,20 @@ const UserUpdateInfoForm = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
+                />
+                <label htmlFor="disciplinas">Disciplinas</label>
+                <input
+                    type="text"
+                    id="disciplinas"
+                    value={disciplinas}
+                    onChange={(e) => setDisciplinas(e.target.value)}
+                />
+                <label htmlFor="area_pesquisa">Área de Pesquisa</label>
+                <input
+                    type="text"
+                    id="area_pesquisa"
+                    value={area_pesquisa}
+                    onChange={(e) => setAreaPesquisa(e.target.value)}
                 />
                 <label htmlFor="email">Email</label>
                 <input

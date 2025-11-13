@@ -98,6 +98,9 @@ export default class Api {
       }
     } catch (error) {
       console.error("Erro ao fazer login", error);
+      if (error.response?.data) {
+        console.error("Detalhes do erro:", error.response.data);
+      }
       return null;
     }
   }

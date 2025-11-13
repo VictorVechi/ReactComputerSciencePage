@@ -6,14 +6,27 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { handleLogin } from "./handle-login/handleLogin";
 import { HouseLine } from "phosphor-react";
 import { theme } from "../../../../../styles/theme";
+import ReCaptcha from "../../../../common/captcha/ReCaptcha";
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [captchaToken, setCaptchaToken] = useState(null);
     const navigate = useNavigate();
 
-    const onSubmit = (e) => {
-        handleLogin(e, email, senha, navigate);
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        
+        if (!captchaToken) {
+            alert('Validando CAPTCHA, aguarde...');
+            return;
+        }
+        
+        handleLogin(e, email, senha, captchaToken, navigate);
+    };
+
+    const handleCaptchaChange = (token) => {
+        setCaptchaToken(token);
     };
 
     return (
@@ -40,6 +53,7 @@ const LoginForm = () => {
                 placeholder={'●●●●●●●'}
                 func={(e) => setSenha(e.target.value)}
             />
+            <ReCaptcha onChange={handleCaptchaChange} />
             <Button texto={'Entrar'} type="submit" className='btn-login' />
         </StyledLoginForm>
     );

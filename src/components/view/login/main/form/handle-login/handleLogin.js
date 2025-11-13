@@ -1,25 +1,26 @@
 import { Password } from "phosphor-react";
 import Api from "../../../../../../service/gateway/Api";
 import { LocalStorageEnum } from "../../../../../../enum/LocalStorageEnum";
+import { saveTokens } from "../../../../../../service/security/token";
 
-export const handleLogin = async (event, email, senha, navigate) => {
+export const handleLogin = async (event, email, senha, captchaToken, navigate) => {
     try {
         event.preventDefault();
         const data = {
             email: email,
-            password: senha
+            password: senha,
+            captchaToken: captchaToken
         }
-
+        
         const api = Api.getInstance();
 
         const response = await api.postUsuarioLogin(data)
         if (response && response.token) {
-            localStorage.setItem(LocalStorageEnum.TOKEN_KEY, response.token);
+            saveTokens(response.token, response.refreshToken);
             localStorage.setItem(LocalStorageEnum.USER_NAME, response.user.name);
-            localStorage.setItem(LocalStorageEnum.USER_ID, response.user.id)
             navigate('/dashboard')
         }
     } catch (error) {
-        console.error('Erro de autenticação:', error);
+        alert('Erro ao fazer login');
     }
 }

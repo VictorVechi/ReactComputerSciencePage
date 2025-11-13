@@ -11,7 +11,7 @@ export const handleLogin = async (event, email, senha, captchaToken, navigate) =
             password: senha,
             captchaToken: captchaToken
         }
-        
+
         const api = Api.getInstance();
 
         const response = await api.postUsuarioLogin(data)

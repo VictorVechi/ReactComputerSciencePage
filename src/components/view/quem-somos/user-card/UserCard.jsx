@@ -12,8 +12,8 @@ const UserCard = ({ user }) => {
                 <div className="user-details">
                     <h3 className="user-name">{user.name}</h3>
                     <div className="user-info">
-                        <p><strong>Disciplinas:</strong> {user.disciplinas}</p>
-                        <p><strong>Área de pesquisa:</strong> {user.pesquisa}</p>
+                        <p><strong>Disciplinas:</strong> {user.subjects}</p>
+                        <p><strong>Área de pesquisa:</strong> {user.search_area}</p>
                     </div>
                 </div>
             </div>

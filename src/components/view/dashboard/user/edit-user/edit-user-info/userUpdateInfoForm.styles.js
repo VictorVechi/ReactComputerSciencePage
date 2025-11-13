@@ -44,5 +44,20 @@ export const StyledUserUpdateInfoForm = styled.div`
         background-color: #0056b3;
       }
     }
+
+    .checkbox {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: baseline;
+
+      input[type="checkbox"] {
+        margin: 0;
+        width: 15px;
+        height: 15px;
+        transform: scale(1.5);
+        cursor: pointer;
+      }
+    }
   }
 `;

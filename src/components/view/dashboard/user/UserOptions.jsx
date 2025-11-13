@@ -39,7 +39,7 @@ const UserOptions = () => {
                 <>
                     <div className="button-container">
                         <Button
-                            texto="Editar Nome e Email"
+                            texto="Editar informações"
                             onClick={() => navigate("/dashboard/user/edit-user-info")}
                         />
                     </div>

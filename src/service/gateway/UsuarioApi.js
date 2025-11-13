@@ -86,4 +86,13 @@ export default class UsuarioApi {
         console.error(error)
     }
   }
+
+  async getUserShow() {
+    try {
+        const response = await this.api.get('/user/show');
+        return response;
+    } catch (error) {
+        console.error(error)
+    }
+}
 }

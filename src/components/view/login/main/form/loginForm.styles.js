@@ -7,11 +7,12 @@ export const StyledLoginForm = styled.form`
         flex-direction:column;
         align-items: center;
         justify-content: center;
-        height: 45%;
+        min-height: 450px;
         width: 60%;
         background-color: ${theme.mediumBlueP4};
         border-radius: 2%;
         gap: 10px;
+        padding: 20px 0;
 
     h2 {
         color: ${theme.white};
@@ -39,7 +40,7 @@ export const StyledLoginForm = styled.form`
 
     @media screen and (max-width: 768px) {
         width: 100%;
-        height: 70%;
+        min-height: 500px;
         .btn-login {
             width: 80%;
         }
@@ -47,7 +48,7 @@ export const StyledLoginForm = styled.form`
 
     @media screen and (min-width: 769px) and (max-width: 1400px) {
         width: 80%;
-        height: 60%;
+        min-height: 520px;
         .btn-login {
             width: 50%;
         }

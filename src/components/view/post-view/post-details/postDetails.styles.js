@@ -32,13 +32,6 @@ export const StyledPostDetails = styled.div`
     font-style: italic;
   }
 
-  .PostContent {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    text-align: justify;
-    hyphens: auto;
-  }
-
   @media screen and (min-width: 769px) and (max-width: 1400px) {
     padding: 1.5rem;
 
@@ -51,11 +44,6 @@ export const StyledPostDetails = styled.div`
     .PostTitle {
       font-size: 1.8rem;
     }
-
-    .PostContent {
-      font-size: 1.2rem;
-    }
-
   }
 
   @media screen and (max-width: 768px) {
@@ -70,10 +58,6 @@ export const StyledPostDetails = styled.div`
     }
     .PostTitle {
       font-size: 1.5rem;
-    }
-
-    .PostContent {
-      font-size: 1rem;
     }
   }
 `;

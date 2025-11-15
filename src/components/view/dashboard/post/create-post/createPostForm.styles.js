@@ -37,7 +37,6 @@ export const StyledCreatePostForm = styled.div`
       cursor: pointer;
     }
 
-    /* Espaçamento para o editor de rich text */
     label + div {
       margin-bottom: 1rem;
     }

@@ -3,20 +3,27 @@ import { theme } from "../../../styles/theme";
 
 export const StyledRichTextDisplay = styled.div`
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: ${theme.black};
   word-wrap: break-word;
+  hyphens: auto;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
   p {
     margin-bottom: 1em;
+    text-align: justify;
   }
 
-  strong {
+  strong, b {
     font-weight: bold;
   }
 
-  em {
+  em, i {
     font-style: italic;
   }
 
@@ -28,64 +35,73 @@ export const StyledRichTextDisplay = styled.div`
     text-decoration: line-through;
   }
 
-  h1 {
-    font-size: 2em;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1.5em 0 0.5em 0;
     font-weight: bold;
-    margin: 0.67em 0;
+    color: ${theme.blueP3};
+    text-align: left;
   }
 
-  h2 {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: 0.75em 0;
-  }
-
-  h3 {
-    font-size: 1.17em;
-    font-weight: bold;
-    margin: 0.83em 0;
-  }
-
-  ol, ul {
-    margin: 1em 0;
-    padding-left: 2em;
-  }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.75em; }
+  h3 { font-size: 1.5em; }
 
   ol {
-    list-style-type: decimal;
+    list-style-type: decimal !important;
+    list-style-position: outside !important;
+    margin: 1em 0 !important;
+    padding-left: 2.5em !important;
+    text-align: left !important;
   }
 
   ul {
-    list-style-type: disc;
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+    margin: 1em 0 !important;
+    padding-left: 2.5em !important;
+    text-align: left !important;
   }
 
   li {
-    margin-bottom: 0.5em;
+    display: list-item !important;
+    margin-bottom: 0.5em !important;
+    margin-left: 0 !important;
+    padding-left: 0.5em !important;
+    text-align: justify !important;
+  }
+
+  ol ol,
+  ul ul,
+  ol ul,
+  ul ol {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
   }
 
   blockquote {
-    border-left: 4px solid ${theme.lightGray};
-    padding-left: 1em;
     margin: 1em 0;
-    color: #666;
+    padding: 1em 2em;
+    border-left: 4px solid ${theme.orangeP3};
+    background: ${theme.lightGray};
     font-style: italic;
+    border-radius: 4px;
   }
 
   code {
-    background-color: #f4f4f4;
+    background: #f4f4f4;
     padding: 2px 6px;
-    border-radius: 3px;
-    font-family: 'Courier New', monospace;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 0.9em;
   }
 
   pre {
-    background-color: #f4f4f4;
+    background: #f4f4f4;
     padding: 1em;
     border-radius: 4px;
     overflow-x: auto;
     margin: 1em 0;
-
+    
     code {
       background: none;
       padding: 0;
@@ -93,38 +109,39 @@ export const StyledRichTextDisplay = styled.div`
   }
 
   a {
-    color: ${theme.blue};
+    color: ${theme.mediumBlueP4};
     text-decoration: none;
-    transition: color 0.2s ease;
-
+    
     &:hover {
-      color: ${theme.darkBlue};
       text-decoration: underline;
     }
+  }
 
-    &:visited {
-      color: #551a8b;
+  @media screen and (min-width: 769px) and (max-width: 1400px) {
+    font-size: 1.2rem;
+
+    h1 { font-size: 1.75em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.25em; }
+
+    ol, ul {
+      padding-left: 2em !important;
     }
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 1rem;
 
-    h1 {
-      font-size: 1.75em;
-    }
-
-    h2 {
-      font-size: 1.4em;
-    }
-
-    h3 {
-      font-size: 1.1em;
-    }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.1em; }
 
     ol, ul {
-      padding-left: 1.5em;
+      padding-left: 1.5em !important;
+    }
+
+    blockquote {
+      padding: 0.75em 1em;
     }
   }
 `;

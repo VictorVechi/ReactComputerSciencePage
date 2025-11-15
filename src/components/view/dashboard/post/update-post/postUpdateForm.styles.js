@@ -31,7 +31,6 @@ export const StyledUpdatePostForm = styled.div`
       font-size: 1rem;
     }
 
-    /* Espaçamento para o editor de rich text */
     label + div {
       margin-bottom: 1rem;
     }

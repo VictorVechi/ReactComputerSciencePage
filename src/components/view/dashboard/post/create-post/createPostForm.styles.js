@@ -23,7 +23,6 @@ export const StyledCreatePostForm = styled.div`
     }
 
     input,
-    textarea,
     select {
       margin-bottom: 1rem;
       padding: 0.5rem;
@@ -38,9 +37,8 @@ export const StyledCreatePostForm = styled.div`
       cursor: pointer;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 100px;
+    label + div {
+      margin-bottom: 1rem;
     }
 
     button {

@@ -3,6 +3,7 @@ import { StyledCreatePostForm } from "./createPostForm.styles";
 import { useNavigate } from "react-router-dom";
 import { fetchTags } from "./handle-create-post/handleCreatePost";
 import Api from "../../../../../service/gateway/Api";
+import RichTextEditor from "../../../../common/rich-text-editor/RichTextEditor";
 
 const CreatePostForm = () => {
   const [title, setTitle] = useState("");
@@ -64,11 +65,10 @@ const CreatePostForm = () => {
         />
 
         <label htmlFor="content">Conteúdo</label>
-        <textarea
-          id="content"
+        <RichTextEditor
           value={content}
-          onChange={(e) => setContent(e.target.value)}
-          required
+          onChange={setContent}
+          placeholder="Escreva o conteúdo do seu post..."
         />
 
         <label>Tags</label>

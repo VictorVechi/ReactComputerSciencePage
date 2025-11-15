@@ -31,8 +31,25 @@ const RichTextEditor = ({ value, onChange, placeholder = "Digite o conteúdo aqu
     'align'
   ];
 
+  const fixUrls = (content) => {
+    const div = document.createElement('div');
+    div.innerHTML = content;
+    
+    const links = div.querySelectorAll('a');
+    links.forEach(link => {
+      let href = link.getAttribute('href');
+      if (href && !href.match(/^(https?:\/\/|mailto:)/i)) {
+        link.setAttribute('href', `https://${href}`);
+      }
+    });
+    
+    return div.innerHTML;
+  };
+
   const handleChange = (content) => {
-    const sanitizedContent = DOMPurify.sanitize(content, {
+    const contentWithFixedUrls = fixUrls(content);
+    
+    const sanitizedContent = DOMPurify.sanitize(contentWithFixedUrls, {
       ALLOWED_TAGS: [
         'p', 'br', 'strong', 'b', 'em', 'i', 'u', 's',
         'h1', 'h2', 'h3', 'h4', 'h5', 'h6',

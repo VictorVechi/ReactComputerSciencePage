@@ -2,17 +2,24 @@ import React from 'react';
 import { StyledCardResult } from './cardResult.styles';
 
 const CardResult = ({ title, content, tag }) => {
-  const contentPreview = (text, length) => {
-    if (text.length > length) {
-      if(text[length - 1] === ' '){
-        return text.substring(0, length - 1) + '...';
+  const extractTextFromHtml = (htmlContent) => {
+    const div = document.createElement('div');
+    div.innerHTML = htmlContent;
+    return div.textContent || div.innerText || '';
+  };
+
+  const contentPreview = (htmlText, length) => {
+    const plainText = extractTextFromHtml(htmlText);
+    
+    if (plainText.length > length) {
+      if(plainText[length - 1] === ' '){
+        return plainText.substring(0, length - 1) + '...';
       }
-
-      return text.substring(0, length) + '...';
+      return plainText.substring(0, length) + '...';
     }
-
-    return text;
-  }
+    
+    return plainText;
+  };
 
   return (
     <StyledCardResult>

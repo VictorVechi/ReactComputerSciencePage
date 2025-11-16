@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyledUpdatePostForm } from "./postUpdateForm.styles";
 import { useNavigate } from "react-router-dom";
 import Api from "../../../../../service/gateway/Api";
+import RichTextEditor from "../../../../common/rich-text-editor/RichTextEditor";
 
 const PostUpdateForm = () => {
   const [titulo, setTitulo] = useState("");
@@ -112,11 +113,10 @@ const PostUpdateForm = () => {
         />
 
         <label htmlFor="conteudo">Conteúdo</label>
-        <textarea
-          id="conteudo"
+        <RichTextEditor
           value={conteudo}
-          onChange={(e) => setConteudo(e.target.value)}
-          required
+          onChange={setConteudo}
+          placeholder="Escreva o conteúdo do seu post..."
         />
 
         <label>Tags</label>

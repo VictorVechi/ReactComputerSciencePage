@@ -23,8 +23,7 @@ export const StyledUpdatePostForm = styled.div`
     }
 
     input,
-    select,
-    textarea {
+    select {
       margin-bottom: 1rem;
       padding: 0.5rem;
       border: 1px solid #ccc;
@@ -32,8 +31,8 @@ export const StyledUpdatePostForm = styled.div`
       font-size: 1rem;
     }
 
-    textarea {
-      resize: vertical;
+    label + div {
+      margin-bottom: 1rem;
     }
 
     button {

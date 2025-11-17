@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyledPostDeleteForm, ModalOverlay } from "./postDeleteForm.styles";
 import Api from "../../../../../service/gateway/Api";
+import { toast } from "react-toastify";
 
 const PostDeleteForm = () => {
     const [posts, setPosts] = useState([]);
@@ -17,9 +18,11 @@ const PostDeleteForm = () => {
                     setPosts(response);
                 } else {
                     console.warn("Resposta inesperada da API:", response);
+                    toast.warning("Formato inesperado de dados vindo do servidor.");
                 }
             } catch (error) {
                 console.error("Erro ao buscar posts:", error);
+                toast.error("Erro ao carregar posts!");
             }
         };
 
@@ -31,11 +34,15 @@ const PostDeleteForm = () => {
 
         try {
             await apiInstance.deletePublicacaoById(selectedPost.id);
+            
             setPosts(posts.filter(post => post.id !== selectedPost.id));
             setIsModalOpen(false);
             setSelectedPost(null);
+
+            toast.success("Post deletado com sucesso!");
         } catch (error) {
             console.error("Erro ao deletar post:", error);
+            toast.error("Erro ao deletar post. Tente novamente!");
         }
     };
 

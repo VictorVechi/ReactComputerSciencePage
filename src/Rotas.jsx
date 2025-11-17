@@ -15,7 +15,6 @@ import RolePanel from './pages/dashboard/roles/RolePanel';
 import UserPanel from './pages/dashboard/user/UserPanel';
 import TagsPanel from './pages/dashboard/tags/TagsPanel';
 
-// 👉 importa o Toastify
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,7 +24,6 @@ const Rotas = () => {
 			<GlobalStyle />
 			<ThemeProvider theme={theme}>
 
-				{/* 👉 container global dos toasts */}
 				<ToastContainer 
 					position="top-right"
 					autoClose={3000}

@@ -15,12 +15,26 @@ import RolePanel from './pages/dashboard/roles/RolePanel';
 import UserPanel from './pages/dashboard/user/UserPanel';
 import TagsPanel from './pages/dashboard/tags/TagsPanel';
 
+// 👉 importa o Toastify
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Rotas = () => {
 	return (
 		<BrowserRouter>
 			<GlobalStyle />
 			<ThemeProvider theme={theme}>
+
+				{/* 👉 container global dos toasts */}
+				<ToastContainer 
+					position="top-right"
+					autoClose={3000}
+					hideProgressBar={false}
+					closeOnClick
+					pauseOnHover
+					theme="dark"
+				/>
+
 				<Routes>
 					<Route path="" element={<Home />} />
 					<Route path='/login' element={<Login />} />
@@ -37,6 +51,7 @@ const Rotas = () => {
 					<Route path='dashboard/roles/:action' element={<RolePanel />} />
 					<Route path='dashboard/tags/:action' element={<TagsPanel />} />
 				</Routes>
+
 			</ThemeProvider>
 		</BrowserRouter>
 	)

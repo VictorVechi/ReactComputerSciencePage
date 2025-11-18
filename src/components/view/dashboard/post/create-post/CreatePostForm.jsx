@@ -13,7 +13,6 @@ const CreatePostForm = () => {
   const [selectedTags, setSelectedTags] = useState([]);
   const navigate = useNavigate();
 
-  // Carrega tags
   useEffect(() => {
     fetchTags((data) => {
       console.log("Tags carregadas:", data);

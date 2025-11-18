@@ -21,7 +21,6 @@ const CreatePostForm = () => {
     });
   }, []);
 
-  // Envia formulário
   const handleSubmit = async (e) => {
     e.preventDefault();
 

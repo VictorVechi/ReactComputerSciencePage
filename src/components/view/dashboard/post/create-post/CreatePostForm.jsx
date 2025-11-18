@@ -52,7 +52,6 @@ const CreatePostForm = () => {
     }
   };
 
-  // Marca/desmarca tags
   const toggleTag = (tag) => {
     const isSelected = selectedTags.some((t) => t._id === tag._id);
     if (isSelected) {

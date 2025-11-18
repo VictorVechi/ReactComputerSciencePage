@@ -3,6 +3,7 @@ import { StyledUpdatePostForm } from "./postUpdateForm.styles";
 import { useNavigate } from "react-router-dom";
 import Api from "../../../../../service/gateway/Api";
 import RichTextEditor from "../../../../common/rich-text-editor/RichTextEditor";
+import { toast } from "react-toastify";
 
 const PostUpdateForm = () => {
   const [titulo, setTitulo] = useState("");
@@ -20,12 +21,12 @@ const PostUpdateForm = () => {
     e.preventDefault();
 
     if (!id) {
-      alert("Selecione uma publicação para atualizar.");
+      toast.warning("Selecione uma publicação para atualizar.");
       return;
     }
 
     if (selectedTags.length === 0) {
-      alert("Selecione ao menos uma tag.");
+      toast.warning("Selecione ao menos uma tag.");
       return;
     }
 
@@ -38,9 +39,12 @@ const PostUpdateForm = () => {
     try {
       const apiInstance = Api.getInstance();
       await apiInstance.putPublicacaoUpdate(id, data);
+
+      toast.success("Publicação atualizada com sucesso!");
       navigate("/dashboard");
     } catch (error) {
       console.error("Erro ao atualizar publicação:", error);
+      toast.error("Erro ao atualizar publicação. Tente novamente!");
     }
   };
 
@@ -51,12 +55,11 @@ const PostUpdateForm = () => {
         const postsResponse = await apiInstance.getPublicacaoAll();
         const tagsResponse = await apiInstance.getTagAll();
 
-        if (postsResponse && tagsResponse) {
-          setPosts(postsResponse || []);
-          setTags(tagsResponse.tags || []);
-        }
+        setPosts(postsResponse || []);
+        setTags(tagsResponse.tags || []);
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
+        toast.error("Erro ao carregar posts e tags!");
       } finally {
         setLoading(false);
       }
@@ -67,10 +70,11 @@ const PostUpdateForm = () => {
 
   const toggleTag = (tag) => {
     const isSelected = selectedTags.some((t) => t._id === tag._id);
-    const updatedTags = isSelected
-      ? selectedTags.filter((t) => t._id !== tag._id)
-      : [...selectedTags, tag];
-    setSelectedTags(updatedTags);
+    setSelectedTags(
+      isSelected
+        ? selectedTags.filter((t) => t._id !== tag._id)
+        : [...selectedTags, tag]
+    );
   };
 
   if (loading) return <p>Carregando...</p>;
@@ -85,14 +89,15 @@ const PostUpdateForm = () => {
           id="post"
           onChange={(e) => {
             const selected = posts.find((p) => p.id === e.target.value);
+
             setTitulo(selected?.title || "");
             setConteudo(selected?.content || "");
             setId(selected?.id || "");
 
-            // Corrigir para que as tags selecionadas venham completas
             const tagObjects = tags.filter((tag) =>
               selected?.tags?.some((t) => t.name === tag.name)
             );
+
             setSelectedTags(tagObjects);
           }}
         >

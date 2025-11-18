@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { StyledCreateTagsForm } from "./form.styles";
 import { useNavigate } from "react-router-dom";
 import Api from "../../../../../service/gateway/Api";
+import { toast } from "react-toastify";
 
 const TagsCreateForm = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
   
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -18,9 +18,13 @@ const TagsCreateForm = () => {
         description,
       };
       await apiInstance.postTagRegister(data);
+
+      toast.success("Tag criada com sucesso!");
+
       navigate("/dashboard");
     } catch (error) {
       console.error("Erro ao criar tag:", error);
+      toast.error("Erro ao criar tag.");
     }
   };
 

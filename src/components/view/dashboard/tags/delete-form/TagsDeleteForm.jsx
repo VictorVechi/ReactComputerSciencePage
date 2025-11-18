@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyledTagsDeleteForm, ModalOverlay } from "./form.styles.js";
 import Api from "../../../../../service/gateway/Api";
 import { LocalStorageEnum } from "../../../../../enum/LocalStorageEnum";
+import { toast } from "react-toastify";
 
 const TagDeleteForm = () => {
     const [tags, setTags] = useState([]);
@@ -22,11 +23,13 @@ const TagDeleteForm = () => {
                 console.log("Tags formatadas:", formattedTags);
             } catch (error) {
                 console.error("Erro ao buscar tags:", error);
+                toast.error("Erro ao buscar tags.");
             }
         };
     
         fetchTags();
     }, []);
+
     const handleDeleteTag = async () => {
         if (!selectedTag) return;
 
@@ -35,8 +38,11 @@ const TagDeleteForm = () => {
             setTags(tags.filter((tag) => tag.id !== selectedTag.id));
             setIsModalOpen(false);
             setSelectedTag(null);
+
+            toast.success("Tag deletada com sucesso!");
         } catch (error) {
             console.error("Erro ao deletar tag.", error);
+            toast.error("Erro ao deletar tag.");
         }
     };
 
@@ -56,7 +62,13 @@ const TagDeleteForm = () => {
                                 <strong>{tag.name}</strong>
                                 <p className="description">{tag.description}</p>
                             </div>
-                            <button className="delete-button" onClick={() => { setSelectedTag(tag); setIsModalOpen(true); }}>
+                            <button 
+                                className="delete-button" 
+                                onClick={() => { 
+                                    setSelectedTag(tag); 
+                                    setIsModalOpen(true); 
+                                }}
+                            >
                                 🗑️
                             </button>
                         </div>
@@ -72,8 +84,12 @@ const TagDeleteForm = () => {
                             Descrição: <code>{selectedTag.description}</code>
                         </p>
                         <div className="modal-actions">
-                            <button className="cancel" onClick={() => { setIsModalOpen(false); }}>Cancelar</button>
-                            <button className="confirm" onClick={() => { handleDeleteTag(); }}>Deletar</button>
+                            <button className="cancel" onClick={() => { setIsModalOpen(false); }}>
+                                Cancelar
+                            </button>
+                            <button className="confirm" onClick={() => { handleDeleteTag(); }}>
+                                Deletar
+                            </button>
                         </div>
                     </div>
                 </ModalOverlay>

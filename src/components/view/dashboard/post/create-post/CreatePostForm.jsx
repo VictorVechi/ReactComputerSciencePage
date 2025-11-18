@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchTags } from "./handle-create-post/handleCreatePost";
 import Api from "../../../../../service/gateway/Api";
 import RichTextEditor from "../../../../common/rich-text-editor/RichTextEditor";
+import { toast } from "react-toastify";
 
 const CreatePostForm = () => {
   const [title, setTitle] = useState("");
@@ -13,12 +14,11 @@ const CreatePostForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-  fetchTags((data) => {
-    console.log("Tags carregadas:", data);
-    setTags(data);
+    fetchTags((data) => {
+      console.log("Tags carregadas:", data);
+      setTags(data);
     });
   }, []);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +26,10 @@ const CreatePostForm = () => {
     const sanitizedTitle = title.trim();
     const sanitizedContent = content.trim();
 
-    if (!sanitizedTitle || !sanitizedContent || selectedTags.length === 0) return;
+    if (!sanitizedTitle || !sanitizedContent || selectedTags.length === 0) {
+      toast.warn("Preencha todos os campos e selecione ao menos 1 tag.");
+      return;
+    }
 
     try {
       const apiInstance = Api.getInstance();
@@ -35,10 +38,15 @@ const CreatePostForm = () => {
         content: sanitizedContent,
         tags: selectedTags.map(tag => ({ name: tag.name })),
       };
+
       await apiInstance.postPublicacaoRegister(data);
+
+      toast.success("Post criado com sucesso!");
       navigate("/dashboard");
+
     } catch (error) {
       console.error("Erro ao criar post:", error);
+      toast.error("Erro ao criar o post. Tente novamente!");
     }
   };
 
@@ -54,6 +62,7 @@ const CreatePostForm = () => {
   return (
     <StyledCreatePostForm>
       <h1>Criar Novo Post</h1>
+
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Título</label>
         <input

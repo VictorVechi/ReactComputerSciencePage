@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyledEditTagsForm } from "./form.styles";
 import { useNavigate } from "react-router-dom";
 import Api from "../../../../../service/gateway/Api";
+import { toast } from "react-toastify";
 
 const TagsEditForm = () => {
   const [tags, setTags] = useState([]);
@@ -16,9 +17,8 @@ const TagsEditForm = () => {
       const response = await apiInstance.getTagAll();
       console.log("Resposta da API:", response);
 
-      // Verifica onde estão as tags no objeto de resposta
       if (response?.data) {
-        setTags(response.data); // ajuste se for response.data.tags
+        setTags(response.data);
       } else if (response?.tags) {
         setTags(response.tags);
       } else {
@@ -26,6 +26,7 @@ const TagsEditForm = () => {
       }
     } catch (error) {
       console.error("Erro ao buscar tags:", error);
+      toast.error("Erro ao buscar tags.");
     }
   };
 
@@ -33,26 +34,28 @@ const TagsEditForm = () => {
     handleGetTags();
   }, []);
 
-    const handleTagSelect = (e) => {
-        const selectedId = e.target.value;
+  const handleTagSelect = (e) => {
+    const selectedId = e.target.value;
 
-        const selectedTag = tags.find((tag) => String(tag._id) === selectedId);
+    const selectedTag = tags.find((tag) => String(tag._id) === selectedId);
 
-        if (selectedTag) {
-          console.log("Tag selecionada:", selectedTag);
-          setId(String(selectedTag._id));
-          setName(selectedTag.name);
-          setDescription(selectedTag.description);
-        } else {
-          console.warn("Tag não encontrada para ID:", selectedId);
-        }
-      };
+    if (selectedTag) {
+      console.log("Tag selecionada:", selectedTag);
+      setId(String(selectedTag._id));
+      setName(selectedTag.name);
+      setDescription(selectedTag.description);
+    } else {
+      console.warn("Tag não encontrada para ID:", selectedId);
+      toast.error("Tag não encontrada.");
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!id) {
       console.error("ID da tag está vazio ou inválido");
+      toast.error("Selecione uma tag antes de editar.");
       return;
     }
 
@@ -63,9 +66,11 @@ const TagsEditForm = () => {
       console.log("Enviando PUT com id:", id, "e dados:", data);
       await apiInstance.putTagUpdate(id, data);
 
+      toast.success("Tag editada com sucesso!");
       navigate("/dashboard");
     } catch (error) {
       console.error("Erro ao editar tag:", error);
+      toast.error("Erro ao editar tag.");
     }
   };
 
@@ -73,16 +78,15 @@ const TagsEditForm = () => {
     <StyledEditTagsForm>
       <h1>Editar Tag</h1>
       <form onSubmit={handleSubmit}>
-      <label htmlFor="tag">Selecione a tag</label>
-      <select id="tag" onChange={handleTagSelect} value={id}>
-        <option value="">Selecione uma tag</option>
-        {tags.map((tag) => (
-          <option key={tag._id} value={tag._id}>
-            {tag.name}
-          </option>
-        ))}
-      </select>
-
+        <label htmlFor="tag">Selecione a tag</label>
+        <select id="tag" onChange={handleTagSelect} value={id}>
+          <option value="">Selecione uma tag</option>
+          {tags.map((tag) => (
+            <option key={tag._id} value={tag._id}>
+              {tag.name}
+            </option>
+          ))}
+        </select>
 
         <label htmlFor="name">Nome da Tag</label>
         <input
